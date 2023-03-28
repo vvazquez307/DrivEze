@@ -1,5 +1,90 @@
 body {
-    margin: 0;
+  margin: 0;
+}
+
+
+#navbar,
+.footer {
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  max-height: 10%;
+  min-height: 40px;
+}
+body,
+#app,
+#main {
+  height: 100vh;
+  width: 100%;
+}
+.profile {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.profileDiv {
+  border: 1px solid black;
+  width: 30%;
+  height: 70%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+.cartDiv {
+  border: 1px solid black;
+  width: 70%;
+  height: 50%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+}
+.profilePic {
+  height: 30%;
+  background-image: url(/images/profilePic.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.profileDetails {
+  border: 1px solid black;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 5px;
+}
+.cartTitle {
+  border: 1px solid black;
+  width: 70%;
+}
+.cartCheckout {
+  border: 1px solid black;
+  width: 30%;
+}
+.cartContents {
+  border: 1px solid black;
+  width: 100%;
+  padding: 10px;
+  height: 300px;
+}
+.topCartDiv {
+  display: flex;
+  flex-direction: row;
+}
+.bottomCartDiv {
+  display: flex;
+}
+.profileID,
+.profileName,
+.profileLocation {
+  border: 1px solid black;
 }
 
 #navbar {
@@ -46,3 +131,4 @@ padding: 10px;
     color: white;
     padding: 10px;
 }
+
