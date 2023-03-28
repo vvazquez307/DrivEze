@@ -1,10 +1,11 @@
 import React from "react";
-import { Navbar, Home, About, Locations } from "./";
+import { Navbar, Home, Locations } from "./";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Profile, Footer } from "./index";
 import AllVehicles from "./AllVehicles";
 import Login from "./Login";
 import Register from "./Register";
+import About from "./About";
 
 
 //this is to start a branch
