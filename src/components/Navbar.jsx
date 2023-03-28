@@ -10,7 +10,7 @@ const Navbar = () => {
       <div id="nav-buttons">
       <button id="button">Register</button>
       <button id="button">Login</button>
-      <button id="button">Cart</button>
+      <Link to="/profile"><button id="button">Cart/Profile</button></Link>
       <button id="button">Log Out</button>
       </div>
     </div>

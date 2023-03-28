@@ -1,8 +1,11 @@
+import React from "react";
+import {Link} from "react-router-dom";
+
 const Home = () => {
   return (
     <main className="home-page">
       <div id="home-buttons">
-        <button id="button">Vehicles</button>
+        <Link to="/vehicleList"><button id="button">Vehicles</button></Link>
         <button id="button">Locations</button>
         <button id="button">About Us</button>
       </div>
