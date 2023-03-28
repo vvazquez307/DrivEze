@@ -46,12 +46,18 @@ body,
   padding: 10px;
 }
 .profilePic {
-  border: 1px solid black;
   height: 30%;
+  background-image: url(/images/profilePic.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .profileDetails {
   border: 1px solid black;
   height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 5px;
 }
 .cartTitle {
   border: 1px solid black;
@@ -73,4 +79,9 @@ body,
 }
 .bottomCartDiv {
   display: flex;
+}
+.profileID,
+.profileName,
+.profileLocation {
+  border: 1px solid black;
 }

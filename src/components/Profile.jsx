@@ -4,11 +4,11 @@ function Profile() {
   return (
     <div className="profile">
       <div className="profileDiv">
-        <div className="profilePic">
-          <p>Pic</p>
-        </div>
+        <div className="profilePic"></div>
         <div className="profileDetails">
-          <p>details</p>
+          <div className="profileID">ID</div>
+          <div className="profileName">Name</div>
+          <div className="profileLocation">Location</div>
         </div>
       </div>
       <div className="cartDiv">
