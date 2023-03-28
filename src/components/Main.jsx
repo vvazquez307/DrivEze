@@ -1,16 +1,15 @@
 import React from "react";
-import { Navbar, Home } from "./";
+import { Navbar, Home, About } from "./";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Profile, Footer } from "./index";
 import AllVehicles from "./AllVehicles";
-
 
 //this is to start a branch
 const Main = () => {
   return (
     <div id="main">
       <BrowserRouter>
-      <Navbar />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
@@ -18,11 +17,13 @@ const Main = () => {
         <Routes>
           <Route path="/vehicleList" element={<AllVehicles />} />
         </Routes>
+        <Routes>
+          <Route path="/about" element={<About />} />
+        </Routes>
       </BrowserRouter>
       <Footer />
     </div>
   );
 };
-
 
 export default Main;
