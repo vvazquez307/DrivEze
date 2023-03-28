@@ -9,8 +9,8 @@ import AllVehicles from "./AllVehicles";
 const Main = () => {
   return (
     <div id="main">
-      <Navbar />
       <BrowserRouter>
+      <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
