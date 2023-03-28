@@ -5,7 +5,6 @@ const Home = () => {
   return (
     <main className="home-page">
       <div id="home-buttons">
-        <Link to="/vehicleList"><button id="button">Vehicles</button></Link>
         <button id="button">Locations</button>
         <button id="button">About Us</button>
       </div>
@@ -17,7 +16,7 @@ const Home = () => {
           <h2>
             The rental car industry has been stagnant for over 60 years, lets
             change that.
-        <button id="available-button">View Available Cars</button>
+        <Link to="/vehicleList"><button id="available-button">View Available Cars</button></Link>
           </h2>
         </div>
       </div>
