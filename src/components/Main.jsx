@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Home, About } from "./";
+import { Navbar, Home, About, Locations } from "./";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Profile, Footer } from "./index";
 import AllVehicles from "./AllVehicles";
@@ -19,6 +19,9 @@ const Main = () => {
         </Routes>
         <Routes>
           <Route path="/about" element={<About />} />
+        </Routes>
+        <Routes>
+          <Route path="/locations" element={<Locations />} />
         </Routes>
       </BrowserRouter>
       <Footer />
