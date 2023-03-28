@@ -3,11 +3,46 @@ body {
 }
 
 #navbar {
-    background-color: black;
-    color: white;
+    background-color: rgba(161, 159, 159, 0.386);
+    color: black;
     display: flex;
     align-items: center;
     flex-grow: 1;
     max-height: 10%;
     min-height: 40px;
+}
+#nav-buttons{
+    margin-left: auto;
+    margin-right:10px;
+    
+}
+#nav-title{
+    font-size: larger;
+    margin-left: 10px;
+}
+#welcome-section{
+background-color: rgba(161, 159, 159, 0.386);
+padding: 10px;
+}
+#welcome-desc{
+    background-color: rgba(251, 60, 60, 0.626);
+    padding: 10px;
+}
+#home-buttons{
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    padding: 10px;
+}
+#button{
+    background-color: black;
+    color: white;
+    margin-left: 5px;
+}
+#available-button{
+    display: flex;
+    margin-top: 15px;
+    background-color: red;
+    color: white;
+    padding: 10px;
 }
