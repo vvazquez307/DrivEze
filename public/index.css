@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+}
+
+#navbar {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-height: 10%;
+    min-height: 40px;
+}
