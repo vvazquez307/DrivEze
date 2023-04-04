@@ -1,11 +1,13 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div id="navbar">
       <div id="nav-title">
-      <Link to="/">DrivEze</Link>
+        <Link to="/">
+          <img src="/images/logo.png" alt="logo" className="navLogo" />
+        </Link>
       </div>
       <div id="nav-buttons">
       <Link to="/register"><button id="button">Register</button></Link>
