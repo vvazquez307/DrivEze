@@ -1,7 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+
+    // Refresh the page to log out the user
+    window.location.reload();
+  };
+
   return (
     <div id="navbar">
       <div id="nav-title">
@@ -10,11 +18,29 @@ const Navbar = () => {
         </Link>
       </div>
       <div id="nav-buttons">
-      <Link to="/register"><button id="button">Register</button></Link>
-      <Link to="/login"><button id="button">Login</button></Link>
-      <Link to="/profile"><button id="button">Profile</button></Link>
-      <Link to="/cart"><button id="button">Cart</button></Link>
-      <button id="button">Log Out</button>
+        {!props.isLoggedIn && (
+          <React.Fragment>
+            <Link to="/register">
+              <button id="button">Register</button>
+            </Link>
+            <Link to="/login">
+              <button id="button">Login</button>
+            </Link>
+          </React.Fragment>
+        )}
+        {props.isLoggedIn && (
+          <React.Fragment>
+            <Link to="/profile">
+              <button id="button">Profile</button>
+            </Link>
+            <Link to="/cart">
+              <button id="button">Cart</button>
+            </Link>
+            <button id="button" onClick={handleLogout}>
+              Log Out
+            </button>
+          </React.Fragment>
+        )}
       </div>
     </div>
   );
