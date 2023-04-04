@@ -12,6 +12,12 @@ body {
   max-height: 10%;
   min-height: 40px;
 }
+.navLogo {
+  height: 15%;
+  width: 25%;
+
+  margin-left: 40px;
+}
 body,
 #app,
 #main {

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getAllVehicles } from "../api-adapter";
+import { getAllVehicles, addCarToCart } from "../api-adapter";
 
 function AllVehicles() {
   const [vehicles, setVehicles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searched, setSearched] = useState("");
+  const [cartMessage, setCartMessage] = useState("Add to cart");
 
   useEffect(() => {
     async function allVehicles() {
@@ -23,6 +24,17 @@ function AllVehicles() {
     setSearchTerm(e.target.value);
     setSearched(e.target.value);
   };
+
+  const addVehicleToCart = async (userId, carId, price) => {
+    try {
+      const response = await addCarToCart(userId, carId, price);
+      setCartMessage("Vehicle added to cart");
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className="allVehiclesPage">
@@ -47,12 +59,18 @@ function AllVehicles() {
               </div>
               <div className="vehicleDescription">{vehicle.description}</div>
               <div className="addToCart">
-                <img
-                  src="/images/Cart.png"
-                  alt="cartImage"
-                  className="allVehiclesCart"
-                />
-                <div>add to cart</div>
+                <button
+                  onClick={() =>
+                    addVehicleToCart(userId, vehicle.id, vehicle.price)
+                  }
+                >
+                  <img
+                    src="/images/Cart.png"
+                    alt="cartImage"
+                    className="allVehiclesCart"
+                  />
+                </button>
+                <div>{cartMessage}</div>
               </div>
             </div>
           ))}
