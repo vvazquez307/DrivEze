@@ -43,6 +43,17 @@ body,
   padding: 10px;
   background-color: white;
 }
+.profileCartDiv {
+  border: 1px solid black;
+  width: 30%;
+  height:max-content;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 10px;
+  background-color: white;
+}
 .cartDiv {
   border: 1px solid black;
   width: 70%;
@@ -230,3 +241,11 @@ body,
   height: 40%;
   margin: 5px;
 }
+#addToCartButton{
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  margin-left: 5px;
+}
+
