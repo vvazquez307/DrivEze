@@ -26,7 +26,7 @@ const Login = (props) => {
       localStorage.setItem("token", result.token);
       localStorage.setItem("user", JSON.stringify(user));
       console.log(cart, "cart log");
-      localStorage.setItem(`retrieved cart for ${user}`, JSON.stringify(cart));
+      localStorage.setItem(`cart login ${user}`, JSON.stringify(cart));
       navigate("/");
     } else {
       alert("Error: " + result);
