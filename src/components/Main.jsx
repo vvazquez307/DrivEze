@@ -10,7 +10,7 @@ import About from "./About";
 //this is to start a branch
 const Main = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  console.log(isLoggedIn, "logged in Main");
+  console.log(isLoggedIn, "logged isn Main");
   const handleLogin = (isLoggedIn) => {
     setIsLoggedIn(isLoggedIn);
   };
