@@ -17,7 +17,7 @@ const Navbar = () => {
           <button id="button">Login</button>
         </Link>
         <Link to="/profile">
-          <button id="button">Cart/Profile</button>
+          <button id="button">Profile</button>
         </Link>
         <button id="button">Log Out</button>
       </div>
