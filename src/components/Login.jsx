@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser, getCart } from "../api-adapter/login&register";
 
-const Login = () => {
+const Login = (props) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [guest, setGuest] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -19,6 +21,8 @@ const Login = () => {
     if (result.token) {
       alert(result.message);
       const cart = await getCart(result.userId);
+      setLoggedIn(true);
+      props.handleLogin(true);
       localStorage.setItem("token", result.token);
       localStorage.setItem("user", JSON.stringify(user));
       console.log(cart, "cart log");

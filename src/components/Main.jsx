@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, Home, Locations } from "./";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Profile, Footer } from "./index";
@@ -7,18 +7,23 @@ import Login from "./Login";
 import Register from "./Register";
 import About from "./About";
 
-
 //this is to start a branch
 const Main = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  console.log(isLoggedIn, "logged in Main");
+  const handleLogin = (isLoggedIn) => {
+    setIsLoggedIn(isLoggedIn);
+  };
+
   return (
     <div id="main">
       <BrowserRouter>
-        <Navbar />
+        <Navbar isLoggedIn={isLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/register" element={<Register/>}/>
+          <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
         <Routes>
           <Route path="/vehicleList" element={<AllVehicles />} />
