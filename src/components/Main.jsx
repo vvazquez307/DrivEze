@@ -12,9 +12,9 @@ import Guest from "./Guest";
 //this is to start a branch
 const Main = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [guestUser, setGuestUser] = useState(false);
+  const [isGuestUser, setIsGuestUser] = useState(false);
   console.log(isLoggedIn, "logged in Main");
-  console.log(guestUser, "guest user main");
+  console.log(isGuestUser, "guest user main");
   const handleLogin = (isLoggedIn) => {
     setIsLoggedIn(isLoggedIn);
   };
@@ -33,7 +33,7 @@ const Main = () => {
             path="/guest"
             element={
               <Guest
-                setGuestUser={setGuestUser}
+                setIsGuestUser={setIsGuestUser}
                 setIsLoggedIn={setIsLoggedIn}
               />
             }
@@ -47,7 +47,7 @@ const Main = () => {
           <Route
             path="/vehicleList"
             element={
-              <AllVehicles guestUser={guestUser} isLoggedIn={isLoggedIn} />
+              <AllVehicles isGuestUser={isGuestUser} isLoggedIn={isLoggedIn} />
             }
           />
         </Routes>

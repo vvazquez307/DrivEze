@@ -8,8 +8,9 @@ function AllVehicles(props) {
   const [searched, setSearched] = useState("");
   const [cartMessage, setCartMessage] = useState("Add to cart");
   const loggedIn = props.isLoggedIn;
+  const guestUser = props.guestUser;
 
-  if (!loggedIn) {
+  if (!loggedIn || !guestUser) {
     return (
       <div>
         <h2>
