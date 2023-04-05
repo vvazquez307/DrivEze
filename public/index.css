@@ -286,5 +286,34 @@ body,
 #back-button:hover{
   color:rgb(202, 202, 202);
 }
-
+#login-form{
+  background-color: grey;
+  border-radius: 30px;
+  text-align: center;
+  padding: 15px;
+  margin: auto;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: 150px;
+  box-shadow: 10px 10px 5px black;
+}
+#register-form{
+  background-color: grey;
+  border-radius: 30px;
+  text-align: center;
+  padding: 15px;
+  margin: auto;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: 150px;
+  box-shadow: 10px 10px 5px black; 
+}
+#link{
+  text-decoration: none;
+  color: white;
+}
+#link:hover{
+  /* color:rgb(202, 202, 202); */
+  text-shadow: 2px 2px 2px black;
+}
 
