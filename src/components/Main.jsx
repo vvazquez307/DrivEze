@@ -18,7 +18,6 @@ const Main = () => {
 
   console.log(isLoggedIn, "logged in Main");
 
-
   const handleLogin = (isLoggedIn) => {
     setIsLoggedIn(isLoggedIn);
   };
@@ -38,7 +37,6 @@ const Main = () => {
             path="/guest"
             element={
               <Guest
-
                 setIsGuestUser={setIsGuestUser}
                 setIsLoggedIn={setIsLoggedIn}
               />
@@ -52,7 +50,7 @@ const Main = () => {
           <Route
             path="/vehicleList"
             element={
-              <AllVehicles guestUser={guestUser} isLoggedIn={isLoggedIn} />
+              <AllVehicles isGuestUser={isGuestUser} isLoggedIn={isLoggedIn} />
             }
           />
         </Routes>
