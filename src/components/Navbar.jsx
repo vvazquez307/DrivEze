@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
   const handleLogout = () => {
-    localStorage.clear();
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+
     // Refresh the page to log out the user
     window.location.reload();
   };

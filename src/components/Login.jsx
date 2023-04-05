@@ -5,15 +5,14 @@ import { loginUser, getCart } from "../api-adapter/login&register";
 const Login = (props) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [guest, setGuest] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
+    if (!password || !username) {
+      alert("Username and password required");
       return;
     }
     const result = await loginUser(user, password);
@@ -53,18 +52,13 @@ const Login = (props) => {
           onChange={(event) => setPassword(event.target.value)}
         />
       </div>
+      <button type="submit" id="button">
+        Log in
+      </button>
       <div>
-        <label className="confirmPassword">Confirm Password:</label>
-        <input
-          type="password"
-          name="confirmPassword"
-          value={confirmPassword}
-          onChange={(event) => setConfirmPassword(event.target.value)}
-        />
-      </div>
-      <button type="submit" id="button">Log in</button>
-      <div>
-        <Link to="/register" id="link">New user? Click here!</Link>
+        <Link to="/register" id="link">
+          New user? Click here!
+        </Link>
       </div>
     </form>
   );

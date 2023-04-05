@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getAllVehicles, addCarToCart } from "../api-adapter";
 
-function AllVehicles(props) {
+function AllVehicles() {
   const [vehicles, setVehicles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searched, setSearched] = useState("");
   const [cartMessage, setCartMessage] = useState("Add to cart");
+
   const loggedIn = props.isLoggedIn;
   const guestUser = props.guestUser;
 

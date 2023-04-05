@@ -10,8 +10,12 @@ function Cart() {
             <label userName="">User Name:</label>
             <div className="profileName">John Doe</div>
             <label userLocation="">Shipping Address:</label>
-            <div className="profileLocation">1234 Generic Address, State USA 12345</div>
-            <Link to="/profile"><button id="button">Edit Address</button></Link>
+            <div className="profileLocation">
+              1234 Generic Address, State USA 12345
+            </div>
+            <Link to="/profile">
+              <button id="button">Edit Address</button>
+            </Link>
           </div>
         </div>
         <div className="cartDiv">
@@ -20,7 +24,9 @@ function Cart() {
               <p>Cart Title</p>
             </div>
             <div className="cartCheckout">
-            <Link><button id="addToCartButton">Checkout</button></Link>
+              <Link>
+                <button id="addToCartButton">Checkout</button>
+              </Link>
             </div>
           </div>
           <div className="bottomCartDiv">
