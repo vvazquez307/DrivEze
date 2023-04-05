@@ -319,6 +319,19 @@ body,
   color: white;
 }
 #link:hover {
-  /* color:rgb(202, 202, 202); */
   text-shadow: 2px 2px 2px black;
+}
+#about-container{
+  background-color: grey;
+  border-radius: 30px;
+  text-align: center;
+  padding: 15px;
+  margin: auto;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: 650px;
+  box-shadow: 10px 10px 5px black;
+}
+#car-rental-img{
+ height: 300px;
 }
