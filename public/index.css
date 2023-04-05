@@ -4,6 +4,10 @@ body {
 
 #navbar,
 .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
   background-color: black;
   color: white;
   display: flex;
@@ -46,7 +50,7 @@ body,
 .profileCartDiv {
   border: 1px solid black;
   width: 30%;
-  height:max-content;
+  height: max-content;
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -111,6 +115,8 @@ body,
 }
 
 #navbar {
+  top: 1;
+  position: sticky;
   background-color: rgba(161, 159, 159, 0.386);
   color: black;
   display: flex;
@@ -241,33 +247,33 @@ body,
   height: 40%;
   margin: 5px;
 }
-#addToCartButton{
+#addToCartButton {
   display: flex;
   justify-content: center;
   background-color: black;
   color: white;
   margin-left: 5px;
 }
-#hub-view{
+#hub-view {
   display: flex;
   justify-content: center;
 }
-#hub-title-text{
+#hub-title-text {
   display: flex;
   justify-content: center;
   /* text-decoration: underline; */
   color: white;
   text-shadow: 2px 2px 2px black;
 }
-#locations-list{
+#locations-list {
   margin: auto;
-  color:white;
+  color: white;
   text-shadow: 2px 2px 2px black;
 }
-#locations-list:hover{
-  color:rgb(202, 202, 202);
+#locations-list:hover {
+  color: rgb(202, 202, 202);
 }
-#hubs{
+#hubs {
   background-color: grey;
   border-radius: 30px;
   padding: 10px;
@@ -277,14 +283,42 @@ body,
   width: 50%;
   box-shadow: 10px 10px 5px black;
 }
-#back-button{
+#back-button {
   text-decoration: none;
   margin-left: 3px;
   color: white;
   text-shadow: 2px 2px 2px black;
 }
-#back-button:hover{
-  color:rgb(202, 202, 202);
+#back-button:hover {
+  color: rgb(202, 202, 202);
 }
-
-
+#login-form {
+  background-color: grey;
+  border-radius: 30px;
+  text-align: center;
+  padding: 15px;
+  margin: auto;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: 150px;
+  box-shadow: 10px 10px 5px black;
+}
+#register-form {
+  background-color: grey;
+  border-radius: 30px;
+  text-align: center;
+  padding: 15px;
+  margin: auto;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: 150px;
+  box-shadow: 10px 10px 5px black;
+}
+#link {
+  text-decoration: none;
+  color: white;
+}
+#link:hover {
+  /* color:rgb(202, 202, 202); */
+  text-shadow: 2px 2px 2px black;
+}

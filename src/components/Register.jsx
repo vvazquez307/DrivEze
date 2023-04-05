@@ -30,7 +30,7 @@ const Register = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id="register-form">
       <div>
         <label className="username">Username:</label>
         <input
@@ -67,9 +67,9 @@ const Register = () => {
           onChange={(event) => setEmail(event.target.value)}
         />
       </div>
-      <button type="submit">Create Account</button>
+      <button type="submit" id="button">Create Account</button>
       <div>
-        <Link to="/login">Already have an account? Login here!</Link>
+        <Link to="/login" id="link">Already have an account? Login here!</Link>
       </div>
     </form>
   );
