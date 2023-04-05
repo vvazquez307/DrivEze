@@ -46,9 +46,15 @@ export const assignCart = async (userId) => {
   }
 };
 
-export const getCart = async (userId) => {
+export const getCart = async (token) => {
   try {
-    const response = await fetch(`${BASE_URL}/api/cart/${userId}`);
+    const response = await fetch(`${BASE_URL}/cart/`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
     console.log(response, "LOGIN RESPONSE");
     return response;
   } catch (error) {

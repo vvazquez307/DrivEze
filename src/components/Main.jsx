@@ -11,7 +11,7 @@ import Cart from "./Cart";
 //this is to start a branch
 const Main = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  console.log(isLoggedIn, "logged isn Main");
+  console.log(isLoggedIn, "logged in Main");
   const handleLogin = (isLoggedIn) => {
     setIsLoggedIn(isLoggedIn);
   };
@@ -28,9 +28,8 @@ const Main = () => {
           <Route path="/register" element={<Register />} />
 
           <Route path="/cart" element={<Cart />} />
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/register" element={<Register/>}/>
-
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
         <Routes>
           <Route path="/vehicleList" element={<AllVehicles />} />

@@ -20,10 +20,10 @@ const Register = () => {
     if (result.token) {
       alert("Account created successfully!");
       const userId = result.user.id;
-      const cart = await assignCart(userId);
+      // const cart = await assignCart(userId);
 
-      console.log(cart, "cart log");
-      localStorage.setItem(`cart for ${username}`, JSON.stringify(cart));
+      // console.log(cart, "cart log");
+      // localStorage.setItem(`cart for ${username}`, JSON.stringify(cart));
       navigate("/login");
     } else {
       alert("Error: " + result);
