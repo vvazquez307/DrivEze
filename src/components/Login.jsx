@@ -52,9 +52,13 @@ const Login = (props) => {
           onChange={(event) => setPassword(event.target.value)}
         />
       </div>
-      <button type="submit" id="button">Log in</button>
+      <button type="submit" id="button">
+        Log in
+      </button>
       <div>
-        <Link to="/register" id="link">New user? Click here!</Link>
+        <Link to="/register" id="link">
+          New user? Click here!
+        </Link>
       </div>
     </form>
   );
