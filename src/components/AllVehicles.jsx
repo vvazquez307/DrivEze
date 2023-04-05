@@ -11,7 +11,7 @@ function AllVehicles(props) {
   const loggedIn = props.isLoggedIn;
   const guestUser = props.guestUser;
 
-  if (!loggedIn || !guestUser) {
+  if (!loggedIn) {
     return (
       <div>
         <h2>

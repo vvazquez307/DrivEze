@@ -5,6 +5,7 @@ import { guestUser, getCart } from "../api-adapter/login&register";
 function Guest(props) {
   const [guestName, setGuestName] = useState("");
   const navigate = useNavigate();
+  const isGuestUser = props.isGuestUser;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,6 +20,7 @@ function Guest(props) {
       const cart = await getCart(result.guestId);
       setGuestName(guestName);
       props.setIsGuestUser(true);
+      props.setIsLoggedIn(true);
       localStorage.setItem("token", result.token);
       localStorage.setItem("guest", JSON.stringify(cart));
       console.log(cart, "cart log");
