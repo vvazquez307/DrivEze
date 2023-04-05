@@ -3,21 +3,19 @@ import React from "react";
 const About = () => {
   return (
     <div id="about-container">
-      <h1>About Page</h1>
+      <h1 id="about-title">Learn a little about us here at DrivEze</h1>
       <img
         src="https://chippewaautoandrentals.com/wp-content/uploads/2015/06/car_rental1.jpg"
         alt="Italian Trulli"
+        id="car-rental-img"
       ></img>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mi sem,
-        consectetur vel mattis nec, imperdiet et dolor. Phasellus non sapien sed
-        massa fermentum cursus. Nunc dictum et ante id aliquam. Maecenas et
-        magna quis tellus placerat pulvinar. Morbi sit amet neque augue. Orci
-        varius natoque penatibus et magnis dis parturient montes, nascetur
-        ridiculus mus. Nam elementum quam a risus luctus placerat. Donec
-        iaculis, nisl eu efficitur ultricies, ligula ante maximus ipsum, ut
-        porta tortor risus nec turpis. Quisque ut vestibulum orci. Nunc varius
-        neque at nibh finibus, porta dapibus nunc faucibus.
+      <p id="about-paragraph">
+      We are a car rental service that is revolutionizing the industry with an innovative model
+      that delivers rental cars right to you within 2-3 business days. For over 60 years, the car
+      rental industry has remained largely unchanged, but with our service, you can get a rental
+      car quickly and conveniently. Our delivery service is available in select cities with plans
+      to expand nationwide, so no matter where you are, you can get a car with ease. We also have
+      a wide range of vehicles to choose from, so you can find the perfect car for your needs.
       </p>
     </div>
   );
