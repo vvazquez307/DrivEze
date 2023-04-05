@@ -25,6 +25,25 @@ function AllVehicles(props) {
     );
   }
 
+  const loggedIn = props.isLoggedIn;
+  const guestUser = props.guestUser;
+
+  if (!loggedIn || !guestUser) {
+    return (
+      <div>
+        <h2>
+          Please
+          <Link to="/login"> login</Link>
+          <br />
+          or
+          <br />
+          <Link to="/guest"> continue as guest </Link>
+          to view available inventory
+        </h2>
+      </div>
+    );
+  }
+
   useEffect(() => {
     async function allVehicles() {
       let vehicles = await getAllVehicles();

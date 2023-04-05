@@ -18,8 +18,7 @@ function Guest(props) {
       alert(result.message);
       const cart = await getCart(result.guestId);
       setGuestName(guestName);
-      props.setGuestUser(true);
-      props.setIsLoggedIn(true);
+      props.setIsGuestUser(true);
       localStorage.setItem("token", result.token);
       localStorage.setItem("guest", JSON.stringify(cart));
       console.log(cart, "cart log");
