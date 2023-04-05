@@ -62,3 +62,22 @@ export const getCart = async (token) => {
     throw error;
   }
 };
+
+export const guestUser = async (name) => {
+  try {
+    const response = await fetch(`${BASE_URL}/guests/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name }),
+    });
+    console.log(response, "GUEST RESPONSE LOG");
+    const result = await response.json();
+    console.log(result, "RESULT LOG");
+    return result;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
