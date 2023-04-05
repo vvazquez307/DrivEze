@@ -7,11 +7,14 @@ import Login from "./Login";
 import Register from "./Register";
 import About from "./About";
 import Cart from "./Cart";
+import Guest from "./Guest";
 
 //this is to start a branch
 const Main = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [guestUser, setGuestUser] = useState(false);
   console.log(isLoggedIn, "logged in Main");
+  console.log(guestUser, "guest user main");
   const handleLogin = (isLoggedIn) => {
     setIsLoggedIn(isLoggedIn);
   };
@@ -26,13 +29,26 @@ const Main = () => {
 
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
           <Route path="/register" element={<Register />} />
-
+          <Route
+            path="/guest"
+            element={
+              <Guest
+                setGuestUser={setGuestUser}
+                setIsLoggedIn={setIsLoggedIn}
+              />
+            }
+          />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
         <Routes>
-          <Route path="/vehicleList" element={<AllVehicles />} />
+          <Route
+            path="/vehicleList"
+            element={
+              <AllVehicles guestUser={guestUser} isLoggedIn={isLoggedIn} />
+            }
+          />
         </Routes>
         <Routes>
           <Route path="/about" element={<About />} />
