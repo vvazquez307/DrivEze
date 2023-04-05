@@ -7,23 +7,6 @@ function AllVehicles(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searched, setSearched] = useState("");
   const [cartMessage, setCartMessage] = useState("Add to cart");
-  const loggedIn = props.isLoggedIn;
-
-  if (!loggedIn) {
-    return (
-      <div>
-        <h2>
-          Please
-          <Link to="/login"> login</Link>
-          <br />
-          or
-          <br />
-          <Link to="/guest"> continue as guest </Link>
-          to view available inventory
-        </h2>
-      </div>
-    );
-  }
 
   const loggedIn = props.isLoggedIn;
   const guestUser = props.guestUser;
