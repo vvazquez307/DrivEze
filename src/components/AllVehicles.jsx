@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getAllVehicles, addCarToCart } from "../api-adapter";
+import { getAllVehicles, addCarToCart, getCartByUserId } from "../api-adapter";
 
 function AllVehicles(props) {
   const [vehicles, setVehicles] = useState([]);
@@ -44,9 +44,9 @@ function AllVehicles(props) {
     setSearched(e.target.value);
   };
 
-  const addVehicleToCart = async (userId, carId, price) => {
+  const addVehicleToCart = async (carId, userId, price) => {
     try {
-      const response = await addCarToCart(userId, carId, price);
+      const response = await addCarToCart(carId, userId, price);
       setCartMessage("Vehicle added to cart");
       console.log(response);
     } catch (error) {
@@ -79,9 +79,15 @@ function AllVehicles(props) {
               <div className="vehicleDescription">{vehicle.description}</div>
               <div className="addToCart">
                 <button
-                  onClick={() =>
-                    addVehicleToCart(userId, vehicle.id, vehicle.price)
-                  }
+                  onClick={() => {
+                    // addVehicleToCart(vehicle.id, userId, vehicle.daily_rate)
+                    console.log(vehicle.id, " ///////vehicle.id//////");
+                    console.log(
+                      vehicle.daily_rate,
+                      " ///////vehicle.daily_rate/////"
+                    );
+                    console.log(userId, " /////////////////userId////////////");
+                  }}
                 >
                   <img
                     src="/images/Cart.png"

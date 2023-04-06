@@ -55,7 +55,10 @@ export const getCart = async (token) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response, "LOGIN RESPONSE");
+    console.log(response, "getCart response");
+    // const result = await response.json();
+    // console.log(result, " getCart result");
+    // return result;
     return response;
   } catch (error) {
     console.error(error);
