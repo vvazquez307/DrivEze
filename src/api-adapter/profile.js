@@ -19,6 +19,27 @@ export const getUser = async (token) => {
   }
 };
 
+// export const updateUser = async (fields, token) => {
+//   console.log(fields, "Log");
+//   try {
+//     if (token) {
+//       const response = await fetch(`${BASE_URL}users/`, {
+//         method: "PATCH",
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: `Bearer ${token}`,
+//         },
+//         body: JSON.stringify(fields),
+//       });
+//       const data = await response.json();
+//       console.log(data);
+//       return data;
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     throw new Error("Failed to update user");
+//   }
+// };
 export const updateUser = async (userId, fields, token) => {
   try {
     if (token) {
@@ -28,7 +49,7 @@ export const updateUser = async (userId, fields, token) => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ fields }),
+        body: JSON.stringify(fields),
       });
       const data = await response.json();
       console.log(data);
