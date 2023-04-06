@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
   const handleLogout = () => {
+    props.setIsLoggedIn = false;
     localStorage.clear();
 
     // Refresh the page to log out the user
-    window.location.reload();
+    //window.location.reload();
   };
 
   return (

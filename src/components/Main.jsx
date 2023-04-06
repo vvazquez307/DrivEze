@@ -18,14 +18,20 @@ const Main = () => {
 
   console.log(isLoggedIn, "logged in Main");
 
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("loggedIn");
+    setIsLoggedIn(loggedIn === "true");
+  }, []);
+
   const handleLogin = (isLoggedIn) => {
     setIsLoggedIn(isLoggedIn);
+    localStorage.setItem("loggedIn", "true");
   };
 
   return (
     <div id="main">
       <BrowserRouter>
-        <Navbar isLoggedIn={isLoggedIn} />
+        <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
