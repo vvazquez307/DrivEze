@@ -31,40 +31,48 @@ const Register = () => {
   };
   return (
     <form onSubmit={handleSubmit} id="register-form">
-      <div>
-        <label className="username">Username:</label>
+      <div id="text-field">
+        <label className="username"><h3 id="sign-up-title">Create an account</h3></label>
         <input
           type="text"
           name="username"
           value={username}
           onChange={(event) => setUsername(event.target.value)}
+          placeholder="Username"
+          id="text-box"
         />
       </div>
-      <div>
-        <label className="password">Password:</label>
+      <div id="text-field">
+        <label className="password"></label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
+          placeholder="Password"
+          id="text-box"
         />
       </div>
-      <div>
-        <label className="confirmPassword">Confirm Password:</label>
+      <div id="text-field">
+        <label className="confirmPassword"></label>
         <input
           type="password"
           name="confirmPassword"
           value={confirmPassword}
           onChange={(event) => setConfirmPassword(event.target.value)}
+          placeholder="Confirm Password"
+          id="text-box"
         />
       </div>
-      <div>
-        <label className="email">Email:</label>
+      <div id="text-field">
+        <label className="email"></label>
         <input
           type="email"
           name="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
+          placeholder="Email"
+          id="text-box"
         />
       </div>
       <button type="submit" id="button">Create Account</button>
