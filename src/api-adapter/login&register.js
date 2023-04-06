@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = "https://driveze-api.onrender.com/api";
 
 export const registerUser = async (username, password, email) => {
   try {
@@ -55,11 +55,10 @@ export const getCart = async (token) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response, "getCart response");
-    // const result = await response.json();
+    // console.log(response, "getCart response");
+    const result = await response.json();
     // console.log(result, " getCart result");
-    // return result;
-    return response;
+    return result;
   } catch (error) {
     console.error(error);
     throw error;
