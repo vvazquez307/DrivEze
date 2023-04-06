@@ -1,4 +1,5 @@
-export const BASE_URL = "http://localhost:3000/api";
+//export const BASE_URL = "https://driveze-api.onrender.com/api/";
+export const BASE_URL = "http://localhost:3000/api/";
 
 //Cart Endpoints
 export const createCart = async (userId) => {
@@ -23,20 +24,19 @@ export const createCart = async (userId) => {
 };
 
 export const getCartByUserId = async (userId) => {
-    try {
-      const response = await fetch(`${BASE_URL}/cart/${userId}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const result = await response.json();
-  
-      return result;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  
+  try {
+    const response = await fetch(`${BASE_URL}/cart/${userId}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const result = await response.json();
+
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 export const addCarToCart = async (userId, carId, price) => {
   try {

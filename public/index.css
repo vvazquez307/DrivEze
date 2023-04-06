@@ -110,7 +110,9 @@ body,
 }
 .profileID,
 .profileName,
-.profileLocation {
+.profileLocation,
+.profileEmail,
+.profileActive {
   border: 1px solid black;
 }
 
@@ -321,7 +323,7 @@ body,
 #link:hover {
   text-shadow: 2px 2px 2px black;
 }
-#about-container{
+#about-container {
   background-color: grey;
   border-radius: 30px;
   text-align: center;
@@ -332,6 +334,6 @@ body,
   width: 650px;
   box-shadow: 10px 10px 5px black;
 }
-#car-rental-img{
- height: 300px;
+#car-rental-img {
+  height: 300px;
 }

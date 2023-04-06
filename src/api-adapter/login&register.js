@@ -1,8 +1,8 @@
-const BASE_URL = "http://localhost:3000/api";
+import { BASE_URL } from "./index";
 
 export const registerUser = async (username, password, email) => {
   try {
-    const response = await fetch(`${BASE_URL}/users/register`, {
+    const response = await fetch(`${BASE_URL}users/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +18,7 @@ export const registerUser = async (username, password, email) => {
 
 export const loginUser = async (username, password) => {
   try {
-    const response = await fetch(`${BASE_URL}/users/login`, {
+    const response = await fetch(`${BASE_URL}users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export const loginUser = async (username, password) => {
 
 export const getCart = async (token) => {
   try {
-    const response = await fetch(`${BASE_URL}/cart/`, {
+    const response = await fetch(`${BASE_URL}cart/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -42,9 +42,8 @@ export const getCart = async (token) => {
 
     console.log(response, "LOGIN RESPONSE");
     const result = await response.json();
-    console.log()
+    console.log();
     return result;
-
   } catch (error) {
     console.error(error);
     throw error;
@@ -52,7 +51,7 @@ export const getCart = async (token) => {
 };
 export const guestUser = async (name) => {
   try {
-    const response = await fetch(`${BASE_URL}/guests/`, {
+    const response = await fetch(`${BASE_URL}guests/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
