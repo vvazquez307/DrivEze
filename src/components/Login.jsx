@@ -11,7 +11,7 @@ const Login = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!password || !username) {
+    if (!password || !user) {
       alert("Username and password required");
       return;
     }
