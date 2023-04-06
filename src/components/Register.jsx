@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { registerUser, assignCart } from "../api-adapter/login&register";
+import { registerUser } from "../api-adapter/login&register";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -19,11 +19,6 @@ const Register = () => {
     console.log(result, "RESULT LOG");
     if (result.token) {
       alert("Account created successfully!");
-      const userId = result.user.id;
-      // const cart = await assignCart(userId);
-
-      // console.log(cart, "cart log");
-      // localStorage.setItem(`cart for ${username}`, JSON.stringify(cart));
       navigate("/login");
     } else {
       alert("Error: " + result);
@@ -67,9 +62,13 @@ const Register = () => {
           onChange={(event) => setEmail(event.target.value)}
         />
       </div>
-      <button type="submit" id="button">Create Account</button>
+      <button type="submit" id="button">
+        Create Account
+      </button>
       <div>
-        <Link to="/login" id="link">Already have an account? Login here!</Link>
+        <Link to="/login" id="link">
+          Already have an account? Login here!
+        </Link>
       </div>
     </form>
   );
