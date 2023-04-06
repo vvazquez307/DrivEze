@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3000/api";
+export const BASE_URL = "https://driveze-api.onrender.com/api";
 
 export const getAllHubs = async () => {
     try {

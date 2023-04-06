@@ -1,9 +1,9 @@
-export const BASE_URL = "http://localhost:3000/api";
+export const BASE_URL = "https://driveze-api.onrender.com/api";
 
 //Cart Endpoints
 export const createCart = async (userId) => {
   try {
-    const response = await fetch(`${BASE_URL}cart`, {
+    const response = await fetch(`${BASE_URL}/cart`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -61,7 +61,7 @@ const Main = () => {
           <Route path="/locations" element={<Locations />} />
         </Routes>
       </BrowserRouter>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

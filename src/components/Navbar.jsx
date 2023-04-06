@@ -13,7 +13,7 @@ const Navbar = (props) => {
     <div id="navbar">
       <div id="nav-title">
         <Link to="/">
-          <img src="/images/logo.png" alt="logo" className="navLogo" />
+          <img src="/images/drivEze.png" alt="logo" className="navLogo" />
         </Link>
       </div>
       <div id="nav-buttons">

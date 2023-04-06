@@ -31,7 +31,7 @@ function Guest(props) {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id="guest-form">
       <div>
         <label className="username">Enter guest name:</label>
         <input
@@ -41,9 +41,9 @@ function Guest(props) {
           onChange={(event) => setGuestName(event.target.value)}
         />
       </div>
-      <button type="submit">Log in</button>
+      <button type="submit" id="button">Log in</button>
       <div>
-        <Link to="/register">New user? Register Here.</Link>
+        <Link to="/register" id="link">New user? Register Here.</Link>
       </div>
     </form>
   );
