@@ -30,22 +30,6 @@ export const loginUser = async (username, password) => {
   } catch (error) {}
 };
 
-// export const assignCart = async (userId) => {
-//   try {
-//     const response = await fetch(`${BASE_URL}/cart/new`, {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ userId }),
-//     });
-//     const result = await response.json();
-//     return result;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
 export const getCart = async (token) => {
   try {
     const response = await fetch(`${BASE_URL}/cart/`, {
@@ -55,9 +39,9 @@ export const getCart = async (token) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    // console.log(response, "getCart response");
+    console.log(response, "LOGIN RESPONSE");
     const result = await response.json();
-    // console.log(result, " getCart result");
+    console.log()
     return result;
   } catch (error) {
     console.error(error);
@@ -76,7 +60,7 @@ export const guestUser = async (name) => {
     console.log(response, "GUEST RESPONSE LOG");
     const result = await response.json();
     console.log(result, "RESULT LOG");
-    return result;
+    return { ...result, guestId: result.id };
   } catch (error) {
     console.error(error);
     throw error;
