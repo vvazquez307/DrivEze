@@ -229,7 +229,7 @@ body,
 }
 .vehicleListing {
   border: 1px solid black;
-  height: 90%;
+  height: 500px;
   margin: 10px;
   display: flex;
   flex-direction: row;
@@ -237,10 +237,19 @@ body,
   align-items: center;
   background-color: lightgrey;
 }
+.vehicleImgBox {
+  height: 80%;
+  width: 40%;
+  margin: 4px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 .vehicleImg {
-  border: 1px solid black;
-  width: 20%;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

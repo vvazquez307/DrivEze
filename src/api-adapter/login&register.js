@@ -31,6 +31,7 @@ export const loginUser = async (username, password) => {
 };
 
 export const getCart = async (token) => {
+  console.log(token);
   try {
     const response = await fetch(`${BASE_URL}cart/`, {
       method: "GET",

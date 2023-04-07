@@ -11,6 +11,7 @@ function AllVehicles(props) {
   const token = localStorage.getItem("token");
   const loggedIn = props.isLoggedIn;
   const guestUser = props.guestUser;
+  console.log(vehicles);
 
   if (!loggedIn) {
     return (
@@ -85,8 +86,12 @@ function AllVehicles(props) {
         <div className="allVehiclesBottomDiv">
           {searchedVehicle.map((vehicle) => (
             <div className="vehicleListing" key={vehicle.id}>
-              <div className="vehicleImg">
-                img
+              <div className="vehicleImgBox">
+                <img
+                  className="vehicleImg"
+                  src={vehicle.image}
+                  alt={vehicle.name}
+                />
                 <div className="vehicleName">{vehicle.name}</div>
               </div>
               <div className="vehicleDescription">{vehicle.description}</div>
