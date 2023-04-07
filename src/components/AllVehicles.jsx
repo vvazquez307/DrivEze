@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getAllVehicles, addCarToCart, getCartByUserId } from "../api-adapter";
 
@@ -7,11 +7,9 @@ function AllVehicles(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searched, setSearched] = useState("");
   const [cartMessage, setCartMessage] = useState("Add to cart");
-  const [cart, setCart] = useState({});
-  const token = localStorage.getItem("token");
+
   const loggedIn = props.isLoggedIn;
   const guestUser = props.guestUser;
-  console.log(vehicles);
 
   if (!loggedIn) {
     return (
@@ -46,26 +44,15 @@ function AllVehicles(props) {
     setSearched(e.target.value);
   };
 
-  const addVehicleToCart = async (token, carId, price) => {
+  const addVehicleToCart = async (carId, userId, price) => {
     try {
-      const result = await addCarToCart(token, carId, price);
+      const response = await addCarToCart(carId, userId, price);
       setCartMessage("Vehicle added to cart");
-      console.log(result);
-      setCart(result);
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
   };
-
-  function checkoutButton() {
-    return (
-      <div>
-        <Link to="/cart" state={{ cart: cart }}>
-          <button id="button">Checkout</button>
-        </Link>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -82,23 +69,24 @@ function AllVehicles(props) {
           </div>
           <div className="filters">filters </div>
         </div>
-        {cart.id ? checkoutButton() : null}
         <div className="allVehiclesBottomDiv">
           {searchedVehicle.map((vehicle) => (
             <div className="vehicleListing" key={vehicle.id}>
-              <div className="vehicleImgBox">
-                <img
-                  className="vehicleImg"
-                  src={vehicle.image}
-                  alt={vehicle.name}
-                />
+              <div className="vehicleImg">
+                img
                 <div className="vehicleName">{vehicle.name}</div>
               </div>
               <div className="vehicleDescription">{vehicle.description}</div>
               <div className="addToCart">
                 <button
                   onClick={() => {
-                    addVehicleToCart(token, vehicle.id, vehicle.daily_rate);
+                    // addVehicleToCart(vehicle.id, userId, vehicle.daily_rate)
+                    console.log(vehicle.id, " ///////vehicle.id//////");
+                    console.log(
+                      vehicle.daily_rate,
+                      " ///////vehicle.daily_rate/////"
+                    );
+                    console.log(userId, " /////////////////userId////////////");
                   }}
                 >
                   <img
