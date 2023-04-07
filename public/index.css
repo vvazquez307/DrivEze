@@ -1,24 +1,8 @@
 body {
   margin: 0;
-  font-family: Sonsie One;
 }
-#main{
-  height: 100vh;
-  width:100%;
-}
-#navbar {
-  /* top: 1; */
-  position:sticky;
-  background-color: #CDCDCD;
-  display: flex;
-  align-items: center;
-  height:100px;
-  width:100%;
-}
-#nav-buttons {
-  margin-left: auto;
-  margin-right: 10px;
-}
+
+#navbar,
 .footer {
   position: fixed;
   bottom: 0;
@@ -33,37 +17,47 @@ body {
   min-height: 40px;
 }
 .navLogo {
-  position: sticky;
-  width: 200px;
-  margin: 15px;
+  height: 15%;
+  width: 25%;
+
+  margin-left: 40px;
 }
-.navLogo:hover{
-  -webkit-filter: brightness(70%);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
+body,
 #app,
+#main {
+  height: 100vh;
+  width: 100%;
+}
 .profile {
   height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #5D737E;
+  background-color: lightslategray;
 }
 .profileDiv {
-  border-radius: 25px;
-  width: 30%;
+  border: 1px solid black;
+  width: 70%;
   height: 70%;
   margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   padding: 10px;
-  background-color: #CDCDCD;
+  background-color: white;
+}
+.profilePageCartDiv {
+  width: 50%;
+  height: 10%;
+  background-image: url("/images/Cart.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 .profileCartDiv {
   border: 1px solid black;
@@ -87,20 +81,30 @@ body {
   padding: 10px;
   background-color: white;
 }
-.profilePic {
+.profilePicDiv {
   height: 30%;
-  background-image: url(/images/profilePic.png);
-  background-size: contain;
-  background-repeat: no-repeat;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.profilePic {
+  height: 150px;
+  width: 150px;
 }
 .profileDetails {
-  border-radius: 25px;
+  border: 1px solid black;
   height: 50%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
   padding: 5px;
-  background-color: white;
+  background-color: lightgrey;
+  flex-wrap: wrap;
 }
 .cartTitle {
   border: 1px solid black;
@@ -128,75 +132,62 @@ body {
 }
 .profileID,
 .profileName,
-.profileLocation {
-  border: 1px solid black;
+.profileLocation,
+.profileEmail,
+.profileActive {
+  width: 95%;
+  height: 12%;
+  margin: 8px;
 }
-
+.form-group {
+  margin: 20px;
+}
+#navbar {
+  top: 1;
+  position: sticky;
+  background-color: rgba(161, 159, 159, 0.386);
+  color: black;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  max-height: 10%;
+  min-height: 40px;
+}
+#nav-buttons {
+  margin-left: auto;
+  margin-right: 10px;
+}
+#nav-title {
+  font-size: larger;
+  margin-left: 10px;
+}
 #welcome-section {
-  margin: 10px;
-  background-color: rgba(215, 207, 207, 0.466);
-  border-radius: 25px;
-  box-shadow: 10px 10px 5px black;
+  background-color: rgba(161, 159, 159, 0.386);
   padding: 10px;
 }
 #welcome-desc {
   background-color: rgba(251, 60, 60, 0.626);
-  border-radius: 25px;
   padding: 10px;
 }
 #home-buttons {
   display: flex;
   justify-content: center;
-  background-color: #D62839;
-  max-width: 3000px;
+  background-color: red;
   padding: 10px;
 }
 #button {
   background-color: black;
-  border-radius: 25px;
   color: white;
-  border: none;
-  padding:5px;
-  margin-top: 10px;
-  margin-bottom: 10px;
   margin-left: 5px;
-  margin-right: 5px;
-}
-#button:hover{
-  -webkit-filter: brightness(70%);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 #available-button {
-  text-decoration: none;
-  border-radius: 25px;
-  border:none;
   display: flex;
   margin-top: 15px;
-  background-color: #D62839;
+  background-color: red;
   color: white;
-  box-shadow: 5px 5px 5px black;
   padding: 10px;
 }
-#available-button:hover{
-  -webkit-filter: brightness(70%);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  transition: all 0.5s ease;
-}
-#available-button:hover{
-  -webkit-filter: brightness(70%);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
+
 .allVehiclesPage {
   height: 100%;
   display: flex;
@@ -213,7 +204,6 @@ body {
   justify-content: space-evenly;
   align-items: center;
   background-color: white;
-  border-radius: 25px;
 }
 .allVehiclesBottomDiv {
   border: 1px solid black;
@@ -239,7 +229,7 @@ body {
 }
 .vehicleListing {
   border: 1px solid black;
-  height: 90%;
+  height: 500px;
   margin: 10px;
   display: flex;
   flex-direction: row;
@@ -247,10 +237,19 @@ body {
   align-items: center;
   background-color: lightgrey;
 }
+.vehicleImgBox {
+  height: 80%;
+  width: 40%;
+  margin: 4px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 .vehicleImg {
-  border: 1px solid black;
-  width: 20%;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -304,7 +303,7 @@ body {
   text-shadow: 2px 2px 2px black;
 }
 #locations-list {
-  margin: 20px;
+  margin: auto;
   color: white;
   text-shadow: 2px 2px 2px black;
 }
@@ -318,7 +317,7 @@ body {
   margin: auto;
   margin-bottom: 15px;
   margin-top: 15px;
-  width: 400px;
+  width: 50%;
   box-shadow: 10px 10px 5px black;
 }
 #back-button {
@@ -338,7 +337,7 @@ body {
   margin: auto;
   margin-bottom: 15px;
   margin-top: 15px;
-  width: 300px;
+  width: 150px;
   box-shadow: 10px 10px 5px black;
 }
 #register-form {
@@ -349,18 +348,7 @@ body {
   margin: auto;
   margin-bottom: 15px;
   margin-top: 15px;
-  width: 400px;
-  box-shadow: 10px 10px 5px black;
-}
-#guest-form{
-  background-color: grey;
-  border-radius: 30px;
-  text-align: center;
-  padding: 15px;
-  margin: auto;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  width: 340px;
+  width: 150px;
   box-shadow: 10px 10px 5px black;
 }
 #link {
@@ -370,61 +358,17 @@ body {
 #link:hover {
   text-shadow: 2px 2px 2px black;
 }
-#about-container{
-  background-color: gray;
-  color: white;
-  text-shadow: 3px 3px 3px black;
+#about-container {
+  background-color: grey;
   border-radius: 30px;
   text-align: center;
   padding: 15px;
   margin: auto;
   margin-bottom: 15px;
   margin-top: 15px;
-  width: 900px;
+  width: 650px;
   box-shadow: 10px 10px 5px black;
 }
-#car-rental-img{
- height: 300px;
+#car-rental-img {
+  height: 300px;
 }
-#text-field{
-  margin-top: 20px;
-  margin-bottom:20px;
-}
-#text-box{
-  border:none;
-  border-radius: 25px;
-  height: 25px;
-  width:80%;
-}
-#sign-up-title{
-  margin-bottom:25px;
-  color:white;
-}
-#nav-quote{
-  margin: auto;
-  color: #D62839;
-}
-#log-link{
-  text-decoration: none;
-  color:#D62839
-}
-#guest-link{
-  text-decoration: none;
-  color: #D62839;
-}
-#log-link:hover{
-  color: #8d1c27;
-}
-#guest-link:hover{
-  color: #8d1c27;
-}
-.searchBar{
-  border-radius: 25px;
-  height: 30px;
-}
-/* #main{
-  background-image: url("images/types-classic-cars.webp");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-} */

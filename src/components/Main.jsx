@@ -8,24 +8,32 @@ import Register from "./Register";
 import About from "./About";
 import Cart from "./Cart";
 import Guest from "./Guest";
+import { getAllHubs } from "../api-adapter/hub";
 
 //this is to start a branch
 const Main = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isGuestUser, setIsGuestUser] = useState(false);
-  console.log(isLoggedIn, "logged in Main");
-  console.log(isGuestUser, "guest user main");
+  const [locations, setLocations] = useState([]);
 
   console.log(isLoggedIn, "logged in Main");
+  console.log(isGuestUser, "guest user main");
+  console.log(locations, "locations in Main");
+
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("loggedIn");
+    setIsLoggedIn(loggedIn === "true");
+  }, []);
 
   const handleLogin = (isLoggedIn) => {
     setIsLoggedIn(isLoggedIn);
+    localStorage.setItem("loggedIn", "true");
   };
 
   return (
     <div id="main">
       <BrowserRouter>
-        <Navbar isLoggedIn={isLoggedIn} />
+        <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
@@ -58,10 +66,13 @@ const Main = () => {
           <Route path="/about" element={<About />} />
         </Routes>
         <Routes>
-          <Route path="/locations" element={<Locations />} />
+          <Route
+            path="/locations"
+            element={<Locations setLocations={setLocations} />}
+          />
         </Routes>
       </BrowserRouter>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

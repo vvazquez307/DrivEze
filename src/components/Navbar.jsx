@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
   const handleLogout = () => {
+    props.setIsLoggedIn(false);
     localStorage.clear();
 
     // Refresh the page to log out the user
@@ -13,10 +14,9 @@ const Navbar = (props) => {
     <div id="navbar">
       <div id="nav-title">
         <Link to="/">
-          <img src="/images/drivEze-lite.png" alt="logo" className="navLogo" />
+          <img src="/images/logo.png" alt="logo" className="navLogo" />
         </Link>
       </div>
-        <h3 id="nav-quote">"Making Driving Easier since 2023"</h3>
       <div id="nav-buttons">
         {!props.isLoggedIn && (
           <React.Fragment>
@@ -43,7 +43,6 @@ const Navbar = (props) => {
         )}
       </div>
     </div>
-    
   );
 };
 

@@ -1,8 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { getCart } from "../api-adapter/login&register";
+import { getCarById } from "../api-adapter/index";
 
 function Cart() {
-
   const [data, setData] = useState([]);
   const [carDataArray, setCarDataArray] = useState([]);
   const token = localStorage.getItem("token");
@@ -33,7 +34,6 @@ function Cart() {
   }, [data]);
   console.log(data);
   console.log(carDataArray);
-
   return (
     <>
       <div className="profile">
@@ -53,7 +53,7 @@ function Cart() {
         <div className="cartDiv">
           <div className="topCartDiv">
             <div className="cartTitle">
-              <p>Cart Title</p>
+              <p>Cart!</p>
             </div>
             <div className="cartCheckout">
               <Link>
@@ -63,7 +63,6 @@ function Cart() {
           </div>
           <div className="bottomCartDiv">
             <div className="cartContents">
-              <p>Cart contents</p>
               {carDataArray.length
                 ? carDataArray.map((car, idx) => {
                     console.log(car);
@@ -85,7 +84,7 @@ function Cart() {
           </div>
         </div>
       </div>
-      <Link to="/" id="back-button"> Go Back </Link>
+      <Link to="/"> Go Back </Link>
     </>
   );
 }
