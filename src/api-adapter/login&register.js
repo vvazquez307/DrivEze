@@ -39,7 +39,6 @@ export const getCart = async (token) => {
         Authorization: `Bearer ${token}`,
       },
     });
-
     console.log(response, "LOGIN RESPONSE");
     const result = await response.json();
     console.log();

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAllVehicles, addCarToCart, getCartByUserId } from "../api-adapter";
 
@@ -7,7 +7,8 @@ function AllVehicles(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searched, setSearched] = useState("");
   const [cartMessage, setCartMessage] = useState("Add to cart");
-
+  const [cart, setCart] = useState({});
+  const token = localStorage.getItem("token");
   const loggedIn = props.isLoggedIn;
   const guestUser = props.guestUser;
 
@@ -44,15 +45,26 @@ function AllVehicles(props) {
     setSearched(e.target.value);
   };
 
-  const addVehicleToCart = async (carId, userId, price) => {
+  const addVehicleToCart = async (token, carId, price) => {
     try {
-      const response = await addCarToCart(carId, userId, price);
+      const result = await addCarToCart(token, carId, price);
       setCartMessage("Vehicle added to cart");
-      console.log(response);
+      console.log(result);
+      setCart(result);
     } catch (error) {
       console.log(error);
     }
   };
+
+  function checkoutButton() {
+    return (
+      <div>
+        <Link to="/cart" state={{ cart: cart }}>
+          <button id="button">Checkout</button>
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -69,6 +81,7 @@ function AllVehicles(props) {
           </div>
           <div className="filters">filters </div>
         </div>
+        {cart.id ? checkoutButton() : null}
         <div className="allVehiclesBottomDiv">
           {searchedVehicle.map((vehicle) => (
             <div className="vehicleListing" key={vehicle.id}>
@@ -80,13 +93,7 @@ function AllVehicles(props) {
               <div className="addToCart">
                 <button
                   onClick={() => {
-                    // addVehicleToCart(vehicle.id, userId, vehicle.daily_rate)
-                    console.log(vehicle.id, " ///////vehicle.id//////");
-                    console.log(
-                      vehicle.daily_rate,
-                      " ///////vehicle.daily_rate/////"
-                    );
-                    console.log(userId, " /////////////////userId////////////");
+                    addVehicleToCart(token, vehicle.id, vehicle.daily_rate);
                   }}
                 >
                   <img

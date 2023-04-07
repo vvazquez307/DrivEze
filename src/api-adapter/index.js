@@ -1,51 +1,20 @@
 //export const BASE_URL = "https://driveze-api.onrender.com/api/";
 export const BASE_URL = "http://localhost:3000/api/";
 
-//Cart Endpoints
-export const createCart = async (userId) => {
-  try {
-    const response = await fetch(`${BASE_URL}cart`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-      body: JSON.stringify({
-        userId,
-      }),
-    });
-
-    const result = await response.json();
-
-    return result;
-  } catch (err) {
-    console.error(err);
+function makeHeaders(token) {
+  const header = { "Content-Type": "application/json" };
+  if (token) {
+    header.Authorization = `Bearer ${token}`;
   }
-};
+  return header;
+}
 
-export const getCartByUserId = async (userId) => {
+export const addCarToCart = async (token, carId, price) => {
   try {
-    const response = await fetch(`${BASE_URL}/cart/${userId}`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const result = await response.json();
-
-    return result;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-export const addCarToCart = async (userId, carId, price) => {
-  try {
-    const response = await fetch(`${BASE_URL}/cart/${userId}/${carId}`, {
+    const response = await fetch(`${BASE_URL}/cart/`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId, carId, price }),
+      headers: makeHeaders(token),
+      body: JSON.stringify({ carId, price }),
     });
     const result = await response.json();
 
