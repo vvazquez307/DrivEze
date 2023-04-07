@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { registerUser, assignCart } from "../api-adapter/login&register";
+import { registerUser } from "../api-adapter/login&register";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -19,11 +19,6 @@ const Register = () => {
     console.log(result, "RESULT LOG");
     if (result.token) {
       alert("Account created successfully!");
-      const userId = result.user.id;
-      // const cart = await assignCart(userId);
-
-      // console.log(cart, "cart log");
-      // localStorage.setItem(`cart for ${username}`, JSON.stringify(cart));
       navigate("/login");
     } else {
       alert("Error: " + result);
@@ -31,53 +26,49 @@ const Register = () => {
   };
   return (
     <form onSubmit={handleSubmit} id="register-form">
-      <div id="text-field">
-        <label className="username"><h3 id="sign-up-title">Create an account</h3></label>
+      <div>
+        <label className="username">Username:</label>
         <input
           type="text"
           name="username"
           value={username}
           onChange={(event) => setUsername(event.target.value)}
-          placeholder="Username"
-          id="text-box"
         />
       </div>
-      <div id="text-field">
-        <label className="password"></label>
+      <div>
+        <label className="password">Password:</label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          placeholder="Password"
-          id="text-box"
         />
       </div>
-      <div id="text-field">
-        <label className="confirmPassword"></label>
+      <div>
+        <label className="confirmPassword">Confirm Password:</label>
         <input
           type="password"
           name="confirmPassword"
           value={confirmPassword}
           onChange={(event) => setConfirmPassword(event.target.value)}
-          placeholder="Confirm Password"
-          id="text-box"
         />
       </div>
-      <div id="text-field">
-        <label className="email"></label>
+      <div>
+        <label className="email">Email:</label>
         <input
           type="email"
           name="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          placeholder="Email"
-          id="text-box"
         />
       </div>
-      <button type="submit" id="button">Create Account</button>
+      <button type="submit" id="button">
+        Create Account
+      </button>
       <div>
-        <Link to="/login" id="link">Already have an account? Login here!</Link>
+        <Link to="/login" id="link">
+          Already have an account? Login here!
+        </Link>
       </div>
     </form>
   );
