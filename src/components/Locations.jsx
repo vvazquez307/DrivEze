@@ -14,6 +14,7 @@ function AllHubs({ setLocations }) {
     allHubs();
   }, [setLocations]);
 
+  console.log("!!!")
   return (
     <>
       <div id="hubs">
