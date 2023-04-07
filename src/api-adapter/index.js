@@ -53,7 +53,7 @@ export const getCarById = async (id) => {
       },
     });
     const result = await response.json();
-    console.log(result);
+    // console.log(result);
     return result;
   } catch (error) {
     console.log(error);
