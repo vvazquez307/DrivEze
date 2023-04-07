@@ -19,7 +19,7 @@ const Login = (props) => {
     console.log(result, "RESULT LOG");
     if (result.token) {
       alert(result.message);
-      setLoggedIn(true);
+
       props.handleLogin(true);
       localStorage.setItem("loggedIn", "true");
       localStorage.setItem("token", result.token);
