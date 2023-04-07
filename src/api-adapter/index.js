@@ -74,3 +74,20 @@ export const carsByTag = async (tagId) => {
     const response = await fetch(`${BASE_URL}/car`);
   } catch (error) {}
 };
+
+export const getCarById = async (id) => {
+  try {
+    const response = await fetch(`${BASE_URL}/cars/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const result = await response.json();
+    // console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
