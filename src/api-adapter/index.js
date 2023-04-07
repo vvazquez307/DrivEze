@@ -56,6 +56,7 @@ export const addCarToCart = async (userId, carId, price) => {
 };
 
 //Car Endpoints
+//ee
 export const getAllVehicles = async () => {
   try {
     const response = await fetch(`${BASE_URL}/cars`, {
