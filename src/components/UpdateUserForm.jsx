@@ -30,65 +30,82 @@ const UpdateUserForm = (props) => {
     }
     setSubmitMessage("User updated successfully!");
     updateUser(props.user.id, fields, token);
+    window.location.reload();
+  };
+
+  const handleCancelClick = () => {
+    props.editing ? props.handleCancelClick() : null;
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            className="form-control"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
+    <div className="profile">
+      <div className="profileDiv">
+        <div className="profilePicDiv">
+          <img
+            className="profilePic"
+            src="/images/profilePic.png"
+            alt="profile pic"
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            className="form-control"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
+        <div className="profileDetails">
+          <form onSubmit={handleSubmit} className="profileDetailsForm">
+            <div className="form-group">
+              <label className="username">Username:</label>
+              <input
+                type="text"
+                id="username"
+                className="form-control"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label className="password">Password:</label>
+              <input
+                type="password"
+                id="password"
+                className="form-control"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label className="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                className="form-control"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label className="location">Location:</label>
+              <input
+                type="text"
+                id="location"
+                className="form-control"
+                value={location}
+                onChange={(event) => setLocation(event.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label className="active">Active:</label>
+              <input
+                type="checkbox"
+                id="active"
+                className="form-control"
+                checked={active}
+                onChange={(event) => setActive(event.target.checked)}
+              />
+            </div>
+            <button type="submit">Submit and exit</button>
+            <button onClick={handleCancelClick}>Cancel</button>
+            {submitMessage && <p>{submitMessage}</p>}
+          </form>
         </div>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            className="form-control"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="location">Location:</label>
-          <input
-            type="text"
-            id="location"
-            className="form-control"
-            value={location}
-            onChange={(event) => setLocation(event.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="active">Active:</label>
-          <input
-            type="checkbox"
-            id="active"
-            className="form-control"
-            checked={active}
-            onChange={(event) => setActive(event.target.checked)}
-          />
-        </div>
-        <button type="submit">Update</button>
-        {submitMessage && <p>{submitMessage}</p>}
-      </form>
-    </>
+      </div>
+    </div>
   );
 };
 
