@@ -5,7 +5,7 @@ import { getCarById } from "../api-adapter/index";
 
 function Cart() {
   const [data, setData] = useState([]);
-  const [carData, setCarData] = useState({});
+  const [carDataArray, setCarDataArray] = useState([]);
   const token = localStorage.getItem("token");
 
   async function getCartData() {
@@ -13,18 +13,27 @@ function Cart() {
     setData(cartData);
   }
 
-  async function getCarData(id) {
-    const carData = await getCarById(id);
-    console.log(carData);
-    setCarData(carData);
+  async function getCarData() {
+    let newArray = [];
+    if (data.length) {
+      newArray = data.map((e) => {
+        console.log(e);
+        return getCarById(e.carId);
+      });
+      const carDataPromises = await Promise.all(newArray);
+      setCarDataArray(carDataPromises);
+    }
   }
 
   useEffect(() => {
     getCartData();
-    getCarData(1);
   }, []);
-  console.log(data);
 
+  useEffect(() => {
+    getCarData();
+  }, [data]);
+  console.log(data);
+  console.log(carDataArray);
   return (
     <>
       <div className="profile">
@@ -54,13 +63,18 @@ function Cart() {
           </div>
           <div className="bottomCartDiv">
             <div className="cartContents">
-              {data.length
-                ? data.map((car, idx) => {
+              {carDataArray.length
+                ? carDataArray.map((car, idx) => {
+                    console.log(car);
                     return (
                       <div key={`car idx: ${idx}`}>
-                        <p>CarId:{car.carId}</p>
-                        <p>Daily Rate: {car.price}</p>
-                        <p>quantity: {car.quantity} </p>
+                        {/* {getCarData(car.carId)} */}
+                        <div>
+                          <p>{car.name}</p>
+                          <p>{car.description}</p>
+                          <p>{car.daily_rate}</p>
+                          <p>{car.hubLocation}</p>
+                        </div>
                         <button>remove</button>
                       </div>
                     );
