@@ -1,7 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { getCart } from "../api-adapter/login&register";
+import { getCarById } from "../api-adapter/index";
 
 function Cart() {
+  const [data, setData] = useState([]);
+  const [carData, setCarData] = useState({});
+  const token = localStorage.getItem("token");
+
+  async function getCartData() {
+    const cartData = await getCart(token);
+    setData(cartData);
+  }
+
+  async function getCarData(id) {
+    const carData = await getCarById(id);
+    console.log(carData);
+    setCarData(carData);
+  }
+
+  useEffect(() => {
+    getCartData();
+    getCarData(1);
+  }, []);
+  console.log(data);
+
   return (
     <>
       <div className="profile">
@@ -21,7 +44,7 @@ function Cart() {
         <div className="cartDiv">
           <div className="topCartDiv">
             <div className="cartTitle">
-              <p>Cart Title</p>
+              <p>Cart!</p>
             </div>
             <div className="cartCheckout">
               <Link>
@@ -31,7 +54,18 @@ function Cart() {
           </div>
           <div className="bottomCartDiv">
             <div className="cartContents">
-              <p>Cart contents</p>
+              {data.length
+                ? data.map((car, idx) => {
+                    return (
+                      <div key={`car idx: ${idx}`}>
+                        <p>CarId:{car.carId}</p>
+                        <p>Daily Rate: {car.price}</p>
+                        <p>quantity: {car.quantity} </p>
+                        <button>remove</button>
+                      </div>
+                    );
+                  })
+                : null}
             </div>
           </div>
         </div>
