@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getCart } from "../api-adapter/login&register";
+import { getCarById } from "../api-adapter/index";
 
 function Cart() {
   const [data, setData] = useState([]);
+  const [carData, setCarData] = useState({});
   const token = localStorage.getItem("token");
 
+  async function getCartData() {
+    const cartData = await getCart(token);
+    setData(cartData);
+  }
+
+  async function getCarData(id) {
+    const carData = await getCarById(id);
+    console.log(carData);
+    setCarData(carData);
+  }
+
   useEffect(() => {
-    async function getCartData() {
-      const cartData = await getCart(token);
-      setData(cartData);
-    }
     getCartData();
+    getCarData(1);
   }, []);
   console.log(data);
 
