@@ -5,16 +5,22 @@ body {
 #navbar,
 #main{
   height: 100vh;
-  width: 100%;
+  min-width: 200px;
+  max-width: 3000px;
 }
 #navbar {
   top: 1;
-  position: sticky;
+  position:sticky;
   background-color: #CDCDCD;
   display: flex;
   align-items: center;
-  /* flex-grow: 1; */
   height:100px;
+  width:100%;
+  
+  min-width: 700px;
+  max-width: 3000px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 #nav-buttons {
   margin-left: auto;
@@ -150,6 +156,7 @@ body,
   display: flex;
   justify-content: center;
   background-color: #D62839;
+  max-width: 3000px;
   padding: 10px;
 }
 #button {
@@ -304,7 +311,7 @@ body,
   text-shadow: 2px 2px 2px black;
 }
 #locations-list {
-  margin: auto;
+  margin: 20px;
   color: white;
   text-shadow: 2px 2px 2px black;
 }
@@ -349,7 +356,7 @@ body,
   margin: auto;
   margin-bottom: 15px;
   margin-top: 15px;
-  width: auto;
+  width: 400px;
   box-shadow: 10px 10px 5px black;
 }
 #guest-form{
@@ -360,7 +367,7 @@ body,
   margin: auto;
   margin-bottom: 15px;
   margin-top: 15px;
-  width: 150px;
+  width: 340px;
   box-shadow: 10px 10px 5px black;
 }
 #link {
@@ -380,7 +387,7 @@ body,
   margin: auto;
   margin-bottom: 15px;
   margin-top: 15px;
-  width: 650px;
+  width: auto;
   box-shadow: 10px 10px 5px black;
 }
 #car-rental-img{
@@ -400,9 +407,31 @@ body,
   margin-bottom:25px;
   color:white;
 }
-#main{
+#nav-quote{
+  margin: auto;
+  color: #D62839;
+}
+#log-link{
+  text-decoration: none;
+  color:#D62839
+}
+#guest-link{
+  text-decoration: none;
+  color: #D62839;
+}
+#log-link:hover{
+  color: #8d1c27;
+}
+#guest-link:hover{
+  color: #8d1c27;
+}
+.searchBar{
+  border-radius: 25px;
+  height: 30px;
+}
+/* #main{
   background-image: url("images/types-classic-cars.webp");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-}
+} */

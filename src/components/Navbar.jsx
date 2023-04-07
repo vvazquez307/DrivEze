@@ -16,6 +16,7 @@ const Navbar = (props) => {
           <img src="/images/drivEze-lite.png" alt="logo" className="navLogo" />
         </Link>
       </div>
+        <h3 id="nav-quote">"Making Driving Easier since 2023"</h3>
       <div id="nav-buttons">
         {!props.isLoggedIn && (
           <React.Fragment>
@@ -42,6 +43,7 @@ const Navbar = (props) => {
         )}
       </div>
     </div>
+    
   );
 };
 

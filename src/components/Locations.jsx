@@ -23,10 +23,10 @@ function AllHubs() {
             <h3 id="locations-list">{location.location}</h3>
           </div>
         ))}
+      </div>
         <Link to="/" id="back-button">
           Go Back
         </Link>
-      </div>
     </>
   );
 }

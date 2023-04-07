@@ -36,7 +36,7 @@ function Cart() {
           </div>
         </div>
       </div>
-      <Link to="/"> Go Back </Link>
+      <Link to="/" id="back-button"> Go Back </Link>
     </>
   );
 }
