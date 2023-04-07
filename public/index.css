@@ -2,25 +2,18 @@ body {
   margin: 0;
   font-family: Sonsie One;
 }
-#navbar,
 #main{
   height: 100vh;
-  min-width: 200px;
-  max-width: 3000px;
+  width:100%;
 }
 #navbar {
-  top: 1;
+  /* top: 1; */
   position:sticky;
   background-color: #CDCDCD;
   display: flex;
   align-items: center;
   height:100px;
   width:100%;
-  
-  min-width: 700px;
-  max-width: 3000px;
-  margin: 0 auto;
-  overflow: hidden;
 }
 #nav-buttons {
   margin-left: auto;
@@ -52,7 +45,6 @@ body {
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-body,
 #app,
 .profile {
   height: 100%;
@@ -60,7 +52,7 @@ body,
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: lightslategray;
+  background-color: #5D737E;
 }
 .profileDiv {
   border-radius: 25px;
@@ -71,7 +63,7 @@ body,
   flex-direction: column;
   justify-content: space-evenly;
   padding: 10px;
-  background-color: white;
+  background-color: #CDCDCD;
 }
 .profileCartDiv {
   border: 1px solid black;
@@ -108,7 +100,7 @@ body,
   flex-direction: column;
   justify-content: space-evenly;
   padding: 5px;
-  background-color: lightgrey;
+  background-color: white;
 }
 .cartTitle {
   border: 1px solid black;
@@ -388,7 +380,7 @@ body,
   margin: auto;
   margin-bottom: 15px;
   margin-top: 15px;
-  width: auto;
+  width: 900px;
   box-shadow: 10px 10px 5px black;
 }
 #car-rental-img{

@@ -15,9 +15,9 @@ function Profile() {
             <label userLocation="">User Location:</label>
             <div className="profileLocation">Location</div>
           </div>
+      <Link to="/" id="back-button"> Go Back </Link>
         </div>
       </div>
-      <Link to="/" id="back-button"> Go Back </Link>
     </>
   );
 }
