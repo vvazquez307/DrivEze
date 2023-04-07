@@ -13,6 +13,7 @@ function AllHubs() {
     allHubs();
   }, []);
 
+  console.log("!!!")
   return (
     <>
       <div id="hubs">
