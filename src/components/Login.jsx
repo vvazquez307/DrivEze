@@ -5,7 +5,7 @@ import { loginUser, getCart } from "../api-adapter/login&register";
 const Login = (props) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-
+  const [loggedIn, setLoggedIn] = useState(false);
   const [guest, setGuest] = useState(false);
   const navigate = useNavigate();
 
@@ -19,11 +19,10 @@ const Login = (props) => {
     console.log(result, "RESULT LOG");
     if (result.token) {
       alert(result.message);
+      const cart = await getCart(result.userId);
       setLoggedIn(true);
       props.handleLogin(true);
-      localStorage.setItem("loggedIn", "true");
       localStorage.setItem("token", result.token);
-      const cart = await getCart(result.token);
       localStorage.setItem("user", JSON.stringify(user));
       console.log(cart, "cart log");
       localStorage.setItem(`cart login ${user}`, JSON.stringify(cart));
@@ -35,22 +34,26 @@ const Login = (props) => {
 
   return (
     <form onSubmit={handleSubmit} id="login-form">
-      <div>
-        <label className="username">Username:</label>
+      <div id="text-field">
+        <label className="username"><h3 id="sign-up-title">Sign in</h3></label>
         <input
           type="text"
           name="user"
           value={user}
           onChange={(event) => setUser(event.target.value)}
+          placeholder="Username"
+          id="text-box"
         />
       </div>
-      <div>
-        <label className="password">Password:</label>
+      <div id="text-field">
+        <label className="password"></label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
+          placeholder="Password"
+          id="text-box"
         />
       </div>
       <button type="submit" id="button">

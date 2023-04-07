@@ -2,17 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getAllHubs } from "../api-adapter/hub";
 
-function AllHubs({ setLocations }) {
-  const [locations, setLocationsState] = useState([]);
+function AllHubs() {
+  const [locations, setLocations] = useState([]);
 
   useEffect(() => {
     async function allHubs() {
       let hubs = await getAllHubs();
-      setLocationsState(hubs);
-      setLocations(hubs); // call setLocations function to update state in Main
+      setLocations(hubs);
     }
     allHubs();
-  }, [setLocations]);
+  }, []);
 
   return (
     <>
