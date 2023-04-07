@@ -94,20 +94,28 @@ function AllVehicles(props) {
                 />
                 <div className="vehicleName">{vehicle.name}</div>
               </div>
-              <div className="vehicleDescription">{vehicle.description}</div>
+              <div className="vehicleDescription">
+                <h3 className="vehicleDetails">{vehicle.name}</h3>
+                <h3 className="vehicleDetails">Vehicle information:</h3>
+                <h5 className="vehicleDetails">{vehicle.description}</h5>
+                <br />
+
+                <h3 className="vehicleDetails">Daily rate:</h3>
+                <h5 className="vehicleDetails">{vehicle.daily_rate}</h5>
+                <br />
+                <h3 className="vehicleDetails">Hub location</h3>
+                <h5 className="vehicleDetails">{vehicle.hubLocation}</h5>
+                <br />
+              </div>
               <div className="addToCart">
                 <button
+                  className="addToCartBtn"
                   onClick={() => {
                     addVehicleToCart(token, vehicle.id, vehicle.daily_rate);
                   }}
                 >
-                  <img
-                    src="/images/Cart.png"
-                    alt="cartImage"
-                    className="allVehiclesCart"
-                  />
+                  {cartMessage}
                 </button>
-                <div>{cartMessage}</div>
               </div>
             </div>
           ))}
