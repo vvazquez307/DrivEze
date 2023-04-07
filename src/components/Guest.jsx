@@ -17,7 +17,7 @@ function Guest(props) {
     console.log(result, "RESULT LOG");
     if (result.token) {
       alert(result.message);
-      const cart = await getCart(result.guestId);
+      const cart = await getCart(result.token);
       setGuestName(guestName);
       props.setIsGuestUser(true);
       props.setIsLoggedIn(true);
@@ -31,20 +31,19 @@ function Guest(props) {
     }
   };
   return (
-    <form onSubmit={handleSubmit} id="guest-form">
+    <form onSubmit={handleSubmit}>
       <div>
-        <label className="username" id="sign-up-title">Enter guest name:</label>
+        <label className="username">Enter guest name:</label>
         <input
           type="text"
           name="user"
           value={guestName}
           onChange={(event) => setGuestName(event.target.value)}
-          id="text-box"
         />
       </div>
-      <button type="submit" id="button">Log in</button>
+      <button type="submit">Log in</button>
       <div>
-        <Link to="/register" id="link">New user? Register Here.</Link>
+        <Link to="/register">New user? Register Here.</Link>
       </div>
     </form>
   );

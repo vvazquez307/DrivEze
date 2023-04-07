@@ -1,51 +1,20 @@
-export const BASE_URL = "https://driveze-api.onrender.com/api";
+//export const BASE_URL = "https://driveze-api.onrender.com/api/";
+export const BASE_URL = "http://localhost:3000/api/";
 
-//Cart Endpoints
-export const createCart = async (userId) => {
-  try {
-    const response = await fetch(`${BASE_URL}/cart`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-      body: JSON.stringify({
-        userId,
-      }),
-    });
-
-    const result = await response.json();
-
-    return result;
-  } catch (err) {
-    console.error(err);
+function makeHeaders(token) {
+  const header = { "Content-Type": "application/json" };
+  if (token) {
+    header.Authorization = `Bearer ${token}`;
   }
-};
+  return header;
+}
 
-export const getCartByUserId = async (userId) => {
-    try {
-      const response = await fetch(`${BASE_URL}/cart/${userId}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const result = await response.json();
-  
-      return result;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  
-
-export const addCarToCart = async (userId, carId, price) => {
+export const addCarToCart = async (token, carId, price) => {
   try {
-    const response = await fetch(`${BASE_URL}/cart/${userId}/${carId}`, {
+    const response = await fetch(`${BASE_URL}/cart/`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId, carId, price }),
+      headers: makeHeaders(token),
+      body: JSON.stringify({ carId, price }),
     });
     const result = await response.json();
 
@@ -56,6 +25,7 @@ export const addCarToCart = async (userId, carId, price) => {
 };
 
 //Car Endpoints
+//ee
 export const getAllVehicles = async () => {
   try {
     const response = await fetch(`${BASE_URL}/cars`, {
@@ -73,4 +43,20 @@ export const carsByTag = async (tagId) => {
   try {
     const response = await fetch(`${BASE_URL}/car`);
   } catch (error) {}
+};
+
+export const getCarById = async (id) => {
+  try {
+    const response = await fetch(`${BASE_URL}/cars/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const result = await response.json();
+    // console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 };
