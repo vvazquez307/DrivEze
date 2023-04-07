@@ -47,6 +47,7 @@ export const carsByTag = async (tagId) => {
 export const getCarById = async (id) => {
   try {
     const response = await fetch(`${BASE_URL}/cars/${id}`, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
