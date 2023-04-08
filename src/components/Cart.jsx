@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getCart } from "../api-adapter/login&register";
-import { getCarById } from "../api-adapter/index";
+import { getCarById, removeCarFromCart } from "../api-adapter/index";
 
 function Cart() {
   const [data, setData] = useState([]);
@@ -23,6 +23,10 @@ function Cart() {
       const carDataPromises = await Promise.all(newArray);
       setCarDataArray(carDataPromises);
     }
+  }
+
+  async function deleteCar(carId) {
+    const deletedCar = await removeCarFromCart(carId);
   }
 
   useEffect(() => {
@@ -68,14 +72,13 @@ function Cart() {
                     console.log(car);
                     return (
                       <div key={`car idx: ${idx}`}>
-                        {/* {getCarData(car.carId)} */}
                         <div>
-                          <p>{car.name}</p>
-                          <p>{car.description}</p>
-                          <p>{car.daily_rate}</p>
-                          <p>{car.hubLocation}</p>
+                          <p>Vehicle: {car.name}</p>
+                          <p>daily rate: ${car.daily_rate}</p>
                         </div>
-                        <button>remove</button>
+                        <button onClick={() => deleteCar(car.carId)}>
+                          remove
+                        </button>
                       </div>
                     );
                   })
