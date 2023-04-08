@@ -206,8 +206,8 @@ body {
 }
 .allVehiclesTopDiv {
   border: 1px solid black;
-  height: 20%;
-  margin: 20px;
+  height: 8%;
+  margin: 40px 20px 0 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -239,7 +239,7 @@ body {
 }
 .vehicleListing {
   border: 1px solid black;
-  height: 90%;
+  max-height: 30%;
   margin: 10px;
   display: flex;
   flex-direction: row;
