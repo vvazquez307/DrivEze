@@ -6,12 +6,18 @@ function AllVehicles(props) {
   const [vehicles, setVehicles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searched, setSearched] = useState("");
-  const [cartMessage, setCartMessage] = useState("Add to cart");
   const [cart, setCart] = useState({});
   const token = localStorage.getItem("token");
   const loggedIn = props.isLoggedIn;
   const guestUser = props.guestUser;
   console.log(vehicles);
+
+  const initialCartMessages = vehicles.map((vehicle) => ({
+    id: vehicle.id,
+    cartMessage: "Add to cart",
+  }));
+
+  const [cartMessages, setCartMessages] = useState(initialCartMessages);
 
   if (!loggedIn) {
     return (
@@ -33,6 +39,12 @@ function AllVehicles(props) {
     async function allVehicles() {
       let vehicles = await getAllVehicles();
       setVehicles(vehicles);
+      setCartMessages(
+        vehicles.map((vehicle) => ({
+          id: vehicle.id,
+          cartMessage: "Add to cart",
+        }))
+      );
     }
     allVehicles();
   }, []);
@@ -46,10 +58,12 @@ function AllVehicles(props) {
     setSearched(e.target.value);
   };
 
-  const addVehicleToCart = async (token, carId, price) => {
+  const addVehicleToCart = async (token, carId, price, index) => {
     try {
       const result = await addCarToCart(token, carId, price);
-      setCartMessage("Vehicle added to cart");
+      const newCartMessages = [...cartMessages];
+      newCartMessages[index].cartMessage = "Vehicle added to cart";
+      setCartMessages(newCartMessages);
       console.log(result);
       setCart(result);
     } catch (error) {
@@ -84,7 +98,7 @@ function AllVehicles(props) {
         </div>
         {cart.id ? checkoutButton() : null}
         <div className="allVehiclesBottomDiv">
-          {searchedVehicle.map((vehicle) => (
+          {searchedVehicle.map((vehicle, index) => (
             <div className="vehicleListing" key={vehicle.id}>
               <div className="vehicleImgBox">
                 <img
@@ -94,20 +108,33 @@ function AllVehicles(props) {
                 />
                 <div className="vehicleName">{vehicle.name}</div>
               </div>
-              <div className="vehicleDescription">{vehicle.description}</div>
+              <div className="vehicleDescription">
+                <h3 className="vehicleDetails">{vehicle.name}</h3>
+                <h3 className="vehicleDetails">Vehicle information:</h3>
+                <h5 className="vehicleDetails">{vehicle.description}</h5>
+                <br />
+
+                <h3 className="vehicleDetails">Daily rate:</h3>
+                <h5 className="vehicleDetails">{vehicle.daily_rate}</h5>
+                <br />
+                <h3 className="vehicleDetails">Hub location</h3>
+                <h5 className="vehicleDetails">{vehicle.hubLocation}</h5>
+                <br />
+              </div>
               <div className="addToCart">
                 <button
+                  className="addToCartBtn"
                   onClick={() => {
-                    addVehicleToCart(token, vehicle.id, vehicle.daily_rate);
+                    addVehicleToCart(
+                      token,
+                      vehicle.id,
+                      vehicle.daily_rate,
+                      index
+                    );
                   }}
                 >
-                  <img
-                    src="/images/Cart.png"
-                    alt="cartImage"
-                    className="allVehiclesCart"
-                  />
+                  {cartMessages[index].cartMessage}
                 </button>
-                <div>{cartMessage}</div>
               </div>
             </div>
           ))}
