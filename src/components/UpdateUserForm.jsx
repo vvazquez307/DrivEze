@@ -5,7 +5,7 @@ const UpdateUserForm = (props) => {
   const [username, setUsername] = useState(props.user.username);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState(props.user.email);
-  const [location, setLocation] = useState(props.user.location);
+
   const [active, setActive] = useState(props.user.active);
   const [submitMessage, setSubmitMessage] = useState("");
   const token = localStorage.getItem("token");
@@ -91,20 +91,7 @@ const UpdateUserForm = (props) => {
                 />
               </h5>
             </div>
-            <div className="profileLocation">
-              <h4 className="location">
-                <label>Location:</label>
-              </h4>
-              <h5>
-                <input
-                  type="text"
-                  id="location"
-                  className="form-control"
-                  value={location}
-                  onChange={(event) => setLocation(event.target.value)}
-                />
-              </h5>
-            </div>
+
             <div className="profileActive">
               <h4 className="active">
                 <label>Active:</label>

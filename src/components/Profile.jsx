@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { getUser, updateUser } from "../api-adapter/profile";
 import UpdateUserForm from "./UpdateUserForm";
 
-function Profile() {
+function Profile(props) {
   const [user, setUser] = useState("");
   const [editing, setEditing] = useState(false);
   let token = localStorage.getItem("token");
   let active = user.active;
   console.log(user, "USER LOG");
+  console.log(props.locations);
 
   if (!token) {
     return (
@@ -60,7 +61,7 @@ function Profile() {
               </div>
               <div className="profileDetails">
                 <div className="profileID">
-                  <h4>
+                  <h4 className="id">
                     <label userId="">User ID:</label>
                   </h4>
                   <h5>
@@ -68,7 +69,7 @@ function Profile() {
                   </h5>
                 </div>
                 <div className="profileName">
-                  <h4>
+                  <h4 className="username">
                     <label userName="">User Name:</label>
                   </h4>
                   <h5>
@@ -76,7 +77,7 @@ function Profile() {
                   </h5>
                 </div>
                 <div className="profileEmail">
-                  <h4>
+                  <h4 className="email">
                     <label userEmail="">User Email:</label>
                   </h4>
                   <h5>
@@ -84,15 +85,23 @@ function Profile() {
                   </h5>
                 </div>
                 <div className="profileLocation">
-                  <h4>
+                  <h4 className="location">
                     <label userLocation="">User Location:</label>
                   </h4>
                   <h5>
-                    <div>{user.location}</div>
+                    <div>
+                      <select value={user.location}>
+                        {props.locations.map((location) => (
+                          <option key={location.id} value={location.location}>
+                            {location.location}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </h5>
                 </div>
                 <div className="profileActive">
-                  <h4>
+                  <h4 className="active">
                     <label userActive="">Active :</label>
                   </h4>
                   <h5>
@@ -104,11 +113,10 @@ function Profile() {
                   Edit Profile
                 </button>
               </div>
-              <div className="profilePageCartDiv">
-                <Link className="viewCartLink" to="/cart">
-                  <h3>View cart</h3>
-                </Link>
-              </div>
+
+              <Link to="/cart" className="viewCartLink">
+                <h3 className="viewCart">View cart</h3>
+              </Link>
             </div>
           </div>
         </>
