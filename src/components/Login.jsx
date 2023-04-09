@@ -5,6 +5,7 @@ import { loginUser, getCart } from "../api-adapter/login&register";
 const Login = (props) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const [guest, setGuest] = useState(false);
   const navigate = useNavigate();
@@ -18,13 +19,12 @@ const Login = (props) => {
     const result = await loginUser(user, password);
     console.log(result, "RESULT LOG");
     if (result.token) {
-      alert(result.message);
-
       props.handleLogin(true);
+      setSubmitMessage(`Logged in as ${user}`);
       localStorage.setItem("loggedIn", "true");
       localStorage.setItem("token", result.token);
       const cart = await getCart(result.token);
-      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("user", user);
       console.log(cart, "cart log");
       localStorage.setItem(`cart login ${user}`, JSON.stringify(cart));
       navigate("/");
@@ -53,6 +53,7 @@ const Login = (props) => {
           onChange={(event) => setPassword(event.target.value)}
         />
       </div>
+      {submitMessage && <p>{submitMessage}</p>}
       <button type="submit" id="button">
         Log in
       </button>

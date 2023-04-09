@@ -1,7 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    props.setIsLoggedIn(false);
+    localStorage.clear();
+    navigate("/");
+    // Refresh the page to log out the user
+    //window.location.reload();
+  };
   return (
     <div id="navbar">
       <div id="nav-title">
@@ -28,7 +37,7 @@ const Navbar = (props) => {
             <Link to="/cart">
               <button id="button">Cart</button>
             </Link>
-            <button id="button" onClick={props.handleLogout}>
+            <button id="button" onClick={handleLogout}>
               Log Out
             </button>
           </React.Fragment>
