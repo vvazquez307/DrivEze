@@ -49,48 +49,67 @@ const UpdateUserForm = (props) => {
         </div>
         <div className="profileDetails">
           <form onSubmit={handleSubmit} className="profileDetailsForm">
-            <div className="form-group">
-              <label className="username">Username:</label>
-              <input
-                type="text"
-                id="username"
-                className="form-control"
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
-              />
+            <div className="profileName">
+              <h4 className="username">
+                <label>Username:</label>
+              </h4>
+              <h5>
+                <input
+                  type="text"
+                  id="username"
+                  className="form-control"
+                  value={username}
+                  onChange={(event) => setUsername(event.target.value)}
+                />
+              </h5>
             </div>
-            <div className="form-group">
-              <label className="password">Password:</label>
-              <input
-                type="password"
-                id="password"
-                className="form-control"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-              />
+            <div className="profilePassword">
+              <h4 className="password">
+                <label>Password:</label>
+              </h4>
+              <h5>
+                <input
+                  type="password"
+                  id="password"
+                  className="form-control"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                />
+              </h5>
             </div>
-            <div className="form-group">
-              <label className="email">Email:</label>
-              <input
-                type="email"
-                id="email"
-                className="form-control"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-              />
+            <div className="profileEmail">
+              <h4 className="email">
+                <label>Email:</label>
+              </h4>
+              <h5>
+                <input
+                  type="email"
+                  id="email"
+                  className="form-control"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                />
+              </h5>
             </div>
-            <div className="form-group">
-              <label className="location">Location:</label>
-              <input
-                type="text"
-                id="location"
-                className="form-control"
-                value={location}
-                onChange={(event) => setLocation(event.target.value)}
-              />
+            <div className="profileLocation">
+              <h4 className="location">
+                <label>Location:</label>
+              </h4>
+              <h5>
+                <input
+                  type="text"
+                  id="location"
+                  className="form-control"
+                  value={location}
+                  onChange={(event) => setLocation(event.target.value)}
+                />
+              </h5>
             </div>
-            <div className="form-group">
-              <label className="active">Active:</label>
+            <div className="profileActive">
+              <h4 className="active">
+                <label>Active:</label>
+              </h4>
+
               <input
                 type="checkbox"
                 id="active"
@@ -99,9 +118,17 @@ const UpdateUserForm = (props) => {
                 onChange={(event) => setActive(event.target.checked)}
               />
             </div>
-            <button type="submit">Submit and exit</button>
-            <button onClick={handleCancelClick}>Cancel</button>
+
             {submitMessage && <p>{submitMessage}</p>}
+            <div className="profilePageCartDiv">
+              <button className="submitEditBtn" type="submit">
+                Submit
+              </button>
+              <br />
+              <button className="cancelEditBtn" onClick={handleCancelClick}>
+                Cancel
+              </button>
+            </div>
           </form>
         </div>
       </div>
