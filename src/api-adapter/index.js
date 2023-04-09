@@ -60,3 +60,18 @@ export const getCarById = async (id) => {
     console.log(error);
   }
 };
+
+export const removeCarFromCart = async (token, carId) => {
+  try {
+    const response = await fetch(`${BASE_URL}cart`, {
+      method: "DELETE",
+      headers: makeHeaders(token),
+      body: JSON.stringify({ carId }),
+    });
+    const result = await response.json();
+
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
