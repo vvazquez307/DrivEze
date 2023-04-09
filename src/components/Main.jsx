@@ -43,22 +43,10 @@ const Main = () => {
     localStorage.setItem("loggedIn", "true");
   };
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    localStorage.clear();
-
-    // Refresh the page to log out the user
-    window.location.reload();
-  };
-
   return (
-    <div id="main">
-      <BrowserRouter>
-        <Navbar
-          setIsLoggedIn={setIsLoggedIn}
-          isLoggedIn={isLoggedIn}
-          handleLogout={handleLogout}
-        />
+    <BrowserRouter>
+      <div id="main">
+        <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile locations={locations} />} />
@@ -93,9 +81,8 @@ const Main = () => {
             element={<Locations setLocations={setLocations} />}
           />
         </Routes>
-      </BrowserRouter>
-      <Footer />
-    </div>
+      </div>
+    </BrowserRouter>
   );
 };
 

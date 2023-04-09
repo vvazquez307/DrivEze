@@ -22,7 +22,7 @@ export const getUser = async (token) => {
 export const updateUser = async (userId, fields, token) => {
   try {
     if (token) {
-      const response = await fetch(`${BASE_URL}users/${userId}`, {
+      const response = await fetch(`${BASE_URL}users`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
