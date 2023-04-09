@@ -60,30 +60,52 @@ function Profile() {
               </div>
               <div className="profileDetails">
                 <div className="profileID">
-                  <label userId="">User ID:</label>
-                  <div> {user.id}</div>
+                  <h4>
+                    <label userId="">User ID:</label>
+                  </h4>
+                  <h5>
+                    <div> {user.id}</div>
+                  </h5>
                 </div>
                 <div className="profileName">
-                  <label userName="">User Name:</label>
-                  <div>{user.username}</div>
+                  <h4>
+                    <label userName="">User Name:</label>
+                  </h4>
+                  <h5>
+                    <div>{user.username}</div>
+                  </h5>
                 </div>
                 <div className="profileEmail">
-                  <label userEmail="">User Email:</label>
-                  <div>{user.email}</div>
+                  <h4>
+                    <label userEmail="">User Email:</label>
+                  </h4>
+                  <h5>
+                    <div>{user.email}</div>
+                  </h5>
                 </div>
                 <div className="profileLocation">
-                  <label userLocation="">User Location:</label>
-                  <div>{user.location}</div>
+                  <h4>
+                    <label userLocation="">User Location:</label>
+                  </h4>
+                  <h5>
+                    <div>{user.location}</div>
+                  </h5>
                 </div>
                 <div className="profileActive">
-                  <label userActive="">Active :</label>
-                  <div>{`${active}`}</div>
+                  <h4>
+                    <label userActive="">Active :</label>
+                  </h4>
+                  <h5>
+                    <div>{`${active}`}</div>
+                  </h5>
                 </div>
                 <br />
-                <button onClick={handleEditClick}>Edit Profile</button>
+                <button className="editProfileBtn" onClick={handleEditClick}>
+                  Edit Profile
+                </button>
               </div>
               <div className="profilePageCartDiv">
-                <Link to="/cart">
+                <Link className="viewCartLink" to="/cart">
                   <h3>View cart</h3>
                 </Link>
               </div>
