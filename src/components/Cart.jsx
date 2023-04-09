@@ -26,7 +26,10 @@ function Cart() {
   }
 
   async function deleteCar(carId) {
-    const deletedCar = await removeCarFromCart(carId);
+    const deletedCar = await removeCarFromCart(token, carId);
+    if (deletedCar) {
+      window.location.reload();
+    }
   }
 
   useEffect(() => {
@@ -73,10 +76,11 @@ function Cart() {
                     return (
                       <div key={`car idx: ${idx}`}>
                         <div>
+                          {/* <img src={car.image} alt="car image" /> */}
                           <p>Vehicle: {car.name}</p>
                           <p>daily rate: ${car.daily_rate}</p>
                         </div>
-                        <button onClick={() => deleteCar(car.carId)}>
+                        <button onClick={() => deleteCar(car.id)}>
                           remove
                         </button>
                       </div>

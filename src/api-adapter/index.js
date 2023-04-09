@@ -63,7 +63,7 @@ export const getCarById = async (id) => {
 
 export const removeCarFromCart = async (token, carId) => {
   try {
-    const response = await fetch(`${BASE_URL}/cart`, {
+    const response = await fetch(`${BASE_URL}cart`, {
       method: "DELETE",
       headers: makeHeaders(token),
       body: JSON.stringify({ carId }),
