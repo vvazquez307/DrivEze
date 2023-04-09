@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAllVehicles, addCarToCart, getCartByUserId } from "../api-adapter";
+import { getAllTags, carsByTags } from "../api-adapter/tags";
 
 function AllVehicles(props) {
   const [vehicles, setVehicles] = useState([]);
+  const [tags, setTags] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState("");
   const [searched, setSearched] = useState("");
   const [cart, setCart] = useState({});
   const token = localStorage.getItem("token");
   const loggedIn = props.isLoggedIn;
   const guestUser = props.guestUser;
   console.log(vehicles);
+  console.log(tags, "tags");
 
   const initialCartMessages = vehicles.map((vehicle) => ({
     id: vehicle.id,
@@ -19,7 +23,7 @@ function AllVehicles(props) {
 
   const [cartMessages, setCartMessages] = useState(initialCartMessages);
 
-  if (!loggedIn) {
+  if (!loggedIn && !guestUser) {
     return (
       <div>
         <h2>
@@ -38,7 +42,9 @@ function AllVehicles(props) {
   useEffect(() => {
     async function allVehicles() {
       let vehicles = await getAllVehicles();
+      let tags = await getAllTags();
       setVehicles(vehicles);
+      setTags(tags);
       setCartMessages(
         vehicles.map((vehicle) => ({
           id: vehicle.id,
@@ -49,9 +55,12 @@ function AllVehicles(props) {
     allVehicles();
   }, []);
 
-  const searchedVehicle = vehicles.filter((vehicle) => {
-    return vehicle.name.toLowerCase().startsWith(searched.toLowerCase());
-  });
+  const searchedVehicle =
+    searchResults.length > 0
+      ? searchResults
+      : vehicles.filter((vehicle) => {
+          return vehicle.name.toLowerCase().startsWith(searched.toLowerCase());
+        });
 
   const searchHandle = (e) => {
     setSearchTerm(e.target.value);
@@ -66,6 +75,15 @@ function AllVehicles(props) {
       setCartMessages(newCartMessages);
       console.log(result);
       setCart(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleTagSelect = async (tagId) => {
+    try {
+      const cars = await carsByTags(tagId);
+      setSearchResults(cars);
     } catch (error) {
       console.log(error);
     }
@@ -94,7 +112,16 @@ function AllVehicles(props) {
               className="searchBar"
             />
           </div>
-          <div className="filters">filters </div>
+          <div className="filters">
+            <select onChange={(e) => handleTagSelect(e.target.value)}>
+              <option value="">All</option>
+              {tags.map((tag) => (
+                <option key={tag.id} value={tag.id}>
+                  {tag.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
         {cart.id ? checkoutButton() : null}
         <div className="allVehiclesBottomDiv">

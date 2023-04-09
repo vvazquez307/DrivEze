@@ -22,7 +22,8 @@ function Guest(props) {
       props.setIsGuestUser(true);
       props.setIsLoggedIn(true);
       localStorage.setItem("token", result.token);
-      localStorage.setItem("guest", JSON.stringify(cart));
+      localStorage.setItem("isGuestUser", true);
+      localStorage.setItem("guestName", guestName);
       console.log(cart, "cart log");
       localStorage.setItem(`guest cart ${guestName}`, JSON.stringify(cart));
       navigate("/vehicleList");
