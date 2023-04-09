@@ -113,7 +113,10 @@ function AllVehicles(props) {
             />
           </div>
           <div className="filters">
-            <select onChange={(e) => handleTagSelect(e.target.value)}>
+            <select
+              className="dropDown"
+              onChange={(e) => handleTagSelect(e.target.value)}
+            >
               <option value="">All</option>
               {tags.map((tag) => (
                 <option key={tag.id} value={tag.id}>
@@ -133,19 +136,20 @@ function AllVehicles(props) {
                   src={vehicle.image}
                   alt={vehicle.name}
                 />
-                <div className="vehicleName">{vehicle.name}</div>
+                <div className="vehicleName">
+                  <h3>{vehicle.name}</h3>
+                </div>
               </div>
               <div className="vehicleDescription">
-                <h3 className="vehicleDetails">{vehicle.name}</h3>
                 <h3 className="vehicleDetails">Vehicle information:</h3>
-                <h5 className="vehicleDetails">{vehicle.description}</h5>
+                <h4 className="vehicleDetails">{vehicle.description}</h4>
                 <br />
 
                 <h3 className="vehicleDetails">Daily rate:</h3>
-                <h5 className="vehicleDetails">{vehicle.daily_rate}</h5>
+                <h4 className="vehicleDetails">${vehicle.daily_rate}</h4>
                 <br />
                 <h3 className="vehicleDetails">Hub location</h3>
-                <h5 className="vehicleDetails">{vehicle.hubLocation}</h5>
+                <h4 className="vehicleDetails">{vehicle.hubLocation}</h4>
                 <br />
               </div>
               <div className="addToCart">
