@@ -7,7 +7,6 @@ function AllHubs(props) {
   const hubs = props.locations;
 
   const { isLoaded } = useLoadScript({
-    // Make sure to use your own API key here.
     //googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API,
     googleMapsApiKey: "AIzaSyDb0ZVBtDqitiD-9rhAzlIDFFwnEAfdOak",
   });
