@@ -26,12 +26,17 @@ const Main = () => {
   console.log(locations, "locations in Main");
 
   useEffect(() => {
+    async function allHubs() {
+      let hubs = await getAllHubs();
+      setLocations(hubs); // call setLocations function to update state in Main
+    }
+    allHubs();
     const loggedIn = localStorage.getItem("loggedIn");
     setIsLoggedIn(loggedIn === "true");
 
     const isGuest = localStorage.getItem("isGuestUser");
     setIsGuestUser(isGuest === "true");
-  }, []);
+  }, [setLocations]);
 
   const handleLogin = (isLoggedIn) => {
     setIsLoggedIn(isLoggedIn);
@@ -56,7 +61,7 @@ const Main = () => {
         />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile locations={locations} />} />
 
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
           <Route path="/register" element={<Register />} />
