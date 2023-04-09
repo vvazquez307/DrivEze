@@ -8,6 +8,7 @@ import Register from "./Register";
 import About from "./About";
 import Cart from "./Cart";
 import Guest from "./Guest";
+
 import { getAllHubs } from "../api-adapter/hub";
 
 //this is to start a branch
@@ -78,7 +79,9 @@ const Main = () => {
 
           <Route
             path="/locations"
-            element={<Locations setLocations={setLocations} />}
+            element={
+              <Locations setLocations={setLocations} locations={locations} />
+            }
           />
         </Routes>
       </div>
