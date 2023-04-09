@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  let user = localStorage.getItem("user");
+
   return (
     <main className="home-page">
       <div id="home-buttons">
@@ -14,7 +16,7 @@ const Home = () => {
       </div>
       <div id="welcome-section">
         <div id="welcome-user">
-          <h1>Welcome (User) to DrivEze!</h1>
+          <h1>Welcome {user} to DrivEze!</h1>
         </div>
         <div id="welcome-desc">
           <h2>
