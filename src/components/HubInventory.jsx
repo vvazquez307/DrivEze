@@ -128,4 +128,5 @@ function HubInventory(props) {
     </>
   );
 }
+
 export default HubInventory;

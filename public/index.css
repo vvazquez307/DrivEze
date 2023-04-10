@@ -511,3 +511,18 @@ body {
   display: flex;
   align-items: center;
 }
+
+#hubs-form{
+  background-color: grey;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  border-radius: 30px;
+  text-align: center;
+  padding: 15px;
+  margin: auto;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: 700px;
+  box-shadow: 10px 10px 5px black;
+}
+
