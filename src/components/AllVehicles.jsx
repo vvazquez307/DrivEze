@@ -23,16 +23,16 @@ function AllVehicles(props) {
 
   const [cartMessages, setCartMessages] = useState(initialCartMessages);
 
-  if (!loggedIn && !guestUser) {
+  if (!loggedIn) {
     return (
       <div>
-        <h2>
+        <h2 id="guest-form">
           Please
-          <Link to="/login"> login</Link>
+          <Link to="/login" id="log-link"> login</Link>
           <br />
           or
           <br />
-          <Link to="/guest"> continue as guest </Link>
+          <Link to="/guest" id="guest-link"> continue as guest </Link>
           to view available inventory
         </h2>
       </div>
@@ -170,8 +170,8 @@ function AllVehicles(props) {
             </div>
           ))}
         </div>
+      <Link to="/" id="back-button">Go Back</Link>
       </div>
-      <Link to="/">Go Back</Link>
     </>
   );
 }
