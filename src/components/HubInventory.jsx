@@ -77,10 +77,11 @@ function HubInventory(props) {
 
   return (
     <>
+    <div id="inventory-container">
       <div className="allVehiclesBottomDiv">
-        <h1>Inventory for Hub {id}</h1>
-        <Link to="/vehicleList">
-          Explore our entire inventory of vehicles.{" "}
+        <h1 id="hub-inventory">Inventory for Hub {id}</h1>
+        <Link to="/vehicleList" id="vehicle-button">
+          Click here to see all vehicles.
         </Link>
         {cars.map((car, index) => {
           const inventoryItem = inventory[index];
@@ -125,6 +126,7 @@ function HubInventory(props) {
       <Link to="/locations" id="back-button">
         Go back
       </Link>
+      </div>
     </>
   );
 }
