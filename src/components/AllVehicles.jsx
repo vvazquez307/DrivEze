@@ -28,11 +28,17 @@ function AllVehicles(props) {
       <div>
         <h2 id="guest-form">
           Please
-          <Link to="/login" id="log-link"> login</Link>
+          <Link to="/login" id="log-link">
+            {" "}
+            login
+          </Link>
           <br />
           or
           <br />
-          <Link to="/guest" id="guest-link"> continue as guest </Link>
+          <Link to="/guest" id="guest-link">
+            {" "}
+            continue as guest{" "}
+          </Link>
           to view available inventory
         </h2>
       </div>
@@ -126,6 +132,7 @@ function AllVehicles(props) {
             </select>
           </div>
         </div>
+        <Link to="/locations">Browse by hub location.</Link>
         {cart.id ? checkoutButton() : null}
         <div className="allVehiclesBottomDiv">
           {searchedVehicle.map((vehicle, index) => (
@@ -170,7 +177,9 @@ function AllVehicles(props) {
             </div>
           ))}
         </div>
-      <Link to="/" id="back-button">Go Back</Link>
+        <Link to="/" id="back-button">
+          Go Back
+        </Link>
       </div>
     </>
   );

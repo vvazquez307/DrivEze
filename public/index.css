@@ -507,10 +507,11 @@ body {
 #order-button-red {
   background-color: red;
 }
-#google-map{
+#google-map {
   display: flex;
   align-items: center;
 }
+
 #hubs-form{
   background-color: grey;
   color: white;
@@ -524,3 +525,4 @@ body {
   width: 700px;
   box-shadow: 10px 10px 5px black;
 }
+

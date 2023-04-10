@@ -10,7 +10,6 @@ import Cart from "./Cart";
 import Guest from "./Guest";
 import HubInventory from "./HubInventory";
 
-
 import Checkout from "./Checkout";
 
 import { getAllHubs } from "../api-adapter/hub";
@@ -90,7 +89,9 @@ const Main = () => {
           />
           <Route
             path="/hub/:id"
-            element={<HubInventory locations={locations} />}
+            element={
+              <HubInventory locations={locations} isLoggedIn={isLoggedIn} />
+            }
           />
         </Routes>
       </div>

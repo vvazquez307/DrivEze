@@ -11,7 +11,7 @@ function makeHeaders(token) {
 
 export const addCarToCart = async (token, carId, price) => {
   try {
-    const response = await fetch(`${BASE_URL}/cart/`, {
+    const response = await fetch(`${BASE_URL}cart/`, {
       method: "POST",
       headers: makeHeaders(token),
       body: JSON.stringify({ carId, price }),
