@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Checkout() {
   const [name, setName] = useState("");
   const [ccNumber, setCCNumber] = useState("");
   const [securityNumber, setSecurityNumber] = useState("");
   const [paymentStatus, setPaymentStatus] = useState(false);
+  const navigate = useNavigate();
 
   function checkName() {
     if (name.length < 6) {
@@ -37,6 +39,11 @@ function Checkout() {
     } else {
       return false;
     }
+  }
+  function takeMeHome() {
+    setTimeout(() => {
+      navigate("/");
+    }, 2500);
   }
 
   useEffect(() => {
@@ -102,7 +109,12 @@ function Checkout() {
       ) : (
         <button id="order-button-red">Complete Order</button>
       )}
-      {paymentStatus ? <h1>Thank You For Your Purchase!</h1> : null}
+      {paymentStatus ? (
+        <div>
+          {takeMeHome()}
+          <h1>Thank You For Your Purchase!</h1>
+        </div>
+      ) : null}
     </div>
   );
 }
