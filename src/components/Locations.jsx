@@ -18,7 +18,7 @@ function AllHubs(props) {
   return (
     <>
       <div id="hubs">
-        <h1 id="hub-title-text">Hub Locations</h1>
+        <h1 id="hub-title-text">All Hub Locations</h1>
 
         {hubs.map((location) => (
           <div className="hubViewDiv">

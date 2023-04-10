@@ -10,6 +10,9 @@ import Cart from "./Cart";
 import Guest from "./Guest";
 import HubInventory from "./HubInventory";
 
+
+import Checkout from "./Checkout";
+
 import { getAllHubs } from "../api-adapter/hub";
 
 //this is to start a branch
@@ -68,6 +71,7 @@ const Main = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/checkout" element={<Checkout />} />
 
           <Route
             path="/vehicleList"

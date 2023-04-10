@@ -5,6 +5,7 @@ body {
 #main {
   height: 100vh;
   width: 100%;
+  overflow-y: auto;
 }
 #navbar {
   /* top: 1; */
@@ -66,7 +67,7 @@ body {
   background-color: #cdcdcd;
 }
 .profileCartDiv {
-  border: 1px solid black;
+  border-radius: 25px;
   width: 30%;
   height: max-content;
   margin: 10px;
@@ -77,9 +78,9 @@ body {
   background-color: white;
 }
 .cartDiv {
-  border: 1px solid black;
+  border-radius: 25px;
   width: 70%;
-  height: 50%;
+  height: 52%;
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -101,6 +102,7 @@ body {
   background-repeat: no-repeat;
 }
 .profileDetails {
+  border: 1px solid black;
   border-radius: 25px;
   height: 60%;
   display: flex;
@@ -111,6 +113,7 @@ body {
   background-color: white;
 }
 .profileDetailsForm {
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -118,16 +121,20 @@ body {
 }
 .cartTitle {
   border: 1px solid black;
+  border-top-left-radius: 25px;
   width: 70%;
   background-color: lightgrey;
 }
 .cartCheckout {
   border: 1px solid black;
+  border-top-right-radius: 25px;
   width: 30%;
   background-color: lightgrey;
 }
 .cartContents {
   border: 1px solid black;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
   width: 100%;
   padding: 10px;
   height: 300px;
@@ -183,6 +190,10 @@ body {
   background-color: rgba(251, 60, 60, 0.626);
   border-radius: 25px;
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 #home-buttons {
   display: flex;
@@ -190,6 +201,17 @@ body {
   background-color: #d62839;
   max-width: 3000px;
   padding: 10px;
+}
+.homePageLink {
+  text-decoration: none;
+}
+.homePageLink:hover {
+  -webkit-filter: brightness(70%);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 0.5s ease;
 }
 #button {
   background-color: black;
@@ -221,28 +243,11 @@ body {
   box-shadow: 5px 5px 5px black;
   padding: 10px;
 }
-#available-button:hover {
-  -webkit-filter: brightness(70%);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  transition: all 0.5s ease;
-}
-#available-button:hover {
-  -webkit-filter: brightness(70%);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
 .allVehiclesPage {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: lightslategray;
 }
 .allVehiclesTopDiv {
   border: 1px solid black;
@@ -252,7 +257,7 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  background-color: white;
+  background-color: rgba(251, 60, 60, 0.626);
   border-radius: 25px;
 }
 .allVehiclesBottomDiv {
@@ -288,6 +293,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   background-color: lightgrey;
+  padding: 10px;
 }
 .vehicleImgBox {
   width: 400px;
@@ -490,3 +496,10 @@ body {
   background-position: center center;
   background-size: cover;
 } */
+#order-button-green {
+  background-color: green;
+}
+
+#order-button-red {
+  background-color: red;
+}

@@ -9,3 +9,5 @@ export { default as Locations } from "./Locations";
 export { default as Cart } from "./Cart";
 export { default as Guest } from "./Guest";
 export { default as HubInventory } from "./HubInventory";
+export { default as Checkout } from "./Checkout";
+
