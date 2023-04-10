@@ -7,8 +7,8 @@ function AllHubs(props) {
   const hubs = props.locations;
 
   const { isLoaded } = useLoadScript({
-    //googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API,
-    googleMapsApiKey: "AIzaSyDb0ZVBtDqitiD-9rhAzlIDFFwnEAfdOak",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API,
+    //googleMapsApiKey: "AIzaSyDb0ZVBtDqitiD-9rhAzlIDFFwnEAfdOak",
   });
 
   // If the maps script hasn't loaded yet, display a loading message.
