@@ -23,13 +23,13 @@ function AllHubs(props) {
         {hubs.map((location) => (
           <div className="hubViewDiv">
             <div id="hub-view" key={location.id}>
-              <h3 id="locations-list">
-                <Link to={`/hub/${location.id}`}>{location.location}</Link>
-              </h3>
+              {/* <h3 id="locations-list"> */}
+                <Link to={`/hub/${location.id}`} id="locations-list">{location.location}</Link>
+              {/* </h3> */}
             </div>
           </div>
         ))}
-        <Link to="/" id="back-button">
+            <Link to="/" id="back-button">
           Go Back
         </Link>
       </div>
@@ -61,6 +61,7 @@ function Map(props) {
       mapContainerStyle={mapContainerStyle}
       zoom={zoom}
       center={center}
+      
     >
       {props.hubs.map((location) => (
         <Marker

@@ -18,14 +18,18 @@ const Navbar = (props) => {
           <img src="/images/DrivEze-lite.png" alt="logo" className="navLogo" />
         </Link>
       </div>
+      <h3 id="nav-quote">"Making Driving Easier since 2023"</h3>
       <div id="nav-buttons">
         {!props.isLoggedIn && (
           <React.Fragment>
+            <Link to="/login">
+              <button id="button">Login</button>
+            </Link>
             <Link to="/register">
               <button id="button">Register</button>
             </Link>
-            <Link to="/login">
-              <button id="button">Login</button>
+            <Link to="/guest">
+              <button id="button">Guest</button>
             </Link>
           </React.Fragment>
         )}
