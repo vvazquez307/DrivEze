@@ -59,21 +59,8 @@ function Cart() {
 
   return (
     <>
-      <div className="profile">
-        <div className="profileCartDiv">
-          <div className="profileDetails">
-            <label userName="">User Name:</label>
-            <div className="profileName">John Doe</div>
-            <label userLocation="">Shipping Address:</label>
-            <div className="profileLocation">
-              1234 Generic Address, State USA 12345
-            </div>
-            <Link to="/profile">
-              <button id="button">Edit Address</button>
-            </Link>
-          </div>
-        </div>
-        <div className="cartDiv">
+      <div className="cartPage">
+        <div className="allVehiclesPage">
           <div className="topCartDiv">
             <div className="cartTitle">
               <p>Cart!</p>
@@ -85,28 +72,42 @@ function Cart() {
               </Link>
             </div>
           </div>
-          <div className="bottomCartDiv">
-            <div className="cartContents">
-              {carDataArray.length ? (
-                carDataArray.map((car, idx) => {
-                  console.log(car);
-                  return (
-                    <div key={`car idx: ${idx}`}>
-                      <div>
-                        {/* <img src={car.image} alt="car image" /> */}
-                        <p>Vehicle: {car.name}</p>
-                        <p>daily rate: ${car.daily_rate}</p>
+          <div className="allVehiclesBottomDiv">
+            {carDataArray.length ? (
+              carDataArray.map((car, idx) => {
+                console.log(car);
+                return (
+                  <div className="vehicleListing" key={`car idx: ${idx}`}>
+                    <div className="vehicleImgBox">
+                      <img
+                        className="vehicleImg"
+                        src={car.image}
+                        alt={car.name}
+                      />
+                      <div className="vehicleName">
+                        <h3>{car.name}</h3>
                       </div>
-                      <button onClick={() => deleteCar(car.id)}>remove</button>
                     </div>
-                  );
-                })
-              ) : (
-                <Link to="/vehicleList">
-                  <h3>Add A Vehicle To Cart!</h3>
-                </Link>
-              )}
-            </div>
+                    <div className="vehicleDescription">
+                      <h3 className="vehicleDetails">Vehicle information:</h3>
+                      <h4 className="vehicleDetails">{car.description}</h4>
+                      <br />
+                      <h3 className="vehicleDetails">Daily rate:</h3>
+                      <h4 className="vehicleDetails">${car.daily_rate}</h4>
+                      <br />
+                      <h3 className="vehicleDetails">Hub location:</h3>
+                      <h4 className="vehicleDetails">{car.hubLocation}</h4>
+                      <br />
+                    </div>
+                    <button onClick={() => deleteCar(car.id)}>remove</button>
+                  </div>
+                );
+              })
+            ) : (
+              <Link to="/vehicleList">
+                <h3>Add A Vehicle To Cart!</h3>
+              </Link>
+            )}
           </div>
         </div>
       </div>
