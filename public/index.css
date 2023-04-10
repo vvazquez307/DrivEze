@@ -258,7 +258,7 @@ body {
 }
 .allVehiclesTopDiv {
   border: 1px solid black;
-  height: 8%;
+  height: 75px;
   margin: 40px 40px 10px 40px;
   display: flex;
   flex-direction: row;
@@ -268,13 +268,26 @@ body {
   border-radius: 25px;
 }
 .allVehiclesBottomDiv {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   border: 1px solid black;
+  border-radius: 25px;
   height: 80%;
+
   margin: 0px 20px 20px 20px;
+  max-width: 1000px;
+ 
   display: flex;
   flex-direction: column;
   background-color: white;
   overflow-y: scroll;
+}
+#inventory-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .searchBarDiv {
   width: 60%;
@@ -293,7 +306,7 @@ body {
   height: 100%;
 }
 .vehicleListing {
-  max-height: 30%;
+  max-height: 40%;
   margin: 10px;
   display: flex;
   flex-direction: row;
@@ -301,6 +314,7 @@ body {
   align-items: center;
   background-color: lightgrey;
   padding: 10px;
+  border-radius: 25px;
 }
 .vehicleImgBox {
   width: 400px;
@@ -326,7 +340,6 @@ body {
 }
 .vehicleName {
   text-align: center;
-
   width: 100%;
   height: 10%;
 }
@@ -345,6 +358,17 @@ body {
 .addToCartBtn {
   bottom: 0;
   cursor: pointer;
+  background-color: black;
+  border-radius: 25px;
+  color: white;
+}
+.addToCartBtn:hover{
+  -webkit-filter: brightness(70%);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 .allVehiclesCart {
   width: 40%;
@@ -532,3 +556,27 @@ body {
   width: 700px;
   box-shadow: 10px 10px 5px black;
 }
+
+#vehicle-button{
+margin: 15px;
+text-decoration: none;
+color: #d62839;
+width:50%;
+text-align: center;
+}
+#vehicle-button:hover{
+  text-shadow: 1px 1px 1px black;
+}
+#hub-inventory{
+  text-align: center;
+}
+#hub-location-btn{
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}
+#hub-location-btn:hover{
+  text-shadow: 2px 2px 2px black;
+  
+}
+
