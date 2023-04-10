@@ -6,8 +6,10 @@ import { getCarById, removeCarFromCart } from "../api-adapter/index";
 function Cart() {
   const [data, setData] = useState([]);
   const [carDataArray, setCarDataArray] = useState([]);
+  const [totalSum, setTotalSum] = useState(0);
   const token = localStorage.getItem("token");
 
+  // const totalCost = total;
   async function getCartData() {
     const cartData = await getCart(token);
     setData(cartData);
@@ -32,6 +34,17 @@ function Cart() {
     }
   }
 
+  function getTotalCost() {
+    if (carDataArray.length) {
+      let sum = 0;
+      carDataArray.forEach((e) => {
+        console.log(e);
+        sum += e.daily_rate;
+      });
+      setTotalSum(sum);
+    }
+  }
+
   useEffect(() => {
     getCartData();
   }, []);
@@ -39,8 +52,11 @@ function Cart() {
   useEffect(() => {
     getCarData();
   }, [data]);
-  console.log(data);
-  console.log(carDataArray);
+
+  useEffect(() => {
+    getTotalCost();
+  }, [carDataArray]);
+
   return (
     <>
       <div className="profile">
@@ -63,7 +79,8 @@ function Cart() {
               <p>Cart!</p>
             </div>
             <div className="cartCheckout">
-              <Link to="/checkout">
+              <h4>total: ${totalSum}</h4>
+              <Link to="/checkout" state={{ totalSum: totalSum }}>
                 <button id="addToCartButton">Checkout</button>
               </Link>
             </div>
