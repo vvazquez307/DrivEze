@@ -107,6 +107,7 @@ function AllVehicles(props) {
 
   return (
     <>
+            <div id="inventory-container">
       <div className="allVehiclesPage">
         <div className="allVehiclesTopDiv">
           <div className="searchBarDiv">
@@ -132,7 +133,7 @@ function AllVehicles(props) {
             </select>
           </div>
         </div>
-        <Link to="/locations">Browse by hub location.</Link>
+        <Link to="/locations" id="hub-location-btn">Browse by hub location.</Link>
         {cart.id ? checkoutButton() : null}
         <div className="allVehiclesBottomDiv">
           {searchedVehicle.map((vehicle, index) => (
@@ -177,6 +178,7 @@ function AllVehicles(props) {
             </div>
           ))}
         </div>
+      </div>
         <Link to="/" id="back-button">
           Go Back
         </Link>
