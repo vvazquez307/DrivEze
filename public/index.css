@@ -113,7 +113,6 @@ body {
   background-color: white;
 }
 .profileDetailsForm {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -512,7 +511,7 @@ body {
   align-items: center;
 }
 
-#hubs-form{
+#hubs-form {
   background-color: grey;
   color: white;
   text-shadow: 2px 2px 2px black;
@@ -525,4 +524,3 @@ body {
   width: 700px;
   box-shadow: 10px 10px 5px black;
 }
-
