@@ -17,7 +17,7 @@ function AllHubs({ setLocations }) {
   return (
     <>
       <div id="hubs">
-        <h1 id="hub-title-text">Hub Locations</h1>
+        <h1 id="hub-title-text">All Hub Locations</h1>
 
         {locations.map((location) => (
           <div id="hub-view" key={location.id}>

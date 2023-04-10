@@ -35,22 +35,26 @@ const Login = (props) => {
 
   return (
     <form onSubmit={handleSubmit} id="login-form">
-      <div>
-        <label className="username">Username:</label>
+      <div id="text-field">
+        <label className="username"></label>
         <input
           type="text"
           name="user"
           value={user}
           onChange={(event) => setUser(event.target.value)}
+          placeholder="Username"
+          id="text-box"
         />
       </div>
-      <div>
-        <label className="password">Password:</label>
+      <div id="text-field">
+        <label className="password"></label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
+          placeholder="Password"
+          id="text-box"
         />
       </div>
       {submitMessage && <p>{submitMessage}</p>}

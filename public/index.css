@@ -66,7 +66,7 @@ body {
   background-color: #cdcdcd;
 }
 .profileCartDiv {
-  border: 1px solid black;
+  border-radius: 25px;
   width: 30%;
   height: max-content;
   margin: 10px;
@@ -77,9 +77,9 @@ body {
   background-color: white;
 }
 .cartDiv {
-  border: 1px solid black;
+  border-radius: 25px;
   width: 70%;
-  height: 50%;
+  height: 52%;
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -101,6 +101,7 @@ body {
   background-repeat: no-repeat;
 }
 .profileDetails {
+  border: 1px solid black;
   border-radius: 25px;
   height: 60%;
   display: flex;
@@ -111,6 +112,7 @@ body {
   background-color: white;
 }
 .profileDetailsForm {
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -118,16 +120,20 @@ body {
 }
 .cartTitle {
   border: 1px solid black;
+  border-top-left-radius: 25px;
   width: 70%;
   background-color: lightgrey;
 }
 .cartCheckout {
   border: 1px solid black;
+  border-top-right-radius: 25px;
   width: 30%;
   background-color: lightgrey;
 }
 .cartContents {
   border: 1px solid black;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
   width: 100%;
   padding: 10px;
   height: 300px;

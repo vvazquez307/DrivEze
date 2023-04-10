@@ -32,19 +32,21 @@ function Guest(props) {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label className="username">Enter guest name:</label>
+    <form onSubmit={handleSubmit} id="login-form">
+      <div id="text-field">
+        <label className="username"></label>
         <input
           type="text"
           name="user"
           value={guestName}
           onChange={(event) => setGuestName(event.target.value)}
+          id="text-box"
+          placeholder="Enter a Temporary Username"
         />
       </div>
-      <button type="submit">Log in</button>
+      <button type="submit" id="button">Log in</button>
       <div>
-        <Link to="/register">New user? Register Here.</Link>
+        <Link to="/register" id="back-button">New user? Register Here.</Link>
       </div>
     </form>
   );
