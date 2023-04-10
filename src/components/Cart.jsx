@@ -63,7 +63,12 @@ function Cart() {
         <div className="allVehiclesPage">
           <div className="topCartDiv">
             <div className="cartTitle">
-              <p>Cart!</p>
+              <h2>Cart</h2>
+              <img
+                className="checkoutCartImg"
+                src="./images/Cart.png"
+                alt="cart"
+              />
             </div>
             <div className="cartCheckout">
               <h4>total: ${totalSum}</h4>
@@ -109,9 +114,12 @@ function Cart() {
               </Link>
             )}
           </div>
+          <Link id="back-button" to="/">
+            {" "}
+            Go Back{" "}
+          </Link>
         </div>
       </div>
-      <Link to="/"> Go Back </Link>
     </>
   );
 }

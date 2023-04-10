@@ -94,6 +94,10 @@ body {
   padding: 10px;
   background-color: white;
 }
+.checkoutCartImg {
+  height: 100%;
+  width: 20%;
+}
 .profilePicDiv {
   display: flex;
   justify-content: center;
@@ -129,12 +133,21 @@ body {
   border-top-left-radius: 25px;
   width: 70%;
   background-color: lightgrey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 5px;
+  align-items: center;
 }
 .cartCheckout {
   border: 1px solid black;
   border-top-right-radius: 25px;
   width: 30%;
   background-color: lightgrey;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .cartContents {
   border: 1px solid black;
@@ -259,6 +272,7 @@ body {
 .allVehiclesTopDiv {
   border: 1px solid black;
   height: 75px;
+  width: 100%;
   margin: 40px 40px 10px 40px;
   display: flex;
   flex-direction: row;
@@ -271,19 +285,18 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 1px solid black;
-  border-radius: 25px;
+
   height: 80%;
 
   margin: 0px 20px 20px 20px;
   max-width: 1000px;
- 
+
   display: flex;
   flex-direction: column;
   background-color: white;
   overflow-y: scroll;
 }
-#inventory-container{
+#inventory-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -361,8 +374,9 @@ body {
   background-color: black;
   border-radius: 25px;
   color: white;
+  cursor: pointer;
 }
-.addToCartBtn:hover{
+.addToCartBtn:hover {
   -webkit-filter: brightness(70%);
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -381,6 +395,7 @@ body {
   background-color: black;
   color: white;
   margin-left: 5px;
+  cursor: pointer;
 }
 .hubViewDiv {
   margin: 5px;
@@ -557,26 +572,24 @@ body {
   box-shadow: 10px 10px 5px black;
 }
 
-#vehicle-button{
-margin: 15px;
-text-decoration: none;
-color: #d62839;
-width:50%;
-text-align: center;
-}
-#vehicle-button:hover{
-  text-shadow: 1px 1px 1px black;
-}
-#hub-inventory{
+#vehicle-button {
+  margin: 15px;
+  text-decoration: none;
+  color: #d62839;
+  width: 50%;
   text-align: center;
 }
-#hub-location-btn{
+#vehicle-button:hover {
+  text-shadow: 1px 1px 1px black;
+}
+#hub-inventory {
+  text-align: center;
+}
+#hub-location-btn {
   text-decoration: none;
   color: white;
   text-align: center;
 }
-#hub-location-btn:hover{
+#hub-location-btn:hover {
   text-shadow: 2px 2px 2px black;
-  
 }
-
