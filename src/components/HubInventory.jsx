@@ -18,22 +18,17 @@ function HubInventory(props) {
   // Render the inventory for the selected hub.
   return (
     <>
-      <div>
-        <h1>Inventory for Hub {id}</h1>
+      <div id="hubs-form">
+        <h1>Hub ID # {id}</h1>
+        <h2>Number of vehicles at Hub #{id} : {inventory.length}</h2>
         {inventory.map((car) => (
           <div key={car.id}>
-            <h2>
-              id:{car.id}
-              <br />
-              hub id:{car.hubId}
-            </h2>
-            <br />
-            <p>car ID: {car.carId}</p>
           </div>
         ))}
       </div>
-      <Link to="/locations">Go back</Link>
+      <Link to="/locations" id="back-button">Go back</Link>
     </>
   );
 }
+
 export default HubInventory;
