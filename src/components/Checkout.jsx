@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 function Checkout() {
   const [name, setName] = useState("");
   const [ccNumber, setCCNumber] = useState("");
   const [securityNumber, setSecurityNumber] = useState("");
+  const [paymentStatus, setPaymentStatus] = useState(false);
 
   function checkName() {
     if (name.length < 6) {
@@ -39,9 +39,9 @@ function Checkout() {
     }
   }
 
-  //   useEffect(() => {
-  //     checkAllInputs();
-  //   }, [name, ccNumber, securityNumber]);
+  useEffect(() => {
+    checkAllInputs();
+  }, [name, ccNumber, securityNumber]);
   return (
     <div id="checkout-container">
       <h1>Payment Proccess</h1>
@@ -58,7 +58,9 @@ function Checkout() {
       <div id="credit-card-#-input">
         <label>Credit card #: </label>
         <input
-          type="number"
+          type="text"
+          pattern="[0-9]{16}"
+          maxlength="16"
           name="credit-card-number"
           placeholder="1111-2222-3333-4444"
           value={ccNumber}
@@ -68,23 +70,39 @@ function Checkout() {
       <div id="credit-card-security-input">
         <label>security # </label>
         <input
+          maxlength="3"
           type="number"
           name="credit-card-security"
           placeholder="123"
           value={securityNumber}
-          onChange={(event) => setSecurityNumber(event.target.value)}
+          onChange={(event) => {
+            let currentValue = event.target.value;
+            let currentValueStr = String(currentValue);
+            if (currentValueStr.length > 3) {
+              return;
+            } else {
+              setSecurityNumber(currentValue);
+            }
+          }}
         />
       </div>
       <h1>Order Summary</h1>
       <h3>Total: $100</h3>
       {checkAllInputs() ? (
-        //will link you to a thank you for your purchase page
-        <Link>
-          <button id="order-button-green">Complete Order</button>
-        </Link>
+        <div>
+          <button
+            onClick={() => {
+              setPaymentStatus(true);
+            }}
+            id="order-button-green"
+          >
+            Complete Order
+          </button>
+        </div>
       ) : (
         <button id="order-button-red">Complete Order</button>
       )}
+      {paymentStatus ? <h1>Thank You For Your Purchase!</h1> : null}
     </div>
   );
 }
