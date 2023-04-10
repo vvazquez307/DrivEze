@@ -63,7 +63,12 @@ function Cart() {
         <div className="allVehiclesPage">
           <div className="topCartDiv">
             <div className="cartTitle">
-              <h2>Cart</h2>
+              <div className="cartLinkDiv">
+                <h2>Cart</h2>
+                <Link to="/vehicleList" id="cartLink">
+                  Click here to shop for more vehicles.
+                </Link>
+              </div>
               <img
                 className="checkoutCartImg"
                 src="./images/Cart.png"
