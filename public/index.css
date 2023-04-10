@@ -481,3 +481,10 @@ body {
   background-position: center center;
   background-size: cover;
 } */
+#order-button-green {
+  background-color: green;
+}
+
+#order-button-red {
+  background-color: red;
+}

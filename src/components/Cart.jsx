@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getCart } from "../api-adapter/login&register";
 import { getCarById, removeCarFromCart } from "../api-adapter/index";
 
@@ -63,30 +63,32 @@ function Cart() {
               <p>Cart!</p>
             </div>
             <div className="cartCheckout">
-              <Link>
+              <Link to="/checkout">
                 <button id="addToCartButton">Checkout</button>
               </Link>
             </div>
           </div>
           <div className="bottomCartDiv">
             <div className="cartContents">
-              {carDataArray.length
-                ? carDataArray.map((car, idx) => {
-                    console.log(car);
-                    return (
-                      <div key={`car idx: ${idx}`}>
-                        <div>
-                          {/* <img src={car.image} alt="car image" /> */}
-                          <p>Vehicle: {car.name}</p>
-                          <p>daily rate: ${car.daily_rate}</p>
-                        </div>
-                        <button onClick={() => deleteCar(car.id)}>
-                          remove
-                        </button>
+              {carDataArray.length ? (
+                carDataArray.map((car, idx) => {
+                  console.log(car);
+                  return (
+                    <div key={`car idx: ${idx}`}>
+                      <div>
+                        {/* <img src={car.image} alt="car image" /> */}
+                        <p>Vehicle: {car.name}</p>
+                        <p>daily rate: ${car.daily_rate}</p>
                       </div>
-                    );
-                  })
-                : null}
+                      <button onClick={() => deleteCar(car.id)}>remove</button>
+                    </div>
+                  );
+                })
+              ) : (
+                <Link to="/vehicleList">
+                  <h3>Add A Vehicle To Cart!</h3>
+                </Link>
+              )}
             </div>
           </div>
         </div>
