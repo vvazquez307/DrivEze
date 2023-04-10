@@ -66,6 +66,12 @@ body {
   padding: 35px;
   background-color: #cdcdcd;
 }
+.cartPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 .profileCartDiv {
   border-radius: 25px;
   width: 30%;
@@ -113,7 +119,6 @@ body {
   background-color: white;
 }
 .profileDetailsForm {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -143,6 +148,7 @@ body {
 .topCartDiv {
   display: flex;
   flex-direction: row;
+  width: 95%;
 }
 .bottomCartDiv {
   display: flex;
@@ -247,7 +253,8 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 .allVehiclesTopDiv {
   border: 1px solid black;
@@ -267,8 +274,10 @@ body {
   border: 1px solid black;
   border-radius: 25px;
   height: 80%;
+
+  margin: 0px 20px 20px 20px;
   max-width: 1000px;
-  margin: 20px;
+ 
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -534,7 +543,7 @@ body {
   align-items: center;
 }
 
-#hubs-form{
+#hubs-form {
   background-color: grey;
   color: white;
   text-shadow: 2px 2px 2px black;
@@ -547,6 +556,7 @@ body {
   width: 700px;
   box-shadow: 10px 10px 5px black;
 }
+
 #vehicle-button{
 margin: 15px;
 text-decoration: none;
@@ -569,3 +579,4 @@ text-align: center;
   text-shadow: 2px 2px 2px black;
   
 }
+

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+
+import { useNavigate, Link, useLocation } from "react-router-dom";
+
 
 function Checkout() {
   const [name, setName] = useState("");
