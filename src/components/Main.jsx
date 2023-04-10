@@ -8,6 +8,7 @@ import Register from "./Register";
 import About from "./About";
 import Cart from "./Cart";
 import Guest from "./Guest";
+import HubInventory from "./HubInventory";
 
 import { getAllHubs } from "../api-adapter/hub";
 
@@ -82,6 +83,10 @@ const Main = () => {
             element={
               <Locations setLocations={setLocations} locations={locations} />
             }
+          />
+          <Route
+            path="/hub/:id"
+            element={<HubInventory locations={locations} />}
           />
         </Routes>
       </div>

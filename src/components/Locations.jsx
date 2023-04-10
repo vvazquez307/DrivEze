@@ -23,7 +23,9 @@ function AllHubs(props) {
         {hubs.map((location) => (
           <div className="hubViewDiv">
             <div id="hub-view" key={location.id}>
-              <h3 id="locations-list">{location.location}</h3>
+              <h3 id="locations-list">
+                <Link to={`/hub/${location.id}`}>{location.location}</Link>
+              </h3>
             </div>
           </div>
         ))}
