@@ -4,8 +4,15 @@ import { getAllHubs } from "../api-adapter/hub";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 function AllHubs(props) {
-  const hubs = props.locations;
+  const [hubs, setHubs] = useState([]);
 
+  useEffect(() => {
+    async function getHubs() {
+      const hub = await getAllHubs();
+      setHubs(hub);
+    }
+    getHubs();
+  }, []);
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API,
   });
