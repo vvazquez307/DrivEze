@@ -109,13 +109,13 @@ function Cart() {
                       <h4 className="vehicleDetails">{car.hubLocation}</h4>
                       <br />
                     </div>
-                    <button onClick={() => deleteCar(car.id)}>remove</button>
+                    <button onClick={() => deleteCar(car.id)} id="removeBtn">remove</button>
                   </div>
                 );
               })
             ) : (
               <Link to="/vehicleList">
-                <h3>Add A Vehicle To Cart!</h3>
+                <h3 id="cartAddBtn">Add A Vehicle To Cart!</h3>
               </Link>
             )}
           </div>
