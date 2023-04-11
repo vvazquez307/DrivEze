@@ -8,11 +8,18 @@ import Register from "./Register";
 import About from "./About";
 import Cart from "./Cart";
 import Guest from "./Guest";
-import HubInventory from "./HubInventory";
-
 import Checkout from "./Checkout";
-
 import { getAllHubs } from "../api-adapter/hub";
+import AdminLoginPage from "./AdminLogin";
+import AdminPage from "./Admin";
+import { authAdmin } from "../api-adapter/admin";
+import AdminNavbar from "./AdminNavbar";
+import AdminCar from "./AdminCar";
+import AdminHubs from "./AdminHubs";
+import AdminInventory from "./AdminInventory";
+import AdminTags from "./AdminTags";
+import AdminEditPage from "./AdminAddCar";
+import AdminAddCarPage from "./AdminAddCar";
 
 //this is to start a branch
 const Main = () => {
@@ -24,6 +31,17 @@ const Main = () => {
     localStorage.getItem("guestName") || ""
   );
   const [locations, setLocations] = useState([]);
+  
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  const checkAdminStatus = async ()=>
+  {
+    setIsAdmin(await authAdmin(localStorage.getItem("token")));
+  }
+  checkAdminStatus();
+  console.log(isLoggedIn, "logged in Main");
+  console.log(isGuestUser, "guest user main");
+  console.log(locations, "locations in Main");
 
   useEffect(() => {
     async function allHubs() {
@@ -42,11 +60,13 @@ const Main = () => {
     setIsLoggedIn(isLoggedIn);
     localStorage.setItem("loggedIn", "true");
   };
-
+  console.log(isAdmin);
   return (
     <BrowserRouter>
       <div id="main">
-        <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
+        {
+          !isAdmin ? <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> : <AdminNavbar/> 
+        }
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile locations={locations} />} />
@@ -79,15 +99,59 @@ const Main = () => {
 
           <Route
             path="/locations"
-            element={
-              <Locations setLocations={setLocations} locations={locations} />
-            }
+            element={<Locations setLocations={setLocations} />}
           />
           <Route
-            path="/hub/:id"
-            element={
-              <HubInventory locations={locations} isLoggedIn={isLoggedIn} />
-            }
+            path="/adminLogin"
+            element={<AdminLoginPage></AdminLoginPage>}
+          />
+          <Route
+            path="/admin"
+            element={<AdminPage isAdmin={isAdmin}></AdminPage>}
+          />
+          <Route
+            path="/adminCars"
+            element={<AdminCar isAdmin={isAdmin}></AdminCar>}
+          />
+          <Route
+            path="/adminHubs"
+            element={<AdminHubs isAdmin={isAdmin}></AdminHubs>}
+          />
+          <Route
+            path="/adminInventory"
+            element={<AdminInventory isAdmin={isAdmin}></AdminInventory>}
+          />
+          <Route
+            path="/adminTags"
+            element={<AdminTags isAdmin={isAdmin}></AdminTags>}
+          />
+          <Route
+            path="/adminLogin"
+            element={<AdminLoginPage></AdminLoginPage>}
+          />
+          <Route
+            path="/admin"
+            element={<AdminPage isAdmin={isAdmin}></AdminPage>}
+          />
+          <Route
+            path="/adminCars"
+            element={<AdminCar locations={locations} isAdmin={isAdmin}></AdminCar>}
+          />
+          <Route
+            path="/adminHubs"
+            element={<AdminHubs isAdmin={isAdmin}></AdminHubs>}
+          />
+          <Route
+            path="/adminInventory"
+            element={<AdminInventory isAdmin={isAdmin}></AdminInventory>}
+          />
+          <Route
+            path="/adminTags"
+            element={<AdminTags isAdmin={isAdmin}></AdminTags>}
+          />
+          <Route
+            path="/adminAddCar"
+            element={<AdminAddCarPage isAdmin={isAdmin}></AdminAddCarPage>}
           />
         </Routes>
       </div>
