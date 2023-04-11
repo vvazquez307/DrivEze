@@ -22,26 +22,30 @@ const Navbar = (props) => {
       <div id="nav-buttons">
         {!props.isLoggedIn && (
           <React.Fragment>
-            <Link to="/login">
-              <button id="button">Login</button>
+            <Link to="/login" id="button">
+              Login
             </Link>
-            <Link to="/register">
-              <button id="button">Register</button>
+            <Link to="/register" id="button">
+              Register
             </Link>
-            <Link to="/guest">
-              <button id="button">Guest</button>
+            <Link to="/guest" id="button">
+              Guest
             </Link>
           </React.Fragment>
         )}
         {props.isLoggedIn && (
           <React.Fragment>
-            <Link to="/profile">
-              <button id="button">Profile</button>
+            <Link to="/profile" id="navLink">
+              <button class="nav-buttons" role="button">
+                Profile
+              </button>
             </Link>
-            <Link to="/cart">
-              <button id="button">Cart</button>
+            <Link to="/cart" id="navLink">
+              <button class="nav-buttons" role="button">
+                Cart
+              </button>
             </Link>
-            <button id="button" onClick={handleLogout}>
+            <button class="nav-buttons" role="button" onClick={handleLogout}>
               Log Out
             </button>
           </React.Fragment>

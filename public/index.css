@@ -10,29 +10,18 @@ body {
 #navbar {
   /* top: 1; */
   position: sticky;
-  background-color: #cdcdcd;
+  background-image: linear-gradient(
+    289deg,
+    #4a484800,
+    #ffffff00 50%,
+    #4a484800
+  );
   display: flex;
   align-items: center;
-  height: 100px;
+  height: 110px;
   width: 100%;
 }
-#nav-buttons {
-  margin-left: auto;
-  margin-right: 10px;
-}
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  margin-top: auto;
-  background-color: black;
-  color: white;
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-  max-height: 10%;
-  min-height: 40px;
-}
+
 .navLogo {
   position: sticky;
   width: 200px;
@@ -46,6 +35,44 @@ body {
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
+.nav-buttons,
+.homePageButtons {
+  background-color: initial;
+  background-image: linear-gradient(
+    356deg,
+    #638798b8,
+    rgba(251, 60, 60, 0.658)
+  );
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  height: 35px;
+  line-height: 40px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 100%;
+  z-index: 9;
+  border: 0;
+  transition: box-shadow 0.2s;
+}
+
+.nav-buttons:hover {
+  box-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+}
 #app,
 .profile {
   height: 85%;
@@ -53,7 +80,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #5d737e;
+  background-image: linear-gradient(289deg, #4a48489d, #ffffff 50%, #4a48489d);
 }
 .profileDiv {
   border-radius: 25px;
@@ -64,7 +91,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   padding: 35px;
-  background-color: #cdcdcd;
+  background-color: rgb(251 60 60 / 42%);
 }
 .cartPage {
   display: flex;
@@ -96,6 +123,10 @@ body {
   padding: 10px;
   background-color: white;
 }
+.cartText {
+  text-align: center;
+  color: white;
+}
 .checkoutCartImg {
   height: 100%;
   width: 20%;
@@ -106,6 +137,43 @@ body {
   align-items: center;
   height: 40%;
   width: 100%;
+}
+
+.button-92 {
+  --c: #fff;
+  /* text color */
+  background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%)
+      var(--_p, 100%) / 300% no-repeat,
+    #e04f2e;
+  /* background color */
+  color: #0000;
+  border: none;
+  transform: perspective(500px) rotateY(calc(20deg * var(--_i, -1)));
+  text-shadow: calc(var(--_i, -1) * 0.08em) -0.01em 0 var(--c),
+    calc(var(--_i, -1) * -0.08em) 0.01em 2px #0004;
+  outline-offset: 0.1em;
+  transition: 0.3s;
+}
+
+.button-92:hover,
+.button-92:focus-visible {
+  --_p: 0%;
+  --_i: 1;
+}
+
+.button-92:active {
+  text-shadow: none;
+  color: var(--c);
+  box-shadow: inset 0 0 9e9Q #0005;
+  transition: 0s;
+}
+
+.button-92 {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0;
+  cursor: pointer;
+  padding: 0.1em 0.3em;
 }
 .profilePic {
   height: 70%;
@@ -131,10 +199,9 @@ body {
   height: 80%;
 }
 .cartTitle {
-  border: 1px solid black;
   border-top-left-radius: 25px;
   width: 70%;
-  background-color: rgba(251, 60, 60, 0.626);
+  background-image: linear-gradient(200deg, #d62839 50%, #faa340e3, #e18859e3);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -142,10 +209,10 @@ body {
   align-items: center;
 }
 .cartCheckout {
-  border: 1px solid black;
   border-top-right-radius: 25px;
   width: 30%;
-  background-color: rgba(251, 60, 60, 0.626);
+
+  background-image: linear-gradient(22deg, #d62839 50%, #faa340e3, #e18859e3);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -204,23 +271,41 @@ body {
 .viewCartLink {
   text-align: center;
   cursor: pointer;
+}
+#cartLink {
   text-decoration: none;
+  color: white;
+}
+#cartLink:hover {
+  text-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
 }
 #welcome-section {
   margin: 10px;
-  background-color: rgba(215, 207, 207, 0.466);
+  background-color: rgb(255 255 255);
   border-radius: 25px;
   box-shadow: 10px 10px 5px black;
   padding: 10px;
+  width: 60%;
 }
 #welcome-desc {
-  background-color: rgba(251, 60, 60, 0.626);
+  background-color: rgb(251 60 60 / 42%);
   border-radius: 25px;
   padding: 10px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.homePageText {
+  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
+    sans-serif;
 }
 #home-buttons {
   display: flex;
@@ -240,17 +325,7 @@ body {
   -ms-transition: all 1s ease;
   transition: all 0.5s ease;
 }
-#button {
-  background-color: black;
-  border-radius: 25px;
-  color: white;
-  border: none;
-  padding: 5px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-}
+
 #button:hover {
   -webkit-filter: brightness(70%);
   -webkit-transition: all 0.5s ease;
@@ -320,7 +395,10 @@ body {
 }
 .filters {
   width: 20%;
-  height: 30%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .dropDown {
   width: 100%;
@@ -358,6 +436,8 @@ body {
 }
 .vehicleDetails {
   margin: 0;
+  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
+    sans-serif;
 }
 .vehicleName {
   text-align: center;
@@ -376,14 +456,7 @@ body {
   background-size: contain;
   background-position: center;
 }
-.addToCartBtn {
-  bottom: 0;
-  cursor: pointer;
-  background-color: black;
-  border-radius: 25px;
-  color: white;
-  cursor: pointer;
-}
+
 .addToCartBtn:hover {
   -webkit-filter: brightness(70%);
   -webkit-transition: all 0.5s ease;
@@ -398,10 +471,6 @@ body {
   margin: 5px;
 }
 #addToCartButton {
-  display: flex;
-  justify-content: center;
-  background-color: black;
-  color: white;
   margin-left: 5px;
   cursor: pointer;
 }
@@ -450,11 +519,10 @@ body {
   display: flex;
   justify-content: flex-start;
   margin-left: 5px;
-  color: white;
-  text-shadow: 2px 2px 2px black;
+  color: black;
 }
 #back-button:hover {
-  color: rgb(202, 202, 202);
+  text-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
 }
 #login-form {
   background-color: grey;
@@ -548,12 +616,6 @@ body {
   border-radius: 25px;
   height: 30px;
 }
-/* #main{
-  background-image: url("images/types-classic-cars.webp");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-} */
 #order-button-green {
   background-color: green;
 }
@@ -598,9 +660,9 @@ body {
 }
 #hub-location-btn {
   text-decoration: none;
-  color: white;
+  color: black;
   text-align: center;
 }
 #hub-location-btn:hover {
-  text-shadow: 2px 2px 2px black;
+  text-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
 }

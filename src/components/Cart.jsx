@@ -19,7 +19,6 @@ function Cart() {
     let newArray = [];
     if (data.length) {
       newArray = data.map((e) => {
-        console.log(e);
         return getCarById(e.carId);
       });
       const carDataPromises = await Promise.all(newArray);
@@ -38,7 +37,6 @@ function Cart() {
     if (carDataArray.length) {
       let sum = 0;
       carDataArray.forEach((e) => {
-        console.log(e);
         sum += e.daily_rate;
       });
       setTotalSum(sum);
@@ -64,7 +62,7 @@ function Cart() {
           <div className="topCartDiv">
             <div className="cartTitle">
               <div className="cartLinkDiv">
-                <h2>Cart</h2>
+                <h2 className="cartText">Cart</h2>
                 <Link to="/vehicleList" id="cartLink">
                   Click here to shop for more vehicles.
                 </Link>
@@ -76,16 +74,17 @@ function Cart() {
               />
             </div>
             <div className="cartCheckout">
-              <h4>Total: ${totalSum}</h4>
+              <h4 className="cartText">Total: ${totalSum}</h4>
               <Link to="/checkout" state={{ totalSum: totalSum }}>
-                <button id="addToCartButton">Checkout</button>
+                <button class="button-92" role="button">
+                  Checkout
+                </button>
               </Link>
             </div>
           </div>
           <div className="allVehiclesBottomDiv">
             {carDataArray.length ? (
               carDataArray.map((car, idx) => {
-                console.log(car);
                 return (
                   <div className="vehicleListing" key={`car idx: ${idx}`}>
                     <div className="vehicleImgBox">
