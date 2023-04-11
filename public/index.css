@@ -281,6 +281,13 @@ body {
   text-align: center;
   height: 70px;
   width: 100%;
+  margin: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+h5 {
+  margin: 0;
 }
 .editProfileBtn,
 .submitEditBtn,
