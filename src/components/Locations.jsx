@@ -4,8 +4,15 @@ import { getAllHubs } from "../api-adapter/hub";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 function AllHubs(props) {
-  const hubs = props.locations;
+  const [hubs, setHubs] = useState([]);
 
+  useEffect(() => {
+    async function getHubs() {
+      const hub = await getAllHubs();
+      setHubs(hub);
+    }
+    getHubs();
+  }, []);
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API,
   });
@@ -20,18 +27,20 @@ function AllHubs(props) {
         <h1 id="hub-title-text">All Hub Locations</h1>
 
         {hubs.map((location) => (
-          <div id="hub-view" key={location.id}>
-            {/* <h3 id="locations-list"> */}
-            <Link
-              to={{
-                pathname: `/hub/${location.id}`,
-                state: { hubs: hubs },
-              }}
-              id="locations-list"
-            >
-              {location.location}
-            </Link>
-            {/* </h3> */}
+          <div className="hubViewDiv">
+            <div id="hub-view" key={location.id}>
+              {/* <h3 id="locations-list"> */}
+              <Link
+                to={{
+                  pathname: `/hub/${location.id}`,
+                  state: { hubs: hubs },
+                }}
+                id="locations-list"
+              >
+                {location.location}
+              </Link>
+              {/* </h3> */}
+            </div>
           </div>
         ))}
         <Link to="/" id="back-button-loc">

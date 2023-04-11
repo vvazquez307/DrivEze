@@ -103,6 +103,7 @@ body {
 .hubInventoryButtons:hover,
 .nav-buttons:hover {
   box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+  transform: scale(1.1);
 }
 #app,
 .profile {
@@ -358,13 +359,16 @@ body {
   color:white;
   text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
-#welcome-section {
-  margin: 10px;
+#welcome-section,
+#welcome-section-locations,
+#welcome-section-about {
+  margin: 15px;
   background-color: #80808099;
   border-radius: 25px;
   box-shadow: 10px 10px 5px black;
-  padding: 10px;
-  width: 60%;
+
+  height: 90%;
+  min-width: 420px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -372,19 +376,37 @@ body {
 #welcome-desc {
   background-color: rgb(251 60 60 / 42%);
   border-radius: 25px;
-  padding: 10px;
+  padding: 5px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 75%;
+  text-align: center;
+  overflow: hidden;
+}
+.mapImgDiv,
+.aboutImgDiv {
+  height: 100px;
+  margin: 5px;
+}
+.mapImg {
+  height: 100px;
+  transform: rotate3d(1, 1, 1, 5deg);
+}
+.aboutImg {
+  height: 100px;
+}
+.mapImg:hover,
+.aboutImg:hover {
+  transform: scale(1.1);
 }
 
 .home-page {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  height: 100%;
 }
 .homePageText {
   font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
@@ -396,6 +418,14 @@ body {
   background-color: #d62839;
   max-width: 3000px;
   padding: 10px;
+}
+.homePageLeft {
+  height: 100%;
+  width: 50%;
+}
+.homePageRight {
+  height: 50%;
+  width: 50%;
 }
 .homePageLink {
   text-decoration: none;
@@ -588,6 +618,7 @@ body {
   justify-content: flex-start;
   color: black;
 }
+
 #back-button-loc{
   margin-top: 45px;
 }
@@ -596,6 +627,7 @@ body {
 }
 #back-button-loc:hover{
   text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+
 }
 #login-form {
   background-color: grey;
