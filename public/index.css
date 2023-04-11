@@ -35,8 +35,9 @@ body {
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-.nav-buttons,
-.homePageButtons {
+.homePageButtons,
+.allVehiclesButtons,
+.hubInventoryButtons {
   background-color: initial;
   background-image: linear-gradient(
     356deg,
@@ -53,23 +54,47 @@ body {
   height: 35px;
   line-height: 40px;
   outline: 0;
-  overflow: hidden;
-  padding: 0 20px;
-  pointer-events: auto;
-  position: relative;
-  text-align: center;
   font-weight: bold;
-  touch-action: manipulation;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: top;
   white-space: nowrap;
   width: 100%;
-  z-index: 9;
   border: 0;
   transition: box-shadow 0.2s;
 }
-
+.navQuoteDiv {
+  width: 100%;
+  min-width: 1000px;
+  text-align: center;
+}
+.navButtonsDiv {
+  margin-right: 25px;
+}
+.nav-buttons {
+  background-color: initial;
+  background-image: linear-gradient(
+    356deg,
+    #638798b8,
+    rgba(251, 60, 60, 0.658)
+  );
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  height: 35px;
+  line-height: 40px;
+  outline: 0;
+  font-weight: bold;
+  white-space: nowrap;
+  width: 100%;
+  border: 0;
+  transition: box-shadow 0.2s;
+  margin-right: 10px;
+}
+.homePageButtons:hover,
+.allVehiclesButtons:hover,
+.hubInventoryButtons:hover,
 .nav-buttons:hover {
   box-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
 }
@@ -445,16 +470,7 @@ body {
   height: 10%;
 }
 .addToCart {
-  width: 10%;
-  height: 60%;
-  display: flex;
-
-  justify-content: center;
-  align-items: flex-end;
-  background-image: url("./images/Cart.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  width: 20%;
 }
 
 .addToCartBtn:hover {
@@ -503,7 +519,7 @@ body {
   background-color: grey;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
   border-radius: 30px;
   padding: 10px;
   margin: auto;

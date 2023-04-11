@@ -96,7 +96,7 @@ function AllVehicles(props) {
     return (
       <div>
         <Link to="/cart" state={{ cart: cart }}>
-          <button class="button-42" role="button">
+          <button class="nav-buttons" role="button">
             Checkout
           </button>
         </Link>
@@ -164,7 +164,7 @@ function AllVehicles(props) {
                 </div>
                 <div id="addToCartButton">
                   <button
-                    class="button-42"
+                    class="allVehiclesButtons"
                     role="button"
                     onClick={() => {
                       addVehicleToCart(

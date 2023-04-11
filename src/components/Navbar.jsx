@@ -18,23 +18,32 @@ const Navbar = (props) => {
           <img src="/images/DrivEze-lite.png" alt="logo" className="navLogo" />
         </Link>
       </div>
-      <h3 id="nav-quote">"Making Driving Easier since 2023"</h3>
-      <div id="nav-buttons">
+      <div className="navQuoteDiv">
+        <h2 id="nav-quote">"Making Driving Easier since 2023"</h2>
+      </div>
+
+      <div className="navButtonsDiv">
         {!props.isLoggedIn && (
           <React.Fragment>
             <Link to="/login" id="button">
-              Login
+              <button class="nav-buttons" role="button">
+                Login
+              </button>
             </Link>
             <Link to="/register" id="button">
-              Register
+              <button class="nav-buttons" role="button">
+                Register
+              </button>
             </Link>
             <Link to="/guest" id="button">
-              Guest
+              <button class="nav-buttons" role="button">
+                Guest
+              </button>
             </Link>
           </React.Fragment>
         )}
         {props.isLoggedIn && (
-          <React.Fragment>
+          <div className="navButtonsDiv">
             <Link to="/profile" id="navLink">
               <button class="nav-buttons" role="button">
                 Profile
@@ -48,7 +57,7 @@ const Navbar = (props) => {
             <button class="nav-buttons" role="button" onClick={handleLogout}>
               Log Out
             </button>
-          </React.Fragment>
+          </div>
         )}
       </div>
     </div>

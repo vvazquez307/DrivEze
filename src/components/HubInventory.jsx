@@ -117,7 +117,7 @@ function HubInventory(props) {
                 </div>
                 <div className="addToCart">
                   <button
-                    className="addToCartBtn"
+                    className="hubInventoryButtons"
                     onClick={() => {
                       addVehicleToCart(token, car.id, car.daily_rate, index);
                     }}
