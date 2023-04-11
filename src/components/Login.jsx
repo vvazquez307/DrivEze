@@ -17,7 +17,7 @@ const Login = (props) => {
       return;
     }
     const result = await loginUser(user, password);
-    console.log(result, "RESULT LOG");
+
     if (result.token) {
       props.handleLogin(true);
       setSubmitMessage(`Logged in as ${user}`);
@@ -25,7 +25,7 @@ const Login = (props) => {
       localStorage.setItem("token", result.token);
       const cart = await getCart(result.token);
       localStorage.setItem("user", user);
-      console.log(cart, "cart log");
+
       localStorage.setItem(`cart login ${user}`, JSON.stringify(cart));
       navigate("/");
     } else {

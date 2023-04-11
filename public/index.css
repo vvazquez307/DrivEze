@@ -134,7 +134,7 @@ body {
   border: 1px solid black;
   border-top-left-radius: 25px;
   width: 70%;
-  background-color: lightgrey;
+  background-color: rgba(251, 60, 60, 0.626);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -145,7 +145,7 @@ body {
   border: 1px solid black;
   border-top-right-radius: 25px;
   width: 30%;
-  background-color: lightgrey;
+  background-color: rgba(251, 60, 60, 0.626);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -592,6 +592,9 @@ body {
 }
 #hub-inventory {
   text-align: center;
+  background-color: rgba(251, 60, 60, 0.626);
+  width: 100%;
+  border-radius: 10%;
 }
 #hub-location-btn {
   text-decoration: none;

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import { useNavigate, Link, useLocation } from "react-router-dom";
 
-
 function Checkout() {
   const [name, setName] = useState("");
   const [ccNumber, setCCNumber] = useState("");
@@ -11,8 +10,6 @@ function Checkout() {
   const navigate = useNavigate();
   const location = useLocation();
   const totalCost = location.state.totalSum;
-
-  console.log(totalCost);
 
   function checkName() {
     if (name.length < 6) {

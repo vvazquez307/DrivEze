@@ -13,7 +13,13 @@ function HubInventory(props) {
   const token = localStorage.getItem("token");
   const loggedIn = props.isLoggedIn;
   const guestUser = props.guestUser;
-  console.log(cars, "CARS LOG");
+
+  const locations = props.locations;
+
+  // Get the hub information
+  const hub = locations.find((location) => location.id === Number(id));
+
+  const hubName = hub ? hub.location : "";
 
   useEffect(() => {
     async function fetchInventory() {
@@ -77,55 +83,55 @@ function HubInventory(props) {
 
   return (
     <>
-    <div id="inventory-container">
-      <div className="allVehiclesBottomDiv">
-        <h1 id="hub-inventory">Inventory for Hub {id}</h1>
-        <Link to="/vehicleList" id="vehicle-button">
-          Click here to see all vehicles.
-        </Link>
-        {cars.map((car, index) => {
-          const inventoryItem = inventory[index];
-          return (
-            <div key={inventoryItem.id} className="vehicleListing">
-              <div className="vehicleImgBox">
-                <img
-                  className="vehicleImg"
-                  src={car.image.replace("./", "/")}
-                  alt={car.name}
-                />
-                <div className="vehicleName">
-                  <h3>{car.name}</h3>
+      <div id="inventory-container">
+        <div className="allVehiclesBottomDiv">
+          <h1 id="hub-inventory">Inventory for {hubName}</h1>
+          <Link to="/vehicleList" id="vehicle-button">
+            Click here to see all vehicles.
+          </Link>
+          {cars.map((car, index) => {
+            const inventoryItem = inventory[index];
+            return (
+              <div key={inventoryItem.id} className="vehicleListing">
+                <div className="vehicleImgBox">
+                  <img
+                    className="vehicleImg"
+                    src={car.image.replace("./", "/")}
+                    alt={car.name}
+                  />
+                  <div className="vehicleName">
+                    <h3>{car.name}</h3>
+                  </div>
+                </div>
+                <div className="vehicleDescription">
+                  <h3 className="vehicleDetails">Vehicle information:</h3>
+                  <h4 className="vehicleDetails">{car.description}</h4>
+                  <br />
+
+                  <h3 className="vehicleDetails">Daily rate:</h3>
+                  <h4 className="vehicleDetails">${car.daily_rate}</h4>
+                  <br />
+                  <h3 className="vehicleDetails">Hub location</h3>
+                  <h4 className="vehicleDetails">{car.hubLocation}</h4>
+                  <br />
+                </div>
+                <div className="addToCart">
+                  <button
+                    className="addToCartBtn"
+                    onClick={() => {
+                      addVehicleToCart(token, car.id, car.daily_rate, index);
+                    }}
+                  >
+                    {cartMessages[index].cartMessage}
+                  </button>
                 </div>
               </div>
-              <div className="vehicleDescription">
-                <h3 className="vehicleDetails">Vehicle information:</h3>
-                <h4 className="vehicleDetails">{car.description}</h4>
-                <br />
-
-                <h3 className="vehicleDetails">Daily rate:</h3>
-                <h4 className="vehicleDetails">${car.daily_rate}</h4>
-                <br />
-                <h3 className="vehicleDetails">Hub location</h3>
-                <h4 className="vehicleDetails">{car.hubLocation}</h4>
-                <br />
-              </div>
-              <div className="addToCart">
-                <button
-                  className="addToCartBtn"
-                  onClick={() => {
-                    addVehicleToCart(token, car.id, car.daily_rate, index);
-                  }}
-                >
-                  {cartMessages[index].cartMessage}
-                </button>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      <Link to="/locations" id="back-button">
-        Go back
-      </Link>
+            );
+          })}
+        </div>
+        <Link to="/locations" id="back-button">
+          Go back
+        </Link>
       </div>
     </>
   );

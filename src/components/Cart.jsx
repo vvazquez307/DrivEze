@@ -76,7 +76,7 @@ function Cart() {
               />
             </div>
             <div className="cartCheckout">
-              <h4>total: ${totalSum}</h4>
+              <h4>Total: ${totalSum}</h4>
               <Link to="/checkout" state={{ totalSum: totalSum }}>
                 <button id="addToCartButton">Checkout</button>
               </Link>

@@ -1,7 +1,6 @@
 import { BASE_URL } from "./index";
 
 export const getUser = async (token) => {
-  console.log(token, "TOKEN LOG");
   try {
     const response = await fetch(`${BASE_URL}users/me`, {
       method: "GET",
@@ -10,9 +9,7 @@ export const getUser = async (token) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response, "USER RESPONSE");
     const result = await response.json();
-    console.log(result, "USER RESULT");
     return result;
   } catch (error) {
     console.log(error);
@@ -31,7 +28,6 @@ export const updateUser = async (userId, fields, token) => {
         body: JSON.stringify(fields),
       });
       const data = await response.json();
-      console.log(data);
       return data;
     }
   } catch (error) {

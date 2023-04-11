@@ -8,9 +8,7 @@ export const getAllTags = async () => {
         "Content-Type": "application/json",
       },
     });
-    console.log(response, "TAGS RESPONSE");
     const result = await response.json();
-    console.log(result, "TAGS RESULT");
     return result;
   } catch (error) {
     console.log(error);
@@ -24,9 +22,7 @@ export const carsByTags = async (tagId) => {
         "Content-Type": "application/json",
       },
     });
-    console.log(response, "TAGS RESPONSE");
     const result = await response.json();
-    console.log(result, "TAGS RESULT");
     return result;
   } catch (error) {
     console.log(error);
@@ -41,9 +37,7 @@ export const tagsByCars = async (carId) => {
         "Content-Type": "application/json",
       },
     });
-    console.log(response, "TAGS RESPONSE");
     const result = await response.json();
-    console.log(result, "TAGS RESULT");
     return result;
   } catch (error) {
     console.log(error);

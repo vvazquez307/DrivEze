@@ -31,7 +31,6 @@ export const loginUser = async (username, password) => {
 };
 
 export const getCart = async (token) => {
-  console.log(token);
   try {
     const response = await fetch(`${BASE_URL}cart/`, {
       method: "GET",
@@ -40,9 +39,7 @@ export const getCart = async (token) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    // console.log(response, "LOGIN RESPONSE");
     const result = await response.json();
-    console.log();
     return result;
   } catch (error) {
     console.error(error);
@@ -58,9 +55,7 @@ export const guestUser = async (name) => {
       },
       body: JSON.stringify({ name }),
     });
-    console.log(response, "GUEST RESPONSE LOG");
     const result = await response.json();
-    console.log(result, "RESULT LOG");
     return { ...result, guestId: result.id };
   } catch (error) {
     console.error(error);
