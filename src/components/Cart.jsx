@@ -124,7 +124,7 @@ function Cart() {
                       <br />
                     </div>
                     <button onClick={() => deleteCar(car.id)} id="removeBtn">
-                      remove
+                      Remove
                     </button>
                   </div>
                 );

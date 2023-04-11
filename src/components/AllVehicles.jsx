@@ -112,7 +112,7 @@ function AllVehicles(props) {
             <div className="searchBarDiv">
               <input
                 type="text"
-                placeholder="Search"
+                placeholder="Search by brand name"
                 value={searchTerm}
                 onChange={searchHandle}
                 className="searchBar"
