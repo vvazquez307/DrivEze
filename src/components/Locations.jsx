@@ -43,7 +43,7 @@ function AllHubs(props) {
             </div>
           </div>
         ))}
-        <Link to="/" id="back-button">
+        <Link to="/" id="back-button-loc">
           Go Back
         </Link>
       </div>

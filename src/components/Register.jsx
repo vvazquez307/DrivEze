@@ -70,7 +70,7 @@ const Register = () => {
           id="text-box"
         />
       </div>
-      <button type="submit" id="button">
+      <button type="submit" id="submitBtn">
         Create Account
       </button>
       <div>

@@ -58,7 +58,7 @@ const Login = (props) => {
         />
       </div>
       {submitMessage && <p>{submitMessage}</p>}
-      <button type="submit" id="button">
+      <button type="submit" id="submitBtn">
         Log in
       </button>
       <div>

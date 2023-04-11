@@ -8,8 +8,7 @@ body {
   overflow-y: auto;
 }
 #navbar {
-  /* top: 1; */
-  position: sticky;
+  position:sticky;
   background-image: linear-gradient(
     289deg,
     #4a484800,
@@ -51,7 +50,7 @@ body {
   display: inline-block;
   font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
     sans-serif;
-  height: 35px;
+  min-height: 35px;
   line-height: 40px;
   outline: 0;
   font-weight: bold;
@@ -62,11 +61,19 @@ body {
 }
 .navQuoteDiv {
   width: 100%;
-  min-width: 1000px;
   text-align: center;
+  min-width: 260px;
 }
+
+@media (max-width: 600px) {
+  .navQuoteDiv {
+    display: none;
+  }
+}
+
 .navButtonsDiv {
-  margin-right: 25px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 .nav-buttons {
   background-color: initial;
@@ -90,13 +97,12 @@ body {
   width: 100%;
   border: 0;
   transition: box-shadow 0.2s;
-  margin-right: 10px;
 }
 .homePageButtons:hover,
 .allVehiclesButtons:hover,
 .hubInventoryButtons:hover,
 .nav-buttons:hover {
-  box-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
   transform: scale(1.1);
 }
 #app,
@@ -110,12 +116,14 @@ body {
 }
 .profileDiv {
   border-radius: 25px;
-  width: 50%;
+  width: 350px;
   height: 80%;
   margin: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 35px;
   background-color: #80808099;
 }
@@ -161,7 +169,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40%;
+  margin-top: 10px;
+  height: 30%;
   width: 100%;
 }
 
@@ -170,7 +179,7 @@ body {
   /* text color */
   background: linear-gradient(42deg, #0000 33%, #fff5, #0000 67%)
       var(--_p, 100%) / 300% no-repeat,
-    #e44b28d6;
+    #8d1c27;
   /* background color */
   color: #0000;
   border: none;
@@ -210,7 +219,9 @@ body {
 .profileDetails {
   border: 1px solid black;
   border-radius: 25px;
-  height: 60%;
+  height: 70%;
+  width:300px;
+  /* min-width: 300px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -227,7 +238,7 @@ body {
 .cartTitle {
   border-top-left-radius: 25px;
   width: 70%;
-  background-image: linear-gradient(200deg, #d62839 50%, #faa340e3, #e18859e3);
+  background-image: linear-gradient(200deg, #d62839 50%, grey, white);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -238,7 +249,7 @@ body {
   border-top-right-radius: 25px;
   width: 30%;
 
-  background-image: linear-gradient(22deg, #d62839 50%, #faa340e3, #e18859e3);
+  background-image: linear-gradient(22deg, #d62839 50%, grey, white);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -275,6 +286,36 @@ body {
 .submitEditBtn,
 .cancelEditBtn {
   width: 40%;
+  /* margin-bottom: 40px; */
+  background-color: initial;
+  background-image: linear-gradient(
+    356deg,
+    #638798b8,
+    rgba(251, 60, 60, 0.658)
+  );
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  height: 35px;
+  line-height: 40px;
+  outline: 0;
+  font-weight: bold;
+  white-space: nowrap;
+  border: 0;
+  transition: box-shadow 0.2s;
+}
+.cancelEditBtn:hover{
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+}
+.submitEditBtn:hover{
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+}
+.editProfileBtn:hover{
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 .username,
 .id,
@@ -285,25 +326,38 @@ body {
 .form-control {
   margin: 0;
 }
-
+.id{
+  margin-top: 10px;
+}
 .viewCart {
   display: flex;
   justify-content: center;
-  align-items: center;
+  color: black;
   margin: 0;
   height: 60px;
 }
-.profilePageCartDiv,
+.viewCart:hover{
+  text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+}
+.profilePageCartDiv{
+  text-decoration: none;
+  margin-top: 10px;
+  text-align: center;
+  cursor: pointer;
+}
 .viewCartLink {
+  text-decoration: none;
+  margin-top: 10px;
   text-align: center;
   cursor: pointer;
 }
 #cartLink {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 #cartLink:hover {
-  text-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+  color:white;
+  text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 #welcome-section,
 #welcome-section-locations,
@@ -384,15 +438,6 @@ body {
   -ms-transition: all 1s ease;
   transition: all 0.5s ease;
 }
-
-#button:hover {
-  -webkit-filter: brightness(70%);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
 #available-button {
   text-decoration: none;
   border-radius: 25px;
@@ -424,6 +469,8 @@ body {
   border-radius: 25px;
 }
 .allVehiclesBottomDiv {
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -531,23 +578,24 @@ body {
   display: flex;
   justify-content: center;
   height: 10%;
+  margin-bottom: 10px;
 }
 #hub-title-text {
   display: flex;
   justify-content: center;
-  /* text-decoration: underline; */
+  text-align: center;
   color: white;
   text-shadow: 2px 2px 2px black;
   margin: 0;
 }
 #locations-list {
   text-decoration: none;
-  margin: 10px;
+  margin: 15px;
   color: white;
   text-shadow: 2px 2px 2px black;
 }
 #locations-list:hover {
-  color: rgb(202, 202, 202);
+  text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 #hubs {
   background-color: #80808099;
@@ -559,20 +607,27 @@ body {
   margin: auto;
   margin-bottom: 15px;
   margin-top: 15px;
-  width: 35%;
-  height: 30%;
+  width: 45%;
+  height: 35%;
   box-shadow: 10px 10px 5px black;
 }
-#back-button {
+#back-button,
+#back-button-loc {
   text-decoration: none;
   display: flex;
   justify-content: flex-start;
-  margin-left: 5px;
   color: black;
 }
-#back-button:hover,
-#locations-list:hover {
-  text-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+
+#back-button-loc{
+  margin-top: 45px;
+}
+#back-button:hover {
+  text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+}
+#back-button-loc:hover{
+  text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+
 }
 #login-form {
   background-color: grey;
@@ -668,10 +723,20 @@ body {
 }
 #order-button-green {
   background-color: green;
+  border: none;
+  border-radius: 25px;
+  padding:5px;
+  color: white;
 }
-
+#order-button-green:hover{
+  background-color: rgb(2, 93, 2);
+}
 #order-button-red {
   background-color: red;
+  border: none;
+  border-radius: 25px;
+  padding: 5px;
+  color: white;
 }
 #google-map {
   display: flex;
@@ -705,8 +770,8 @@ body {
 #hub-inventory {
   text-align: center;
   background-color: rgba(251, 60, 60, 0.626);
-  width: 100%;
-  border-radius: 10%;
+  width: 95%;
+  border-radius: 25px;
 }
 #hub-location-btn {
   text-decoration: none;
@@ -714,5 +779,69 @@ body {
   text-align: center;
 }
 #hub-location-btn:hover {
-  text-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+  text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+}
+#cartAddBtn{
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+#cartAddBtn:hover{
+  text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+}
+#checkout-container{
+  background-color: #cdcdcd77;
+  color: rgb(0, 0, 0);
+  border-radius: 30px;
+  text-align: center;
+  padding: 15px;
+  margin: auto;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: 500px;
+  box-shadow: 10px 10px 5px black;
+}
+#final-screen{
+  text-align: center;
+}
+#removeBtn,
+#submitBtn,
+#checkoutBtn{
+  background-color: initial;
+  background-image: linear-gradient(
+    356deg,
+    #638798b8,
+    rgba(251, 60, 60, 0.658)
+  );
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  height: 35px;
+  line-height: 40px;
+  outline: 0;
+  font-weight: bold;
+  white-space: nowrap;
+  width: 30%;
+  border: 0;
+  transition: box-shadow 0.2s;
+}
+#submitBtn{
+  margin-bottom:15px;
+}
+#removeBtn:hover{
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+}
+#submitBtn:hover{
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+}
+#checkoutBtn{
+  width: 100%;
+  margin: 5px;
+}
+#checkoutBtn:hover{
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
