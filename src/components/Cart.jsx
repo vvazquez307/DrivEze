@@ -8,6 +8,7 @@ function Cart() {
   const [carDataArray, setCarDataArray] = useState([]);
   const [totalSum, setTotalSum] = useState(0);
   const token = localStorage.getItem("token");
+  console.log(carDataArray, "carDataArray");
 
   // const totalCost = total;
   async function getCartData() {

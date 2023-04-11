@@ -9,12 +9,17 @@ function HubInventory(props) {
   const [inventory, setInventory] = useState([]);
   const [cars, setCars] = useState([]);
   const [cart, setCart] = useState({});
-  const [cartMessages, setCartMessages] = useState([]);
   const token = localStorage.getItem("token");
   const loggedIn = props.isLoggedIn;
   const guestUser = props.guestUser;
-
   const locations = props.locations;
+
+  const initialCartMessages = cars.map((vehicle) => ({
+    id: cars.id,
+    cartMessage: "Add to cart",
+  }));
+
+  const [cartMessages, setCartMessages] = useState(initialCartMessages);
 
   // Get the hub information
   const hub = locations.find((location) => location.id === Number(id));
