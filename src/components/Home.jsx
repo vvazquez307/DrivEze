@@ -11,12 +11,14 @@ const Home = () => {
           <h1>Welcome {user} to DrivEze!</h1>
         </div>
         <div id="welcome-desc">
-          <h3>
+          <h3 className="homePageText">
             The rental car industry has been stagnant for over 60 years, lets
             change that.
           </h3>
           <Link to="/vehicleList" className="homePageLink">
-            <button id="available-button">View Available Cars</button>
+            <button class="homePageButtons" role="button">
+              View Available Cars
+            </button>
           </Link>
         </div>
       </div>
@@ -25,13 +27,15 @@ const Home = () => {
           <h1>Convenient locations across the United States</h1>
         </div>
         <div id="welcome-desc">
-          <h3>
+          <h3 className="homePageText">
             Our rental locations are strategically placed to make it easy and
             convenient for you to rent from us. Whether you need a car for a day
             or a month, we have a location that can serve you.
           </h3>
           <Link to="/locations" className="homePageLink">
-            <button id="available-button">View Locations</button>
+            <button class="homePageButtons" role="button">
+              View Locations
+            </button>
           </Link>
         </div>
       </div>
@@ -40,12 +44,14 @@ const Home = () => {
           <h1>About Us</h1>
         </div>
         <div id="welcome-desc">
-          <h3>
+          <h3 className="homePageText">
             Learn more about our company and our commitment to providing quality
             car rental services.
           </h3>
           <Link to="/about" className="homePageLink">
-            <button id="available-button">Read More</button>
+            <button class="homePageButtons" role="button">
+              Read More
+            </button>
           </Link>
         </div>
       </div>

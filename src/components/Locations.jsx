@@ -20,20 +20,18 @@ function AllHubs(props) {
         <h1 id="hub-title-text">All Hub Locations</h1>
 
         {hubs.map((location) => (
-          <div className="hubViewDiv">
-            <div id="hub-view" key={location.id}>
-              {/* <h3 id="locations-list"> */}
-              <Link
-                to={{
-                  pathname: `/hub/${location.id}`,
-                  state: { hubs: hubs },
-                }}
-                id="locations-list"
-              >
-                {location.location}
-              </Link>
-              {/* </h3> */}
-            </div>
+          <div id="hub-view" key={location.id}>
+            {/* <h3 id="locations-list"> */}
+            <Link
+              to={{
+                pathname: `/hub/${location.id}`,
+                state: { hubs: hubs },
+              }}
+              id="locations-list"
+            >
+              {location.location}
+            </Link>
+            {/* </h3> */}
           </div>
         ))}
         <Link to="/" id="back-button">
