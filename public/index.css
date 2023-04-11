@@ -58,6 +58,7 @@ body {
   width: 100%;
   border: 0;
   transition: box-shadow 0.2s;
+  margin-bottom: 10px;
 }
 .navQuoteDiv {
   width: 100%;
@@ -72,8 +73,10 @@ body {
 }
 
 .navButtonsDiv {
-  margin-right: 15px;
+  margin-right: 7px;
   margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 .nav-buttons {
   background-color: initial;
@@ -366,6 +369,10 @@ h5 {
   color: white;
   text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
+.carLotImg{
+  width: 445px;
+  border-radius: 25px;
+}
 #welcome-section,
 #welcome-section-locations,
 #welcome-section-about {
@@ -380,6 +387,9 @@ h5 {
   flex-direction: column;
   align-items: center;
 }
+#welcome-user{
+  text-align: center;
+}
 #welcome-desc {
   background-color: rgb(251 60 60 / 42%);
   border-radius: 25px;
@@ -388,9 +398,18 @@ h5 {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 75%;
+  width: 90%;
+  margin-bottom: 5px;
   text-align: center;
   overflow: hidden;
+}
+#welcome-section-locations{
+  height: 85%;
+}
+#imgBlurb{
+  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-size: smaller;
 }
 .mapImgDiv,
 .aboutImgDiv {
@@ -607,7 +626,6 @@ h5 {
 }
 #locations-list {
   text-decoration: none;
-  margin: 15px;
   color: white;
   text-shadow: 2px 2px 2px black;
 }
@@ -646,7 +664,7 @@ h5 {
   text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 #login-form {
-  background-color: grey;
+  background-color: #80808099;
   border-radius: 30px;
   text-align: center;
   padding: 15px;
@@ -657,7 +675,7 @@ h5 {
   box-shadow: 10px 10px 5px black;
 }
 #register-form {
-  background-color: grey;
+  background-color: #80808099;
   border-radius: 30px;
   text-align: center;
   padding: 15px;
@@ -668,7 +686,7 @@ h5 {
   box-shadow: 10px 10px 5px black;
 }
 #guest-form {
-  background-color: grey;
+  background-color: #80808099;
   border-radius: 30px;
   text-align: center;
   padding: 15px;
@@ -686,9 +704,8 @@ h5 {
   text-shadow: 2px 2px 2px black;
 }
 #about-container {
-  background-color: gray;
+  background-color: #80808099;
   color: white;
-  text-shadow: 3px 3px 3px black;
   border-radius: 30px;
   text-align: center;
   padding: 15px;
@@ -697,6 +714,13 @@ h5 {
   margin-top: 15px;
   width: 900px;
   box-shadow: 10px 10px 5px black;
+}
+#about-title{
+ text-shadow: 3px 3px 3px black;
+}
+#about-paragraph{
+  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
+    sans-serif;
 }
 #car-rental-img {
   height: 300px;
@@ -737,22 +761,57 @@ h5 {
   border-radius: 25px;
   height: 30px;
 }
-#order-button-green {
-  background-color: green;
-  border: none;
-  border-radius: 25px;
-  padding: 5px;
-  color: white;
+
+#order-button {
+  background-color: initial;
+  background-image: linear-gradient(
+    356deg,
+    #638798b8,
+    rgba(251, 60, 60, 0.658)
+  );
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  min-height: 35px;
+  line-height: 40px;
+  outline: 0;
+  font-weight: bold;
+  white-space: nowrap;
+  width: 50%;
+  border: 0;
+  transition: box-shadow 0.2s;
+  margin-bottom: 10px;
 }
-#order-button-green:hover {
-  background-color: rgb(2, 93, 2);
+#order-button:hover{
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
-#order-button-red {
-  background-color: red;
-  border: none;
-  border-radius: 25px;
-  padding: 5px;
-  color: white;
+#order-button-grey {
+  background-color: initial;
+  background-image: linear-gradient(
+    356deg,
+    #3a4f59b8,
+    rgba(111, 27, 27, 0.658)
+  );
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  min-height: 35px;
+  line-height: 40px;
+  outline: 0;
+  font-weight: bold;
+  white-space: nowrap;
+  width: 50%;
+  border: 0;
+  transition: box-shadow 0.2s;
+  margin-bottom: 10px;
 }
 #google-map {
   display: flex;
@@ -805,8 +864,11 @@ h5 {
 #cartAddBtn:hover {
   text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
-#checkout-container {
-  background-color: #cdcdcd77;
+
+#checkout-container{
+  /* background-color: #cdcdcd77; */
+  background-color: #80808099;
+
   color: rgb(0, 0, 0);
   border-radius: 30px;
   text-align: center;

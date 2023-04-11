@@ -46,7 +46,7 @@ function Guest(props) {
         Log in
       </button>
       <div>
-        <Link to="/register" id="back-button">
+        <Link to="/register" id="link">
           New user? Register Here.
         </Link>
       </div>
