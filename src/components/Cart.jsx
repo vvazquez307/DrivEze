@@ -16,12 +16,16 @@ function Cart() {
   }
 
   async function getCarData() {
-    let newArray = [];
+    // let newArray = [];
     if (data.length) {
-      newArray = data.map((e) => {
-        return getCarById(e.carId);
-      });
-      const carDataPromises = await Promise.all(newArray);
+      // newArray = data.map((e) => {
+      //   return getCarById(e.carId);
+      // });
+      const carDataPromises = [];
+      for (let i = 0; i < data.length; i++) {
+        carDataPromises.push(await getCarById(data[i].carId));
+      }
+      // const carDataPromises = await Promise.all(newArray);
       setCarDataArray(carDataPromises);
     }
   }
@@ -49,6 +53,8 @@ function Cart() {
         sum += e.daily_rate;
       });
       setTotalSum(sum);
+    } else {
+      setTotalSum(0);
     }
   }
 
@@ -117,7 +123,9 @@ function Cart() {
                       <h4 className="vehicleDetails">{car.hubLocation}</h4>
                       <br />
                     </div>
-                    <button onClick={() => deleteCar(car.id)} id="removeBtn">remove</button>
+                    <button onClick={() => deleteCar(car.id)} id="removeBtn">
+                      remove
+                    </button>
                   </div>
                 );
               })

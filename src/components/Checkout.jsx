@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import { useNavigate, Link, useLocation } from "react-router-dom";
+import { clearCart } from "../api-adapter";
 
 function Checkout() {
   const [name, setName] = useState("");
@@ -10,6 +10,7 @@ function Checkout() {
   const navigate = useNavigate();
   const location = useLocation();
   const totalCost = location.state.totalSum;
+  const token = localStorage.getItem("token");
 
   function checkName() {
     if (name.length < 6) {
@@ -47,6 +48,12 @@ function Checkout() {
     setTimeout(() => {
       navigate("/");
     }, 2500);
+  }
+
+  async function handleClearCart(token) {
+    const result = await clearCart(token);
+    console.log(result, " ////cart CLEARED/////");
+    return result;
   }
 
   useEffect(() => {
@@ -114,6 +121,7 @@ function Checkout() {
               <button
                 onClick={() => {
                   setPaymentStatus(true);
+                  handleClearCart(token);
                 }}
                 id="order-button"
               >

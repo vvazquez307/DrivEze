@@ -48,7 +48,7 @@ const Home = () => {
         </div>
         <div id="welcome-section-about">
           <div id="welcome-about">
-            <h1>About Us</h1>
+            <h1 className="homeHeaders">About Us</h1>
           </div>
           <div id="welcome-desc">
             <h3 className="homePageText">
