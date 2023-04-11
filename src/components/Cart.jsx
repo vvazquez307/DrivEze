@@ -53,6 +53,8 @@ function Cart() {
         sum += e.daily_rate;
       });
       setTotalSum(sum);
+    } else {
+      setTotalSum(0);
     }
   }
 
