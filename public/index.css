@@ -103,7 +103,7 @@ body {
 .allVehiclesButtons:hover,
 .hubInventoryButtons:hover,
 .nav-buttons:hover {
-  box-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 #app,
 .profile {
@@ -179,7 +179,7 @@ body {
   /* text color */
   background: linear-gradient(42deg, #0000 33%, #fff5, #0000 67%)
       var(--_p, 100%) / 300% no-repeat,
-    #e44b28d6;
+    #8d1c27;
   /* background color */
   color: #0000;
   border: none;
@@ -238,7 +238,7 @@ body {
 .cartTitle {
   border-top-left-radius: 25px;
   width: 70%;
-  background-image: linear-gradient(200deg, #d62839 50%, #faa340e3, #e18859e3);
+  background-image: linear-gradient(200deg, #d62839 50%, grey, white);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -249,7 +249,7 @@ body {
   border-top-right-radius: 25px;
   width: 30%;
 
-  background-image: linear-gradient(22deg, #d62839 50%, #faa340e3, #e18859e3);
+  background-image: linear-gradient(22deg, #d62839 50%, grey, white);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -309,7 +309,7 @@ body {
   transition: box-shadow 0.2s;
 }
 .editProfileBtn:hover{
-  box-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 .username,
 .id,
@@ -331,7 +331,7 @@ body {
   height: 60px;
 }
 .viewCart:hover{
-  text-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+  text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 .profilePageCartDiv{
   text-decoration: none;
@@ -347,10 +347,11 @@ body {
 }
 #cartLink {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 #cartLink:hover {
-  text-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+  color:white;
+  text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 #welcome-section {
   margin: 10px;
@@ -433,7 +434,8 @@ body {
   border-radius: 25px;
 }
 .allVehiclesBottomDiv {
-  border-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -554,13 +556,11 @@ body {
 #locations-list {
   text-decoration: none;
   margin: 15px;
-  /* margin-bottom: 20px; */
-  /* padding: 10px; */
   color: white;
   text-shadow: 2px 2px 2px black;
 }
 #locations-list:hover {
-  text-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+  text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 #hubs {
   background-color: #80808099;
@@ -576,15 +576,21 @@ body {
   height: 35%;
   box-shadow: 10px 10px 5px black;
 }
-#back-button {
+#back-button,
+#back-button-loc {
   text-decoration: none;
   display: flex;
   justify-content: flex-start;
-  margin-left: 5px;
   color: black;
 }
+#back-button-loc{
+  margin-top: 45px;
+}
 #back-button:hover {
-  text-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+  text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+}
+#back-button-loc:hover{
+  text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 #login-form {
   background-color: grey;
@@ -736,7 +742,7 @@ body {
   text-align: center;
 }
 #hub-location-btn:hover {
-  text-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+  text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 #cartAddBtn{
   text-decoration: none;
@@ -744,12 +750,11 @@ body {
   text-align: center;
 }
 #cartAddBtn:hover{
-  text-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+  text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 #checkout-container{
   background-color: #cdcdcd77;
   color: rgb(0, 0, 0);
-  /* text-shadow: 3px 3px 3px #d62839; */
   border-radius: 30px;
   text-align: center;
   padding: 15px;
@@ -790,8 +795,8 @@ body {
   margin-bottom:15px;
 }
 #removeBtn:hover{
-  box-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 #submitBtn:hover{
-  box-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
