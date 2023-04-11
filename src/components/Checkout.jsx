@@ -115,13 +115,13 @@ function Checkout() {
                 onClick={() => {
                   setPaymentStatus(true);
                 }}
-                id="order-button-green"
+                id="order-button"
               >
                 Complete Order
               </button>
             </div>
           ) : (
-            <button id="order-button-red">Complete Order</button>
+            <button id="order-button-grey">Complete Order</button>
           )}
         </div>
       )}
