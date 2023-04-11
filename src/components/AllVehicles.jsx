@@ -96,7 +96,7 @@ function AllVehicles(props) {
     return (
       <div>
         <Link to="/cart" state={{ cart: cart }}>
-          <button class="nav-buttons" role="button">
+          <button id="checkoutBtn" role="button">
             Checkout
           </button>
         </Link>

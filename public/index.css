@@ -50,7 +50,7 @@ body {
   display: inline-block;
   font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
     sans-serif;
-  height: 35px;
+  min-height: 35px;
   line-height: 40px;
   outline: 0;
   font-weight: bold;
@@ -97,7 +97,6 @@ body {
   width: 100%;
   border: 0;
   transition: box-shadow 0.2s;
-  margin-right: 5px;
 }
 .homePageButtons:hover,
 .allVehiclesButtons:hover,
@@ -307,6 +306,12 @@ body {
   white-space: nowrap;
   border: 0;
   transition: box-shadow 0.2s;
+}
+.cancelEditBtn:hover{
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+}
+.submitEditBtn:hover{
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 .editProfileBtn:hover{
   box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
@@ -768,7 +773,8 @@ body {
   text-align: center;
 }
 #removeBtn,
-#submitBtn{
+#submitBtn,
+#checkoutBtn{
   background-color: initial;
   background-image: linear-gradient(
     356deg,
@@ -798,5 +804,12 @@ body {
   box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 #submitBtn:hover{
+  box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+}
+#checkoutBtn{
+  width: 100%;
+  margin: 5px;
+}
+#checkoutBtn:hover{
   box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
