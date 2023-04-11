@@ -74,3 +74,16 @@ export const removeCarFromCart = async (token, carId) => {
     console.log(error);
   }
 };
+
+export const clearCart = async (token) => {
+  try {
+    const response = await fetch(`${BASE_URL}cart/clear-cart/`, {
+      method: "DELETE",
+      headers: makeHeaders(token),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
