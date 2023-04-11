@@ -8,7 +8,6 @@ function Cart() {
   const [carDataArray, setCarDataArray] = useState([]);
   const [totalSum, setTotalSum] = useState(0);
   const token = localStorage.getItem("token");
-  console.log(carDataArray, "carDataArray");
 
   // const totalCost = total;
   async function getCartData() {
@@ -29,9 +28,18 @@ function Cart() {
 
   async function deleteCar(carId) {
     const deletedCar = await removeCarFromCart(token, carId);
-    if (deletedCar) {
-      window.location.reload();
-    }
+    console.log(deletedCar, " ///deletedCar///");
+    const cartCopy = [...carDataArray];
+    console.log(cartCopy, " ///cartCopy///");
+    const filteredCart = cartCopy.filter((car) => {
+      if (car.id !== carId) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    console.log(filteredCart, " ///filteredCart///");
+    setCarDataArray(filteredCart);
   }
 
   function getTotalCost() {
