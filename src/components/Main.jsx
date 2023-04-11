@@ -25,10 +25,6 @@ const Main = () => {
   );
   const [locations, setLocations] = useState([]);
 
-  console.log(isLoggedIn, "logged in Main");
-  console.log(isGuestUser, "guest user main");
-  console.log(locations, "locations in Main");
-
   useEffect(() => {
     async function allHubs() {
       let hubs = await getAllHubs();

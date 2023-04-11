@@ -13,8 +13,6 @@ function AllVehicles(props) {
   const token = localStorage.getItem("token");
   const loggedIn = props.isLoggedIn;
   const guestUser = props.guestUser;
-  console.log(vehicles);
-  console.log(tags, "tags");
 
   const initialCartMessages = vehicles.map((vehicle) => ({
     id: vehicle.id,
@@ -79,7 +77,6 @@ function AllVehicles(props) {
       const newCartMessages = [...cartMessages];
       newCartMessages[index].cartMessage = "Vehicle added to cart";
       setCartMessages(newCartMessages);
-      console.log(result);
       setCart(result);
     } catch (error) {
       console.log(error);
@@ -107,78 +104,80 @@ function AllVehicles(props) {
 
   return (
     <>
-            <div id="inventory-container">
-      <div className="allVehiclesPage">
-        <div className="allVehiclesTopDiv">
-          <div className="searchBarDiv">
-            <input
-              type="text"
-              placeholder="Search"
-              value={searchTerm}
-              onChange={searchHandle}
-              className="searchBar"
-            />
+      <div id="inventory-container">
+        <div className="allVehiclesPage">
+          <div className="allVehiclesTopDiv">
+            <div className="searchBarDiv">
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchTerm}
+                onChange={searchHandle}
+                className="searchBar"
+              />
+            </div>
+            <div className="filters">
+              <select
+                className="dropDown"
+                onChange={(e) => handleTagSelect(e.target.value)}
+              >
+                <option value="">All</option>
+                {tags.map((tag) => (
+                  <option key={tag.id} value={tag.id}>
+                    {tag.name}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
-          <div className="filters">
-            <select
-              className="dropDown"
-              onChange={(e) => handleTagSelect(e.target.value)}
-            >
-              <option value="">All</option>
-              {tags.map((tag) => (
-                <option key={tag.id} value={tag.id}>
-                  {tag.name}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-        <Link to="/locations" id="hub-location-btn">Browse by hub location.</Link>
-        {cart.id ? checkoutButton() : null}
-        <div className="allVehiclesBottomDiv">
-          {searchedVehicle.map((vehicle, index) => (
-            <div className="vehicleListing" key={vehicle.id}>
-              <div className="vehicleImgBox">
-                <img
-                  className="vehicleImg"
-                  src={vehicle.image}
-                  alt={vehicle.name}
-                />
-                <div className="vehicleName">
-                  <h3>{vehicle.name}</h3>
+          <Link to="/locations" id="hub-location-btn">
+            Browse by hub location.
+          </Link>
+          {cart.id ? checkoutButton() : null}
+          <div className="allVehiclesBottomDiv">
+            {searchedVehicle.map((vehicle, index) => (
+              <div className="vehicleListing" key={vehicle.id}>
+                <div className="vehicleImgBox">
+                  <img
+                    className="vehicleImg"
+                    src={vehicle.image}
+                    alt={vehicle.name}
+                  />
+                  <div className="vehicleName">
+                    <h3>{vehicle.name}</h3>
+                  </div>
+                </div>
+                <div className="vehicleDescription">
+                  <h3 className="vehicleDetails">Vehicle information:</h3>
+                  <h4 className="vehicleDetails">{vehicle.description}</h4>
+                  <br />
+
+                  <h3 className="vehicleDetails">Daily rate:</h3>
+                  <h4 className="vehicleDetails">${vehicle.daily_rate}</h4>
+                  <br />
+                  <h3 className="vehicleDetails">Hub location</h3>
+                  <h4 className="vehicleDetails">{vehicle.hubLocation}</h4>
+                  <br />
+                </div>
+                <div className="addToCart">
+                  <button
+                    className="addToCartBtn"
+                    onClick={() => {
+                      addVehicleToCart(
+                        token,
+                        vehicle.id,
+                        vehicle.daily_rate,
+                        index
+                      );
+                    }}
+                  >
+                    {cartMessages[index].cartMessage}
+                  </button>
                 </div>
               </div>
-              <div className="vehicleDescription">
-                <h3 className="vehicleDetails">Vehicle information:</h3>
-                <h4 className="vehicleDetails">{vehicle.description}</h4>
-                <br />
-
-                <h3 className="vehicleDetails">Daily rate:</h3>
-                <h4 className="vehicleDetails">${vehicle.daily_rate}</h4>
-                <br />
-                <h3 className="vehicleDetails">Hub location</h3>
-                <h4 className="vehicleDetails">{vehicle.hubLocation}</h4>
-                <br />
-              </div>
-              <div className="addToCart">
-                <button
-                  className="addToCartBtn"
-                  onClick={() => {
-                    addVehicleToCart(
-                      token,
-                      vehicle.id,
-                      vehicle.daily_rate,
-                      index
-                    );
-                  }}
-                >
-                  {cartMessages[index].cartMessage}
-                </button>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
         <Link to="/" id="back-button">
           Go Back
         </Link>

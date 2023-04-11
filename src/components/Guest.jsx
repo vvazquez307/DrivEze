@@ -14,7 +14,6 @@ function Guest(props) {
       return;
     }
     const result = await guestUser(guestName);
-    console.log(result, "RESULT LOG");
     if (result.token) {
       alert(result.message);
       const cart = await getCart(result.token);
@@ -24,7 +23,6 @@ function Guest(props) {
       localStorage.setItem("token", result.token);
       localStorage.setItem("isGuestUser", true);
       localStorage.setItem("guestName", guestName);
-      console.log(cart, "cart log");
       localStorage.setItem(`guest cart ${guestName}`, JSON.stringify(cart));
       navigate("/vehicleList");
     } else {
@@ -44,9 +42,13 @@ function Guest(props) {
           placeholder="Enter a Temporary Username"
         />
       </div>
-      <button type="submit" id="button">Log in</button>
+      <button type="submit" id="button">
+        Log in
+      </button>
       <div>
-        <Link to="/register" id="back-button">New user? Register Here.</Link>
+        <Link to="/register" id="back-button">
+          New user? Register Here.
+        </Link>
       </div>
     </form>
   );

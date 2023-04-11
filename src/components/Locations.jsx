@@ -8,7 +8,6 @@ function AllHubs(props) {
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API,
-    //googleMapsApiKey: "AIzaSyDb0ZVBtDqitiD-9rhAzlIDFFwnEAfdOak",
   });
 
   // If the maps script hasn't loaded yet, display a loading message.
@@ -24,7 +23,13 @@ function AllHubs(props) {
           <div className="hubViewDiv">
             <div id="hub-view" key={location.id}>
               {/* <h3 id="locations-list"> */}
-              <Link to={`/hub/${location.id}`} id="locations-list">
+              <Link
+                to={{
+                  pathname: `/hub/${location.id}`,
+                  state: { hubs: hubs },
+                }}
+                id="locations-list"
+              >
                 {location.location}
               </Link>
               {/* </h3> */}
@@ -43,8 +48,6 @@ function AllHubs(props) {
 }
 
 function Map(props) {
-  console.log(props, "propsLog");
-
   const mapContainerStyle = {
     width: "100%",
     height: "60%",

@@ -8,8 +8,6 @@ function Profile(props) {
   const [editing, setEditing] = useState(false);
   let token = localStorage.getItem("token");
   let active = user.active;
-  console.log(user, "USER LOG");
-  console.log(props.locations);
 
   if (!token) {
     return (

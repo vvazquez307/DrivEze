@@ -16,7 +16,7 @@ const Register = () => {
       return;
     }
     const result = await registerUser(username, password, email);
-    console.log(result, "RESULT LOG");
+
     if (result.token) {
       alert("Account created successfully!");
       navigate("/login");
