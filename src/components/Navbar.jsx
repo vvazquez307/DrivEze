@@ -25,17 +25,17 @@ const Navbar = (props) => {
       <div className="navButtonsDiv">
         {!props.isLoggedIn && (
           <React.Fragment>
-            <Link to="/login" id="button">
+            <Link to="/login">
               <button class="nav-buttons" role="button">
                 Login
               </button>
             </Link>
-            <Link to="/register" id="button">
+            <Link to="/register">
               <button class="nav-buttons" role="button">
                 Register
               </button>
             </Link>
-            <Link to="/guest" id="button">
+            <Link to="/guest">
               <button class="nav-buttons" role="button">
                 Guest
               </button>

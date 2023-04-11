@@ -402,15 +402,6 @@ body {
   -ms-transition: all 1s ease;
   transition: all 0.5s ease;
 }
-
-#button:hover {
-  -webkit-filter: brightness(70%);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
 #available-button {
   text-decoration: none;
   border-radius: 25px;
@@ -771,7 +762,8 @@ body {
 #final-screen{
   text-align: center;
 }
-#removeBtn{
+#removeBtn,
+#submitBtn{
   background-color: initial;
   background-image: linear-gradient(
     356deg,
@@ -790,10 +782,16 @@ body {
   outline: 0;
   font-weight: bold;
   white-space: nowrap;
-  width: 20%;
+  width: 30%;
   border: 0;
   transition: box-shadow 0.2s;
 }
+#submitBtn{
+  margin-bottom:15px;
+}
 #removeBtn:hover{
+  box-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
+}
+#submitBtn:hover{
   box-shadow: rgba(253, 76, 0, 2) 0 3px 8px;
 }
