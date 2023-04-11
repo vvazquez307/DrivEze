@@ -20,6 +20,7 @@ import AdminInventory from "./AdminInventory";
 import AdminTags from "./AdminTags";
 import AdminEditPage from "./AdminAddCar";
 import AdminAddCarPage from "./AdminAddCar";
+import AdminAddHub from "./AdminAddHub";
 
 //this is to start a branch
 const Main = () => {
@@ -152,6 +153,10 @@ const Main = () => {
           <Route
             path="/adminAddCar"
             element={<AdminAddCarPage isAdmin={isAdmin}></AdminAddCarPage>}
+          />
+          <Route
+            path="/adminAddHub"
+            element={<AdminAddHub isAdmin={isAdmin}></AdminAddHub>}
           />
         </Routes>
       </div>

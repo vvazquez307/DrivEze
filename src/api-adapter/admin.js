@@ -77,3 +77,42 @@ export async function createCar(token, fields)
         console.log(e);
     }
 }
+
+export async function addHub(token, fields)
+{
+    try
+    {
+        const repsonse = await fetch(`${BASE_URL}hubs/`,{
+            method:"POST",
+            headers:makeHeaders(token),
+            body: JSON.stringify({...fields}),
+        });
+        const result = await response.json();
+
+        return result;
+    }
+    catch(e)
+    {
+        console.log(e);
+    }
+}
+
+export async function deleteHub(token, id)
+{
+    console.log("ID: ", id)
+    try
+    {  
+        const response = await fetch(`${BASE_URL}hubs/`,{
+            method:"DELETE",
+            headers:makeHeaders(token),
+            body: JSON.stringify({id}),
+        });
+        const result = await response.json();
+
+        return result;
+    }
+    catch(e)
+    {
+        console.log(e);
+    }
+}
