@@ -27,13 +27,14 @@ const Home = () => {
       <div className="homePageRight">
         <div id="welcome-section-locations">
           <div id="welcome-locations">
-            <h1>Convenient locations across the United States</h1>
+            <h1 className="homeHeaders">
+              Convenient locations across the United States
+            </h1>
           </div>
           <div id="welcome-desc">
             <h3 className="homePageText">
               Our rental locations are strategically placed to make it easy and
-              convenient for you to rent from us. Whether you need a car for a
-              day or a month, we have a location that can serve you.
+              convenient for you to rent from us.
             </h3>
             <div className="mapImgDiv">
               <img className="mapImg" src="./images/map.png" alt="map" />
@@ -47,7 +48,7 @@ const Home = () => {
         </div>
         <div id="welcome-section-about">
           <div id="welcome-about">
-            <h1>About Us</h1>
+            <h1 className="homeHeaders">About Us</h1>
           </div>
           <div id="welcome-desc">
             <h3 className="homePageText">

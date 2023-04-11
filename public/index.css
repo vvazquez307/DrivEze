@@ -8,7 +8,7 @@ body {
   overflow-y: auto;
 }
 #navbar {
-  position:sticky;
+  position: sticky;
   background-image: linear-gradient(
     289deg,
     #4a484800,
@@ -220,7 +220,7 @@ body {
   border: 1px solid black;
   border-radius: 25px;
   height: 70%;
-  width:300px;
+  width: 300px;
   /* min-width: 300px; */
   display: flex;
   flex-direction: column;
@@ -308,13 +308,13 @@ body {
   border: 0;
   transition: box-shadow 0.2s;
 }
-.cancelEditBtn:hover{
+.cancelEditBtn:hover {
   box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
-.submitEditBtn:hover{
+.submitEditBtn:hover {
   box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
-.editProfileBtn:hover{
+.editProfileBtn:hover {
   box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 .username,
@@ -326,7 +326,7 @@ body {
 .form-control {
   margin: 0;
 }
-.id{
+.id {
   margin-top: 10px;
 }
 .viewCart {
@@ -336,10 +336,10 @@ body {
   margin: 0;
   height: 60px;
 }
-.viewCart:hover{
+.viewCart:hover {
   text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
-.profilePageCartDiv{
+.profilePageCartDiv {
   text-decoration: none;
   margin-top: 10px;
   text-align: center;
@@ -356,7 +356,7 @@ body {
   color: black;
 }
 #cartLink:hover {
-  color:white;
+  color: white;
   text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 #welcome-section,
@@ -408,9 +408,19 @@ body {
   justify-content: center;
   height: 100%;
 }
+@media only screen and (max-width: 875px) {
+  .home-page {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
 .homePageText {
   font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
     sans-serif;
+}
+.homeHeaders {
+  margin: 5px;
 }
 #home-buttons {
   display: flex;
@@ -619,15 +629,14 @@ body {
   color: black;
 }
 
-#back-button-loc{
+#back-button-loc {
   margin-top: 45px;
 }
 #back-button:hover {
   text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
-#back-button-loc:hover{
+#back-button-loc:hover {
   text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
-
 }
 #login-form {
   background-color: grey;
@@ -725,10 +734,10 @@ body {
   background-color: green;
   border: none;
   border-radius: 25px;
-  padding:5px;
+  padding: 5px;
   color: white;
 }
-#order-button-green:hover{
+#order-button-green:hover {
   background-color: rgb(2, 93, 2);
 }
 #order-button-red {
@@ -781,15 +790,15 @@ body {
 #hub-location-btn:hover {
   text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
-#cartAddBtn{
+#cartAddBtn {
   text-decoration: none;
   color: black;
   text-align: center;
 }
-#cartAddBtn:hover{
+#cartAddBtn:hover {
   text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
-#checkout-container{
+#checkout-container {
   background-color: #cdcdcd77;
   color: rgb(0, 0, 0);
   border-radius: 30px;
@@ -801,12 +810,12 @@ body {
   width: 500px;
   box-shadow: 10px 10px 5px black;
 }
-#final-screen{
+#final-screen {
   text-align: center;
 }
 #removeBtn,
 #submitBtn,
-#checkoutBtn{
+#checkoutBtn {
   background-color: initial;
   background-image: linear-gradient(
     356deg,
@@ -829,19 +838,19 @@ body {
   border: 0;
   transition: box-shadow 0.2s;
 }
-#submitBtn{
-  margin-bottom:15px;
+#submitBtn {
+  margin-bottom: 15px;
 }
-#removeBtn:hover{
+#removeBtn:hover {
   box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
-#submitBtn:hover{
+#submitBtn:hover {
   box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
-#checkoutBtn{
+#checkoutBtn {
   width: 100%;
   margin: 5px;
 }
-#checkoutBtn:hover{
+#checkoutBtn:hover {
   box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
