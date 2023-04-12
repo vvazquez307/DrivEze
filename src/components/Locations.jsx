@@ -5,7 +5,7 @@ import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 function AllHubs(props) {
   const [hubs, setHubs] = useState([]);
-
+  
   useEffect(() => {
     async function getHubs() {
       const hub = await getAllHubs();
