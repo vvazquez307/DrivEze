@@ -116,3 +116,22 @@ export async function deleteHub(token, id)
         console.log(e);
     }
 }
+
+export async function deleteCarFromHubInventory(carId, hubId, token)
+{
+    try
+    {
+        const response = await fetch(`${BASE_URL}inventory/`, {
+            method:"DELETE",
+            headers:makeHeaders(token),
+            body: JSON.stringify({carId, hubId}),
+        })
+        const result = await response.json();
+
+        return result;
+    }
+    catch(e)
+    {
+        console.log(e);
+    }
+}
