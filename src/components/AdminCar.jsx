@@ -175,10 +175,10 @@ function AdminCar(props)
 
     return(
         <div style={{display:"flex", flexDirection:"column", position:"relative",}}>
-            {
-                        showEdit? <div style={{position:"absolute"}}>{EditInfo(editCar)}</div> : null
-            }
             <button id="button" onClick={()=>navigate("/adminAddCar")}>add car</button>
+            {
+                        showEdit? <div>{EditInfo(editCar)}</div> : null
+            } 
             {
                 isAdmin?
                 <div style={{display:"flex", flexDirection:"column", paddingLeft:"300px"}}> 
