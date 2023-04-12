@@ -103,7 +103,7 @@ function Cart() {
               )}
             </div>
           </div>
-          <div className="allVehiclesBottomDiv">
+          <div className="allVehiclesBottomCartDiv">
             {carDataArray.length ? (
               carDataArray.map((car, idx) => {
                 return (

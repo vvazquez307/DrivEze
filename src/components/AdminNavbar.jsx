@@ -21,9 +21,6 @@ function AdminNavbar()
                 </Link>
             </div>
             <div id="nav-buttons">
-                <Link to="/adminTags">
-                    <button id="button">Tags</button>
-                </Link>
                 <Link to="/adminInventory">
                     <button id="button">Inventory</button>
                 </Link>

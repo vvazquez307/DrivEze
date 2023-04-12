@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAllHubs } from "../api-adapter/hub";
 import { createCar } from "../api-adapter/admin";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 
 function AdminAddCarPage()
@@ -35,7 +35,7 @@ function AdminAddCarPage()
     }   
 
     return (
-        <div>
+        <div id="new-car-form">
             <h1>Add New Car</h1>
             <div id="editForm">
                 <form onSubmit={CreateNewCar}>
@@ -92,6 +92,7 @@ function AdminAddCarPage()
                         </select>
                     </label>
                     <br/>
+                    <Link to="/AdminCars"><button id="button">Back</button></Link>
                     <button id="button" type="submit">Add Car</button>
                 </form>
             </div>

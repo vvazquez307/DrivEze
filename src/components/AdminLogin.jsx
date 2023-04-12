@@ -28,24 +28,26 @@ function AdminLoginPage()
     }
 
     return(
-        <div>
+        <div id="login-form">
             <h1>Admin Login</h1>
             <form onSubmit={(event)=>submitLogin(event)}>
                 <label>
-                    username
                     <input 
                         type="username"
                         onInput={(event)=>setUsername(event.target.value)}
+                        placeholder="Admin User"
+                        id="text-box"
                     />
                 </label>
                 <label>
-                    password
                     <input
                         type="password"
                         onInput={(event)=>setPassword(event.target.value)}
+                        placeholder="Admin Password"
+                        id="text-box"
                     />
                 </label>
-                <button type="submit">Login</button>
+                <button id="button" type="submit">Login to Admin</button>
             </form>
         </div>
     )
