@@ -3,12 +3,15 @@ import { updateUser } from "../api-adapter/profile";
 
 const UpdateUserForm = (props) => {
   const [username, setUsername] = useState(props.user.username);
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState(props.user.email);
 
+  const [email, setEmail] = useState(props.user.email);
+  const [password, setPassword] = useState(
+    localStorage.getItem("password") || ""
+  );
   const [active, setActive] = useState(props.user.active);
   const [submitMessage, setSubmitMessage] = useState("");
   const token = localStorage.getItem("token");
+  console.log(password, "password log");
 
   const handleSubmit = (event) => {
     event.preventDefault();

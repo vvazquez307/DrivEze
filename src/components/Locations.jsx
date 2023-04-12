@@ -23,41 +23,46 @@ function AllHubs(props) {
   // Render the map with the hubs.
   return (
     <>
-      <div id="hubs">
-        <h1 id="hub-title-text">All Hub Locations</h1>
+      <div className="locationsContainer">
+        <div id="hubs">
+          <h1 id="hub-title-text">All Hub Locations</h1>
 
-        {hubs.map((location) => (
-          <div className="hubViewDiv">
-            <div id="hub-view" key={location.id}>
-              {/* <h3 id="locations-list"> */}
-              <Link
-                to={{
-                  pathname: `/hub/${location.id}`,
-                  state: { hubs: hubs },
-                }}
-                id="locations-list"
-              >
-                {location.location}
-              </Link>
-              {/* </h3> */}
+          {hubs.map((location) => (
+            <div className="hubViewDiv">
+              <div id="hub-view" key={location.id}>
+                {/* <h3 id="locations-list"> */}
+                <Link
+                  to={{
+                    pathname: `/hub/${location.id}`,
+                    state: { hubs: hubs },
+                  }}
+                  id="locations-list"
+                >
+                  {location.location}
+                </Link>
+                {/* </h3> */}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* Render the map with the hubs */}
+        <Map hubs={hubs} />
+      </div>
+      <div className="backBtnContainer">
         <Link to="/" id="back-button-loc">
           Go Back
         </Link>
       </div>
-
-      {/* Render the map with the hubs */}
-      <Map hubs={hubs} />
     </>
   );
 }
 
 function Map(props) {
   const mapContainerStyle = {
-    width: "100%",
-    height: "60%",
+    width: "47%",
+    height: "85%",
+    margin: "25px",
   };
 
   const center = {
