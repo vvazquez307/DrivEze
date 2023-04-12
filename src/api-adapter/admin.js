@@ -117,6 +117,26 @@ export async function deleteHub(token, id)
     }
 }
 
+export async function addCarToHubInventory(carId, hubId, token)
+{
+    try
+    {
+        const response = await fetch(`${BASE_URL}inventory/${hubId}`,
+        {
+            method:"POST",
+            headers:makeHeaders(token),
+            body: JSON.stringify({carId}),
+        });
+        const result = await response.json();
+
+        return result;
+    }
+    catch(e)
+    {
+        console.log(e)
+    }
+}
+
 export async function deleteCarFromHubInventory(carId, hubId, token)
 {
     try
