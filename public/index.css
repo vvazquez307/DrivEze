@@ -396,6 +396,7 @@ h5 {
 .carLotImg {
   width: 445px;
   border-radius: 25px;
+  margin-top: 10px;
 }
 #welcome-section,
 #welcome-section-locations,
@@ -410,6 +411,7 @@ h5 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 #welcome-user {
   text-align: center;
@@ -450,8 +452,9 @@ h5 {
   margin: 5px;
 }
 .mapImg {
-  height: 100px;
+  height: 75px;
   transform: rotate3d(1, 1, 1, 5deg);
+  margin-bottom: 10px;
 }
 .aboutImg {
   height: 100px;
@@ -467,18 +470,31 @@ h5 {
   justify-content: center;
   height: 90%;
 }
-@media only screen and (max-width: 875px) {
+@media only screen and (max-width: 840px) {
   .home-page,
   #about-container {
-    padding-top: 85px;
+    padding-top: 150px;
     flex-direction: column;
-    align-items: center;
+    align-content: center;
     justify-content: center;
+  }
+}
+@media only screen and (max-width: 350px) {
+  #welcome-section,
+  #welcome-section-about{
+    min-width: 300px;
+    height:auto;
+  }
+  #welcome-section-locations{
+    margin-top: 70px;
+    min-width: 300px;
+    height:auto;
   }
 }
 .homePageText {
   font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
     sans-serif;
+    margin-bottom: 0;
 }
 .homeHeaders {
   margin: 5px;
