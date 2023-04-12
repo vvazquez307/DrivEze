@@ -6,6 +6,7 @@ function Checkout() {
   const [name, setName] = useState("");
   const [ccNumber, setCCNumber] = useState("");
   const [securityNumber, setSecurityNumber] = useState("");
+  const [ccDate, setCCDate] = useState("");
   const [paymentStatus, setPaymentStatus] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -28,6 +29,13 @@ function Checkout() {
       return true;
     }
   }
+  function checkCCDate() {
+    if (ccDate.length < 3 || ccDate.length > 5) {
+      return false;
+    } else {
+      return true;
+    }
+  }
   function checkSecurityNumber() {
     if (securityNumber.length < 3 || securityNumber.length > 3) {
       //   return <p>Invalid Security Number</p>;
@@ -37,7 +45,12 @@ function Checkout() {
     }
   }
   function checkAllInputs() {
-    if (checkName() && checkCCNumber() && checkSecurityNumber()) {
+    if (
+      checkName() &&
+      checkCCNumber() &&
+      checkSecurityNumber() &&
+      checkCCDate()
+    ) {
       console.log("inputs are all true");
       return true;
     } else {
@@ -89,6 +102,17 @@ function Checkout() {
               placeholder="1111-2222-3333-4444"
               value={ccNumber}
               onChange={(event) => setCCNumber(event.target.value)}
+              id="text-box"
+            />
+          </div>
+          <div id="credit-card-date-input">
+            <label>Credit card expire date: </label>
+            <input
+              type="text"
+              name="credit-card-date"
+              placeholder="09/26"
+              value={ccDate}
+              onChange={(event) => setCCDate(event.target.value)}
               id="text-box"
             />
           </div>
