@@ -5,6 +5,7 @@ import { getAllHubs } from "../api-adapter/hub";
 import { updateCar } from "../api-adapter/admin";
 
 
+
 function AdminCar(props)
 {
     const navigate = useNavigate();
@@ -70,8 +71,8 @@ function AdminCar(props)
                 <br />
                 <h3 className="vehicleDetails">Hub location</h3>
                 <h4 className="vehicleDetails">{vehicle.hubLocation}</h4>
-                <button onClick={()=>Delete(vehicle.id)}>delete</button>
-                <button onClick={()=>Edit(vehicle)}>edit</button>
+                <button onClick={()=>Edit(vehicle)} id="button">edit</button>
+                <button onClick={()=>Delete(vehicle.id)} id="button">delete</button>
                 <br />
               </div>
               </div>
@@ -167,6 +168,7 @@ function AdminCar(props)
                         </select>
                     </label>
                     <br/>
+                    <button id="button" onClick="window.location.reload();">Back</button>
                     <button id="button" type="submit">Update</button>
                 </form>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { addHub } from "../api-adapter/admin";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function AdminAddHub()
 {
@@ -17,7 +18,7 @@ function AdminAddHub()
     }
 
     return(
-        <div>
+        <div id="hub-form">
             <h1>Add Hub</h1>
             <form onSubmit={CreateNewHub}>
                 <label>
@@ -49,6 +50,7 @@ function AdminAddHub()
                         />
                     </label>
                     <br/>
+                    <Link to="/adminHubs"><button id="button">Back</button></Link>
                     <button id="button"type="submit">Add New Hub</button>
                 </label>
             </form>

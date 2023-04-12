@@ -42,7 +42,6 @@ function AdminHubs(props)
                                     
                                     <h3>{hub.location}</h3>
                                     <button id="button" onClick={()=>DeleteHub(hub.id)}>Delete</button>
-                                    <button id="button">Inventory</button>
                                 </div>
                             )
                         })
