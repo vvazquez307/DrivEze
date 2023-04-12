@@ -85,8 +85,6 @@ function Checkout() {
             <label>Credit card #: </label>
             <input
               type="text"
-              pattern="[0-9]{16}"
-              maxlength="16"
               name="credit-card-number"
               placeholder="1111-2222-3333-4444"
               value={ccNumber}
