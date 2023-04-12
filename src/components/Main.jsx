@@ -10,6 +10,7 @@ import Cart from "./Cart";
 import Guest from "./Guest";
 import Checkout from "./Checkout";
 import { getAllHubs } from "../api-adapter/hub";
+import HubInventory from "./HubInventory";
 import AdminLoginPage from "./AdminLogin";
 import AdminPage from "./Admin";
 import { authAdmin } from "../api-adapter/admin";
@@ -32,13 +33,12 @@ const Main = () => {
     localStorage.getItem("guestName") || ""
   );
   const [locations, setLocations] = useState([]);
-  
+
   const [isAdmin, setIsAdmin] = useState(false);
 
-  const checkAdminStatus = async ()=>
-  {
+  const checkAdminStatus = async () => {
     setIsAdmin(await authAdmin(localStorage.getItem("token")));
-  }
+  };
   checkAdminStatus();
   console.log(isLoggedIn, "logged in Main");
   console.log(isGuestUser, "guest user main");
@@ -65,9 +65,11 @@ const Main = () => {
   return (
     <BrowserRouter>
       <div id="main">
-        {
-          !isAdmin ? <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> : <AdminNavbar/> 
-        }
+        {!isAdmin ? (
+          <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
+        ) : (
+          <AdminNavbar />
+        )}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile locations={locations} />} />
@@ -103,6 +105,12 @@ const Main = () => {
             element={<Locations setLocations={setLocations} />}
           />
           <Route
+            path="/hub/:id"
+            element={
+              <HubInventory locations={locations} isLoggedIn={isLoggedIn} />
+            }
+          />
+          <Route
             path="/adminLogin"
             element={<AdminLoginPage></AdminLoginPage>}
           />
@@ -136,7 +144,9 @@ const Main = () => {
           />
           <Route
             path="/adminCars"
-            element={<AdminCar locations={locations} isAdmin={isAdmin}></AdminCar>}
+            element={
+              <AdminCar locations={locations} isAdmin={isAdmin}></AdminCar>
+            }
           />
           <Route
             path="/adminHubs"

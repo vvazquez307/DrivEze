@@ -1,5 +1,5 @@
-// export const BASE_URL = "https://driveze-api.onrender.com/api/";
-export const BASE_URL = "http://localhost:3000/api/";
+export const BASE_URL = "https://driveze-api.onrender.com/api/";
+//export const BASE_URL = "http://localhost:3000/api/";
 
 export function makeHeaders(token) {
   const header = { "Content-Type": "application/json" };
@@ -75,26 +75,20 @@ export const removeCarFromCart = async (token, carId) => {
   }
 };
 
-
-export const deleteCar = async (token, carId)=>
-{
-  try
-  {
-    const response = await fetch(`${BASE_URL}cars/`,
-    {
-      method:"DELETE",
-      headers:makeHeaders(token),
-      body: JSON.stringify({carId})
+export const deleteCar = async (token, carId) => {
+  try {
+    const response = await fetch(`${BASE_URL}cars/`, {
+      method: "DELETE",
+      headers: makeHeaders(token),
+      body: JSON.stringify({ carId }),
     });
     const result = await response.json();
 
     return result;
-  }
-  catch(e)
-  {
+  } catch (e) {
     console.log(e);
   }
-}
+};
 
 export const clearCart = async (token) => {
   try {
@@ -108,4 +102,3 @@ export const clearCart = async (token) => {
     console.log(error);
   }
 };
-
