@@ -9,23 +9,19 @@ function HubInventory(props) {
   const [inventory, setInventory] = useState([]);
   const [cars, setCars] = useState([]);
   const [cart, setCart] = useState({});
+  const [cartMessages, setCartMessages] = useState([]);
   const token = localStorage.getItem("token");
   const loggedIn = props.isLoggedIn;
   const guestUser = props.guestUser;
   const locations = props.locations;
 
-  const initialCartMessages = cars.map((vehicle) => ({
-    id: cars.id,
-    cartMessage: "Add to cart",
-  }));
-
-  const [cartMessages, setCartMessages] = useState(initialCartMessages);
+  console.log(locations, "LOCATIONS LOG");
 
   // Get the hub information
-  const hub = locations.find((location) => location.id === Number(id));
-
+  const hub = Array.isArray(locations)
+    ? locations.find((location) => location.id === Number(id))
+    : null;
   const hubName = hub ? hub.location : "";
-
   useEffect(() => {
     async function fetchInventory() {
       const inventory = await hubInventory(id);
@@ -38,13 +34,13 @@ function HubInventory(props) {
     async function fetchCarDetails() {
       const carIds = inventory.map((car) => car.carId);
       const cars = await Promise.all(carIds.map((carId) => getCarById(carId)));
+
       setCars(cars);
-      setCartMessages(
-        cars.map((car) => ({
-          id: car.id,
-          cartMessage: "Add to cart",
-        }))
-      );
+      const initialCartMessages = cars.map((vehicle) => ({
+        id: vehicle.id,
+        cartMessage: "Add to cart",
+      }));
+      setCartMessages(initialCartMessages);
     }
     if (inventory.length > 0) {
       fetchCarDetails();
