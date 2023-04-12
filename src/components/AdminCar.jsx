@@ -25,8 +25,8 @@ function AdminCar(props)
     async function Delete(carId)
     {   
        const token = localStorage.getItem("token");
-       const deleteResposne = await deleteCar(token, carId);
-       console.log(deleteResposne);
+       const deleteResponse = await deleteCar(token, carId);
+       console.log(deleteResponse);
        window.location.reload();
     }
     useEffect(()=>
@@ -95,7 +95,7 @@ function AdminCar(props)
 
     async function Update()
     {
-        event.preventDefault();
+        e.preventDefault();
         console.log("here")
         console.log(await updateCar(localStorage.getItem("token"), {carId:editCar.id,image:updateImgURL, name:updateName, description:updateDescription, daily_rate:updateDailyRate, hubLocation:updateLocation}));
         window.location.reload();
@@ -168,7 +168,7 @@ function AdminCar(props)
                         </select>
                     </label>
                     <br/>
-                    <button id="button" onClick="window.location.reload();">Back</button>
+                    <button id="button" type="cancel">Back</button>
                     <button id="button" type="submit">Update</button>
                 </form>
             </div>
@@ -176,16 +176,15 @@ function AdminCar(props)
     }
 
     return(
-        <div style={{display:"flex", flexDirection:"column", position:"relative",}}>
+        // <div style={{display:"flex", flexDirection:"column", position:"relative",}}>
+        <div>
             {
-                        showEdit? <div style={{position:"absolute"}}>{EditInfo(editCar)}</div> : null
+                        showEdit? <div style={{position: "fixed"}}>{EditInfo(editCar)}</div> : null
             }
+            <div id="admin-car-header">
             <h1 id="admin-location">Admin Cars Page</h1>
             <button id="addCarsBtn" onClick={()=>navigate("/adminAddCar")}>Add Car</button>
-
-            {
-                        showEdit? <div>{EditInfo(editCar)}</div> : null
-            } 
+            </div>
             {
                 isAdmin?
                 <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}> 
