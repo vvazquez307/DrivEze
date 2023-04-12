@@ -96,7 +96,9 @@ function AllVehicles(props) {
     return (
       <div>
         <Link to="/cart" state={{ cart: cart }}>
-          <button id="button">Checkout</button>
+          <button id="checkoutBtn" role="button">
+            Checkout
+          </button>
         </Link>
       </div>
     );
@@ -110,13 +112,14 @@ function AllVehicles(props) {
             <div className="searchBarDiv">
               <input
                 type="text"
-                placeholder="Search"
+                placeholder="Search by brand name"
                 value={searchTerm}
                 onChange={searchHandle}
                 className="searchBar"
               />
             </div>
             <div className="filters">
+              <label htmlFor="">Filter</label>
               <select
                 className="dropDown"
                 onChange={(e) => handleTagSelect(e.target.value)}
@@ -159,9 +162,10 @@ function AllVehicles(props) {
                   <h4 className="vehicleDetails">{vehicle.hubLocation}</h4>
                   <br />
                 </div>
-                <div className="addToCart">
+                <div id="addToCartButton">
                   <button
-                    className="addToCartBtn"
+                    class="allVehiclesButtons"
+                    role="button"
                     onClick={() => {
                       addVehicleToCart(
                         token,

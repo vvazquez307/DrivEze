@@ -28,7 +28,7 @@ export const addCarToCart = async (token, carId, price) => {
 //ee
 export const getAllVehicles = async () => {
   try {
-    const response = await fetch(`${BASE_URL}/cars`, {
+    const response = await fetch(`${BASE_URL}cars`, {
       method: "GET",
     });
     const result = await response.json();
@@ -41,13 +41,13 @@ export const getAllVehicles = async () => {
 
 export const carsByTag = async (tagId) => {
   try {
-    const response = await fetch(`${BASE_URL}/car`);
+    const response = await fetch(`${BASE_URL}car`);
   } catch (error) {}
 };
 
 export const getCarById = async (id) => {
   try {
-    const response = await fetch(`${BASE_URL}/cars/${id}`, {
+    const response = await fetch(`${BASE_URL}cars/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -75,6 +75,7 @@ export const removeCarFromCart = async (token, carId) => {
   }
 };
 
+
 export const deleteCar = async (token, carId)=>
 {
   try
@@ -94,3 +95,17 @@ export const deleteCar = async (token, carId)=>
     console.log(e);
   }
 }
+
+export const clearCart = async (token) => {
+  try {
+    const response = await fetch(`${BASE_URL}cart/clear-cart/`, {
+      method: "DELETE",
+      headers: makeHeaders(token),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+

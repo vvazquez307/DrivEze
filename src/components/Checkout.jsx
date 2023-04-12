@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import { useNavigate, Link, useLocation } from "react-router-dom";
+import { clearCart } from "../api-adapter";
 
 function Checkout() {
   const [name, setName] = useState("");
@@ -10,6 +10,7 @@ function Checkout() {
   const navigate = useNavigate();
   const location = useLocation();
   const totalCost = location.state.totalSum;
+  const token = localStorage.getItem("token");
 
   function checkName() {
     if (name.length < 6) {
@@ -49,13 +50,19 @@ function Checkout() {
     }, 2500);
   }
 
+  async function handleClearCart(token) {
+    const result = await clearCart(token);
+    console.log(result, " ////cart CLEARED/////");
+    return result;
+  }
+
   useEffect(() => {
     checkAllInputs();
   }, [name, ccNumber, securityNumber]);
   return (
     <>
       {paymentStatus ? (
-        <div>
+        <div id="final-screen">
           {takeMeHome()}
           <h1>Thank You For Your Purchase!</h1>
           <p>you are now being redirected to the main page...</p>
@@ -64,13 +71,14 @@ function Checkout() {
         <div id="checkout-container">
           <h1>Payment Proccess</h1>
           <div id="credit-card-name-input">
-            <label>Name: </label>
+            <label>Full Name: </label>
             <input
               type="text"
               name="credit-card-name"
               placeholder="John Wick"
               value={name}
               onChange={(event) => setName(event.target.value)}
+              id="text-box"
             />
           </div>
           <div id="credit-card-#-input">
@@ -83,16 +91,18 @@ function Checkout() {
               placeholder="1111-2222-3333-4444"
               value={ccNumber}
               onChange={(event) => setCCNumber(event.target.value)}
+              id="text-box"
             />
           </div>
           <div id="credit-card-security-input">
-            <label>security # </label>
+            <label>Security #: </label>
             <input
               maxlength="3"
               type="number"
               name="credit-card-security"
               placeholder="123"
               value={securityNumber}
+              id="text-box"
               onChange={(event) => {
                 let currentValue = event.target.value;
                 let currentValueStr = String(currentValue);
@@ -111,14 +121,15 @@ function Checkout() {
               <button
                 onClick={() => {
                   setPaymentStatus(true);
+                  handleClearCart(token);
                 }}
-                id="order-button-green"
+                id="order-button"
               >
                 Complete Order
               </button>
             </div>
           ) : (
-            <button id="order-button-red">Complete Order</button>
+            <button id="order-button-grey">Complete Order</button>
           )}
         </div>
       )}

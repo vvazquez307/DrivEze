@@ -16,32 +16,45 @@ function Cart() {
   }
 
   async function getCarData() {
-    let newArray = [];
+    // let newArray = [];
     if (data.length) {
-      newArray = data.map((e) => {
-        console.log(e);
-        return getCarById(e.carId);
-      });
-      const carDataPromises = await Promise.all(newArray);
+      // newArray = data.map((e) => {
+      //   return getCarById(e.carId);
+      // });
+      const carDataPromises = [];
+      for (let i = 0; i < data.length; i++) {
+        carDataPromises.push(await getCarById(data[i].carId));
+      }
+      // const carDataPromises = await Promise.all(newArray);
       setCarDataArray(carDataPromises);
     }
   }
 
   async function deleteCar(carId) {
     const deletedCar = await removeCarFromCart(token, carId);
-    if (deletedCar) {
-      window.location.reload();
-    }
+    console.log(deletedCar, " ///deletedCar///");
+    const cartCopy = [...carDataArray];
+    console.log(cartCopy, " ///cartCopy///");
+    const filteredCart = cartCopy.filter((car) => {
+      if (car.id !== carId) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    console.log(filteredCart, " ///filteredCart///");
+    setCarDataArray(filteredCart);
   }
 
   function getTotalCost() {
     if (carDataArray.length) {
       let sum = 0;
       carDataArray.forEach((e) => {
-        console.log(e);
         sum += e.daily_rate;
       });
       setTotalSum(sum);
+    } else {
+      setTotalSum(0);
     }
   }
 
@@ -64,7 +77,7 @@ function Cart() {
           <div className="topCartDiv">
             <div className="cartTitle">
               <div className="cartLinkDiv">
-                <h2>Cart</h2>
+                <h2 className="cartText">Cart</h2>
                 <Link to="/vehicleList" id="cartLink">
                   Click here to shop for more vehicles.
                 </Link>
@@ -76,16 +89,17 @@ function Cart() {
               />
             </div>
             <div className="cartCheckout">
-              <h4>Total: ${totalSum}</h4>
+              <h4 className="cartText">Total: ${totalSum}</h4>
               <Link to="/checkout" state={{ totalSum: totalSum }}>
-                <button id="addToCartButton">Checkout</button>
+                <button class="button-92" role="button">
+                  Checkout
+                </button>
               </Link>
             </div>
           </div>
           <div className="allVehiclesBottomDiv">
             {carDataArray.length ? (
               carDataArray.map((car, idx) => {
-                console.log(car);
                 return (
                   <div className="vehicleListing" key={`car idx: ${idx}`}>
                     <div className="vehicleImgBox">
@@ -109,13 +123,15 @@ function Cart() {
                       <h4 className="vehicleDetails">{car.hubLocation}</h4>
                       <br />
                     </div>
-                    <button onClick={() => deleteCar(car.id)}>remove</button>
+                    <button onClick={() => deleteCar(car.id)} id="removeBtn">
+                      Remove
+                    </button>
                   </div>
                 );
               })
             ) : (
               <Link to="/vehicleList">
-                <h3>Add A Vehicle To Cart!</h3>
+                <h3 id="cartAddBtn">Add A Vehicle To Cart!</h3>
               </Link>
             )}
           </div>

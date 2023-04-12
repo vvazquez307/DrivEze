@@ -18,33 +18,46 @@ const Navbar = (props) => {
           <img src="/images/DrivEze-lite.png" alt="logo" className="navLogo" />
         </Link>
       </div>
-      <h3 id="nav-quote">"Making Driving Easier since 2023"</h3>
-      <div id="nav-buttons">
+      <div className="navQuoteDiv">
+        <h2 id="nav-quote">"Making Driving Easier since 2023"</h2>
+      </div>
+
+      <div className="navButtonsDiv">
         {!props.isLoggedIn && (
           <React.Fragment>
             <Link to="/login">
-              <button id="button">Login</button>
+              <button class="nav-buttons" role="button">
+                Login
+              </button>
             </Link>
             <Link to="/register">
-              <button id="button">Register</button>
+              <button class="nav-buttons" role="button">
+                Register
+              </button>
             </Link>
             <Link to="/guest">
-              <button id="button">Guest</button>
+              <button class="nav-buttons" role="button">
+                Guest
+              </button>
             </Link>
           </React.Fragment>
         )}
         {props.isLoggedIn && (
-          <React.Fragment>
-            <Link to="/profile">
-              <button id="button">Profile</button>
+          <div className="navButtonsDiv">
+            <Link to="/profile" id="navLink">
+              <button class="nav-buttons" role="button">
+                Profile
+              </button>
             </Link>
-            <Link to="/cart">
-              <button id="button">Cart</button>
+            <Link to="/cart" id="navLink">
+              <button class="nav-buttons" role="button">
+                Cart
+              </button>
             </Link>
-            <button id="button" onClick={handleLogout}>
+            <button class="nav-buttons" role="button" onClick={handleLogout}>
               Log Out
             </button>
-          </React.Fragment>
+          </div>
         )}
       </div>
     </div>
