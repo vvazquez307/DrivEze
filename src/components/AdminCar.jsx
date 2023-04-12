@@ -178,12 +178,13 @@ function AdminCar(props)
             {
                         showEdit? <div style={{position:"absolute"}}>{EditInfo(editCar)}</div> : null
             }
-            <button id="button" onClick={()=>navigate("/adminAddCar")}>add car</button>
+            <h1 id="admin-location">Admin Cars Page</h1>
+            <button id="addCarsBtn" onClick={()=>navigate("/adminAddCar")}>Add Car</button>
             {
                 isAdmin?
-                <div style={{display:"flex", flexDirection:"column", paddingLeft:"300px"}}> 
+                <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}> 
                     <div className="allVehiclesPage">
-                        <div className="allVehiclesBottomDiv" style={{height:"80vh", width:"50%"}}>
+                        <div className="allVehiclesBottomDiv" style={{height:"80vh", width:"100%"}}>
                             <CarData/>
                         </div>
                     </div>

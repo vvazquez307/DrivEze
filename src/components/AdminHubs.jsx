@@ -31,9 +31,9 @@ function AdminHubs(props)
         <div>
             {
                 isAdmin? 
-                <div>
-                    <h1>Hubs: </h1>
-                    <button onClick={()=>navigate("/adminAddHub")}>Add Hub</button>
+                <div id="login-form">
+                    <h1>Admin Hubs Page </h1>
+                    <button id="button" onClick={()=>navigate("/adminAddHub")}>Add Hub</button>
                     {
                         hubs.map((hub, index)=>
                         {
@@ -41,8 +41,8 @@ function AdminHubs(props)
                                 <div>
                                     
                                     <h3>{hub.location}</h3>
-                                    <button onClick={()=>DeleteHub(hub.id)}>delete</button>
-                                    <button>inventory</button>
+                                    <button id="button" onClick={()=>DeleteHub(hub.id)}>Delete</button>
+                                    <button id="button">Inventory</button>
                                 </div>
                             )
                         })

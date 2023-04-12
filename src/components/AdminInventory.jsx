@@ -84,7 +84,7 @@ function AdminInventory(props)
                     {
                         return(
                             <div>
-                            <h3>{hub.location}</h3> <button id="button" onClick={()=>{setShouldShow(true); setHubId(hub.id); setAddCarLocation(hub.location)}}>Add Car</button>
+                            <h3 id="admin-location">{hub.location}</h3> <button id="addCarBtn" onClick={()=>{setShouldShow(true); setHubId(hub.id); setAddCarLocation(hub.location)}}>Add Car</button>
                             {
                                 holder[index].map((vehicle, index) => (
                                     <div className="vehicleListing" key={vehicle.id}>
@@ -178,7 +178,7 @@ function AdminInventory(props)
     return(
         <div>
             {
-                isAdmin? <div><h1>Admin Inventory Page</h1> {shouldAddCarShow ? <ShowAddCar/> : <ShowData/>}</div>: navigate("/adminLogin")
+                isAdmin? <div><div id="adminInv"><h1>Admin Inventory Page</h1></div> {shouldAddCarShow ? <ShowAddCar/> : <ShowData/>}</div>: navigate("/adminLogin")
             }
         </div>
     )

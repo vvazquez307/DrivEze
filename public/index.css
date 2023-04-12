@@ -541,13 +541,23 @@ h5 {
   border-radius: 25px;
 }
 .allVehiclesBottomDiv {
+  border-radius: 25px;
+  align-items: center;
+  height: 100%;
+  width: 95%;
+  margin: 20px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  overflow-y: scroll;
+}
+.allVehiclesBottomCartDiv {
   border-bottom-right-radius: 25px;
   border-bottom-left-radius: 25px;
   align-items: center;
   height: 100%;
   width: 95%;
   margin: 0px 20px 20px 20px;
-  max-width: 1000px;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -641,7 +651,7 @@ h5 {
   cursor: pointer;
 }
 .hubViewDiv {
-  margin: 5px;
+  margin: 15px;
 }
 #hub-view {
   display: flex;
@@ -681,8 +691,13 @@ h5 {
   width: 100%;
   text-align: center;
 }
-#back-button,
-#back-button-loc {
+#back-button-loc{
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  
+}
+#back-button{
   text-decoration: none;
   text-align: center;
   color: black;
@@ -758,6 +773,7 @@ h5 {
   border-radius: 25px;
   height: 25px;
   width: 80%;
+  margin: 2px;
 }
 #sign-up-title {
   margin-bottom: 25px;
@@ -946,4 +962,37 @@ h5 {
 }
 #checkoutBtn:hover {
   box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
+}
+#addCarBtn{
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+  width:5%;
+  display: flex;
+  align-self: center;
+  margin-left: 48%;
+}
+#addCarsBtn{
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+  width:8%;
+  display: flex;
+  align-self: center;
+}
+#adminInv{
+  display: flex;
+  justify-content: center;
+}
+#admin-location{
+  display: flex;
+  justify-content: center;
+}
+#button{
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+}
+#admin-hello{
+  text-align: center;
 }

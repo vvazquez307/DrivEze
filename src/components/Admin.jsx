@@ -14,7 +14,7 @@ function AdminPage(props)
 
         <div>
             {
-                isAdmin? <h1>Admin Page</h1>:navigate("/adminLogin")
+                isAdmin? <h1 id="admin-hello">You've reached the Admin Page, click a button to begin</h1>:navigate("/adminLogin")
             }
         </div>
     )
