@@ -182,6 +182,10 @@ function AdminCar(props)
             }
             <h1 id="admin-location">Admin Cars Page</h1>
             <button id="addCarsBtn" onClick={()=>navigate("/adminAddCar")}>Add Car</button>
+
+            {
+                        showEdit? <div>{EditInfo(editCar)}</div> : null
+            } 
             {
                 isAdmin?
                 <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}> 
