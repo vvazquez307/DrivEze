@@ -34,6 +34,9 @@ body {
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
+.navLink {
+  height: 15px;
+}
 .homePageButtons,
 .allVehiclesButtons,
 .hubInventoryButtons {
@@ -65,6 +68,26 @@ body {
   text-align: center;
   min-width: 260px;
 }
+.aboutPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90%;
+}
+#about-container {
+  background-color: #80808099;
+  color: white;
+  border-radius: 30px;
+  text-align: center;
+  padding: 15px;
+  margin: auto;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  height: 80%;
+  width: 70%;
+  box-shadow: 10px 10px 5px black;
+  overflow-y: auto;
+}
 
 @media (max-width: 600px) {
   .navQuoteDiv {
@@ -90,9 +113,10 @@ body {
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
+  text-align: center;
   font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
     sans-serif;
-  height: 35px;
+  height: 30px;
   line-height: 40px;
   outline: 0;
   font-weight: bold;
@@ -369,7 +393,7 @@ h5 {
   color: white;
   text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
-.carLotImg{
+.carLotImg {
   width: 445px;
   border-radius: 25px;
 }
@@ -387,7 +411,7 @@ h5 {
   flex-direction: column;
   align-items: center;
 }
-#welcome-user{
+#welcome-user {
   text-align: center;
 }
 #welcome-desc {
@@ -403,13 +427,22 @@ h5 {
   text-align: center;
   overflow: hidden;
 }
-#welcome-section-locations{
+#welcome-section-locations {
   height: 85%;
 }
-#imgBlurb{
+#imgBlurb {
   font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
     sans-serif;
   font-size: smaller;
+}
+.locationsContainer {
+  height: 85%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.mapDiv {
+  height: 47%;
 }
 .mapImgDiv,
 .aboutImgDiv {
@@ -435,7 +468,9 @@ h5 {
   height: 100%;
 }
 @media only screen and (max-width: 875px) {
-  .home-page {
+  .home-page,
+  #about-container {
+    padding-top: 85px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -487,6 +522,7 @@ h5 {
 }
 .allVehiclesPage {
   height: 100%;
+  width: 85%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -507,15 +543,11 @@ h5 {
 .allVehiclesBottomDiv {
   border-bottom-right-radius: 25px;
   border-bottom-left-radius: 25px;
-  display: flex;
   align-items: center;
-  flex-direction: column;
-
-  height: 80%;
+  height: 100%;
   width: 95%;
   margin: 0px 20px 20px 20px;
   max-width: 1000px;
-
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -526,6 +558,7 @@ h5 {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  height: 87%;
 }
 .searchBarDiv {
   width: 60%;
@@ -639,18 +672,19 @@ h5 {
   align-items: center;
   border-radius: 30px;
   padding: 10px;
-  margin: auto;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  width: 45%;
-  height: 35%;
+  margin: 25px 25px;
+  width: 50%;
+  height: 50%;
   box-shadow: 10px 10px 5px black;
+}
+.backBtnContainer {
+  width: 100%;
+  text-align: center;
 }
 #back-button,
 #back-button-loc {
   text-decoration: none;
-  display: flex;
-  justify-content: flex-start;
+  text-align: center;
   color: black;
 }
 
@@ -703,24 +737,14 @@ h5 {
 #link:hover {
   text-shadow: 2px 2px 2px black;
 }
-#about-container {
-  background-color: #80808099;
-  color: white;
-  border-radius: 30px;
-  text-align: center;
-  padding: 15px;
-  margin: auto;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  width: 900px;
-  box-shadow: 10px 10px 5px black;
+
+#about-title {
+  text-shadow: 3px 3px 3px black;
 }
-#about-title{
- text-shadow: 3px 3px 3px black;
-}
-#about-paragraph{
+#about-paragraph {
   font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial,
     sans-serif;
+  font-size: 20px;
 }
 #car-rental-img {
   height: 300px;
@@ -786,7 +810,7 @@ h5 {
   transition: box-shadow 0.2s;
   margin-bottom: 10px;
 }
-#order-button:hover{
+#order-button:hover {
   box-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 #order-button-grey {
@@ -865,7 +889,7 @@ h5 {
   text-shadow: rgba(214, 40, 57, 2) 0 3px 8px;
 }
 
-#checkout-container{
+#checkout-container {
   /* background-color: #cdcdcd77; */
   background-color: #80808099;
 

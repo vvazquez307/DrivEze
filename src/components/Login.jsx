@@ -25,7 +25,7 @@ const Login = (props) => {
       localStorage.setItem("token", result.token);
       const cart = await getCart(result.token);
       localStorage.setItem("user", user);
-
+      localStorage.setItem("password", password);
       localStorage.setItem(`cart login ${user}`, JSON.stringify(cart));
       navigate("/");
     } else {

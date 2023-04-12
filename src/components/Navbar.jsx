@@ -43,7 +43,7 @@ const Navbar = (props) => {
           </React.Fragment>
         )}
         {props.isLoggedIn && (
-          <div className="navButtonsDiv">
+          <>
             <Link to="/profile" id="navLink">
               <button class="nav-buttons" role="button">
                 Profile
@@ -57,7 +57,7 @@ const Navbar = (props) => {
             <button class="nav-buttons" role="button" onClick={handleLogout}>
               Log Out
             </button>
-          </div>
+          </>
         )}
       </div>
     </div>
